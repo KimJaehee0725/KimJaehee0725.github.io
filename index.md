@@ -29,3 +29,5 @@ My broader interests span:
 - Efficient reasoning and rationale compression for text generation
 
 I enjoy collaborating with multidisciplinary teams to turn research prototypes into practical tools. Feel free to reach out if you are interested in working together.
+
+I also co-organize an NLP paper review study group called **Unknown NLP**. We publish our session write-ups publicly at [unknown-nlp.github.io](https://unknown-nlp.github.io) so that other researchers and practitioners can follow along and join the discussion.
