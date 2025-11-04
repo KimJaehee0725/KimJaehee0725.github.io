@@ -1,0 +1,86 @@
+title: "Jaehee Kim"
+name: "Jaehee Kim"
+email: "jaehee_kim@snu.ac.kr"
+description: >-
+  Ph.D. student in Industrial Engineering at Seoul National University focusing on natural language processing, trustworthy and privacy-aware language model systems.
+url: "https://kimjaehee0725.github.io"
+baseurl: ""
+
+remote_theme: "mmistakes/minimal-mistakes@4.26.1"
+minimal_mistakes_skin: "contrast"
+
+locale: "en"
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-include-cache
+
+include:
+  - _pages
+
+collections:
+  posts:
+    output: true
+
+permalink: /:categories/:title/
+
+author:
+  name: "Jaehee Kim"
+  bio: >-
+    Ph.D. student working on natural language processing for privacy-preserving and trustworthy AI.
+  location: "Seoul, Korea"
+  links:
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope"
+      url: "mailto:jaehee_kim@snu.ac.kr"
+    - label: "Velog"
+      icon: "fas fa-fw fa-pencil-alt"
+      url: "https://velog.io/@stapers"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/KimJaehee0725"
+    - label: "Google Scholar"
+      icon: "ai ai-google-scholar"
+      url: "https://scholar.google.com"
+
+footer:
+  links:
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope"
+      url: "mailto:jaehee_kim@snu.ac.kr"
+    - label: "Velog"
+      icon: "fas fa-fw fa-pencil-alt"
+      url: "https://velog.io/@stapers"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/KimJaehee0725"
+
+# Navigation
+include_nav: true
+
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: single
+      author_profile: true
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: single
+      author_profile: true
+
+paginate: 5
+paginate_path: "/blog/page:num/"
+
+sass:
+  style: compressed
