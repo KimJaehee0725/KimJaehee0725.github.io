@@ -10,9 +10,9 @@ header:
 
 ## Research Focus
 
-- **Industry-Ready LLM Agents**: Building multi-agent pipelines, orchestration layers, and RAG systems that can operate safely in enterprise manufacturing and service environments.
-- **Reliable Evaluation for Text Generation**: Designing checklist-driven, finance-grade evaluation frameworks such as *CheckEval* that align LLM outputs with domain experts.
-- **Efficient Learning and Reasoning**: Crafting integrated NLU/NLG training strategies and rationale-efficient methods that keep inference tractable without sacrificing faithfulness.
+1. **Integrated NLU/NLG Systems**: Unifying understanding and generation modules so language models can interpret complex inputs and respond with grounded, controllable outputs.
+2. **Reasoning Data & Decoding**: Designing high-quality reasoning datasets and decoding strategies that improve chain-of-thought fidelity while keeping inference efficient.
+3. **Domain-Specific LLM Evaluation**: Building trustworthy, repeatable evaluation pipelines that adapt to regulated domains such as finance, manufacturing, and insurance.
 
 ## Data Science and Business Analytics Lab
 

@@ -24,7 +24,7 @@ I am a Ph.D. candidate in Industrial Engineering at Seoul National University, a
 
 My broader interests include:
 
-- Integrated reasoning methodologies that bring together effective NLU and NLG capabilities
+- Developing models that can unify NLU and NLG tasks
 - Trustworthy LLM evaluation frameworks that are easy to build and maintain
 - Efficient learning strategies for scalable LLM reasoning
 
