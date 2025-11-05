@@ -9,7 +9,7 @@ header:
 
 ## Under Review & Forthcoming
 
-- **AlienLM: Alienization of Language for Privacy-Preserving API Interaction with LLMs**. *Jaehee Kim* Α, Pilsung Kang Ω. Under review, 2025.
+- [**AlienLM: Alienization of Language for Privacy-Preserving API Interaction with LLMs**](/AlienLM.pdf). *Jaehee Kim* Α, Pilsung Kang Ω. Under review, 2025.
 - [**CheckEval: A reliable LLM-as-a-Judge framework for evaluating text generation using checklists**](https://arxiv.org/abs/2403.18771). Yukyung Lee Α, JoongHoon Kim, *Jaehee Kim*, Hyowon Cho, Jaewook Kang, Pilsung Kang Ω, Najoung Kim Ω. EMNLP 2025.
 - [**Verbosity-Aware Rationale Reduction: Sentence-Level Rationale Reduction for Efficient and Effective Reasoning**](https://arxiv.org/abs/2412.21006). Joonwon Jang Α, *Jaehee Kim*, Wonbin Kweon, Seonghyeon Lee, Hwanjo Yu Ω. ACL 2025.
 

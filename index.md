@@ -20,14 +20,16 @@ feature_row:
 
 {% include feature_row %}
 
-I am a Ph.D. candidate in Industrial Engineering at Seoul National University, advised by **Prof. Pilsung Kang** in the Data Science and Business Analytics Lab. My research centers on building reliable natural language processing systems that are safe, privacy-aware, and evaluation-ready for real-world deployment.
+I am a Ph.D. candidate in Industrial Engineering at Seoul National University, advised by **Prof. Pilsung Kang** in the Data Science and Business Analytics Lab. My current work centers on text embedders, LLM reasoning, and solving practical challenges that arise when bringing large language models into production settings.
 
-My broader interests span:
+My broader interests include:
 
-- LLM evaluation frameworks that capture human checklists
-- Privacy-preserving interfaces for large language models
-- Efficient reasoning and rationale compression for text generation
+- Integrated reasoning methodologies that bring together effective NLU and NLG capabilities
+- Trustworthy LLM evaluation frameworks that are easy to build and maintain
+- Efficient learning strategies for scalable LLM reasoning
 
 I enjoy collaborating with multidisciplinary teams to turn research prototypes into practical tools. Feel free to reach out if you are interested in working together.
 
 I also co-organize an NLP paper review study group called **Unknown NLP**. We publish our session write-ups publicly at [unknown-nlp.github.io](https://unknown-nlp.github.io) so that other researchers and practitioners can follow along and join the discussion.
+
+An expanded English write-up for this section is coming soon.
