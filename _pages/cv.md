@@ -7,7 +7,7 @@ header:
   overlay_filter: 0.4
 ---
 
-Download the full CV: [PDF](/Kim_Jaehee_CV_2510.pdf)
+Download the full CV: [PDF](/Kim_Jaehee_CV_2601.pdf)
 
 ## Contact
 
