@@ -8,9 +8,8 @@ header:
 ---
 
 <div class="cv-download-card">
-  <p class="cv-download-card__eyebrow">Download CV</p>
-  <p class="cv-download-card__body">Get the latest academic CV as a PDF file.</p>
-  <a class="btn btn--primary btn--large cv-download-card__button" href="/Kim_Jaehee_CV_2601.pdf" download>
+  <p class="cv-download-card__body">Download the latest CV as a PDF.</p>
+  <a class="btn btn--inverse cv-download-card__button" href="/Kim_Jaehee_CV_2601.pdf" download>
     Download CV (PDF)
   </a>
 </div>
