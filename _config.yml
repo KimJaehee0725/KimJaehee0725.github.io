@@ -35,8 +35,10 @@ author:
   name: "Jaehee Kim"
   avatar: "/assets/images/profile/jaehee-kim-profile.jpg"
   avatar_secondary: "/assets/images/profile/hoyang.jpg"
-  bio: >-
+  bio: |-
     Ph.D. student working on natural language processing for privacy-preserving and trustworthy AI.
+
+    이 귀여운 고양이의 이름은 hoyang(호양)입니다. 이는 한국어로 호랑이와 고양이를 합친 말입니다.
   location: "Seoul, Korea"
   links:
     - label: "Email"
