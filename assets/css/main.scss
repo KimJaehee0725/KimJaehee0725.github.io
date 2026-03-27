@@ -2,6 +2,10 @@
 # Only the main Sass file needs front matter.
 ---
 
+$max-width: 1500px;
+$right-sidebar-width-narrow: 260px;
+$right-sidebar-width: 360px;
+
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}";
 @import "minimal-mistakes";
 
@@ -29,8 +33,12 @@
   max-width: none;
 }
 
-.author__avatar-grid a {
+.author__avatar-trigger {
   display: block;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: zoom-in;
 }
 
 .author__avatar img {
@@ -46,4 +54,47 @@
     padding: 0;
     border: 0;
   }
+}
+
+.author-photo-dialog {
+  position: relative;
+  width: fit-content;
+  max-width: min(92vw, 960px);
+  padding: 0;
+  border: 0;
+  background: transparent;
+  overflow: visible;
+}
+
+.author-photo-dialog::backdrop {
+  background: rgba(15, 20, 25, 0.78);
+  backdrop-filter: blur(2px);
+}
+
+.author-photo-dialog__image {
+  display: block;
+  max-width: min(92vw, 960px);
+  max-height: 84vh;
+  width: auto;
+  height: auto;
+  border-radius: 18px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+}
+
+.author-photo-dialog__close {
+  position: absolute;
+  top: -0.875rem;
+  right: -0.875rem;
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 0;
+  border-radius: 999px;
+  background: #fff;
+  color: #111;
+  font-size: 1.75rem;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
 }
