@@ -7,7 +7,13 @@ header:
   overlay_filter: 0.4
 ---
 
-Download the full CV: [PDF](/Kim_Jaehee_CV_2601.pdf)
+<div class="cv-download-card">
+  <p class="cv-download-card__eyebrow">Download CV</p>
+  <p class="cv-download-card__body">Get the latest academic CV as a PDF file.</p>
+  <a class="btn btn--primary btn--large cv-download-card__button" href="/Kim_Jaehee_CV_2601.pdf" download>
+    Download CV (PDF)
+  </a>
+</div>
 
 ## Contact
 
