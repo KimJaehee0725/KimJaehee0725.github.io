@@ -2,9 +2,6 @@
 title: "Publications"
 permalink: /publications/
 excerpt: "Selected publications and manuscripts in natural language processing and trustworthy AI."
-header:
-  overlay_color: "#002244"
-  overlay_filter: 0.45
 ---
 
 ## Under Review & Forthcoming

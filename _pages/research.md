@@ -2,10 +2,6 @@
 title: "Research"
 permalink: /research/
 excerpt: "Research agenda across trustworthy, industry-ready NLP systems."
-header:
-  overlay_color: "#1a1a1a"
-  overlay_filter: 0.35
-  caption: ""
 ---
 
 ## Research Focus

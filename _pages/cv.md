@@ -2,9 +2,6 @@
 title: "Curriculum Vitae"
 permalink: /cv/
 excerpt: "Academic background, appointments, and contact details."
-header:
-  overlay_color: "#0f1419"
-  overlay_filter: 0.4
 ---
 
 <div class="cv-download-card">
