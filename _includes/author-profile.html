@@ -1,26 +1,45 @@
 {% assign author = page.author | default: page.authors[0] | default: site.author %}
 {% assign author = site.data.authors[author] | default: author %}
 {% assign author_home = author.home | default: '/' | absolute_url %}
-{% assign author_profile_id = "author-profile-card" %}
 
-<div itemscope itemtype="https://schema.org/Person" class="h-card" id="{{ author_profile_id }}">
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
 
   {% if author.avatar %}
     <div class="author__avatar">
       <div class="author__avatar-grid">
-        <a
-          href="#author-photo-primary"
-          class="author__avatar-trigger"
-          aria-label="Open enlarged photo of {{ author.name }}">
-          <img src="{{ author.avatar | relative_url }}" alt="{{ author.name }}" itemprop="image" class="u-photo">
-        </a>
-        {% if author.avatar_secondary %}
-          <a
-            href="#author-photo-secondary"
+        <div class="author-photo-card">
+          <input type="checkbox" id="author-photo-primary-toggle" class="author-photo-toggle">
+          <label
+            for="author-photo-primary-toggle"
             class="author__avatar-trigger"
-            aria-label="Open enlarged photo of {{ author.name }} companion photo">
-            <img src="{{ author.avatar_secondary | relative_url }}" alt="{{ author.name }} companion photo" class="u-photo">
-          </a>
+            aria-label="Open enlarged photo of {{ author.name }}">
+            <img src="{{ author.avatar | relative_url }}" alt="{{ author.name }}" itemprop="image" class="u-photo">
+          </label>
+          <div class="author-photo-modal" aria-hidden="true">
+            <label for="author-photo-primary-toggle" class="author-photo-modal__backdrop" aria-label="Close enlarged photo"></label>
+            <div class="author-photo-modal__dialog">
+              <label for="author-photo-primary-toggle" class="author-photo-modal__close" aria-label="Close enlarged photo">&times;</label>
+              <img src="{{ author.avatar | relative_url }}" alt="{{ author.name }}" class="author-photo-modal__image">
+            </div>
+          </div>
+        </div>
+        {% if author.avatar_secondary %}
+          <div class="author-photo-card">
+            <input type="checkbox" id="author-photo-secondary-toggle" class="author-photo-toggle">
+            <label
+              for="author-photo-secondary-toggle"
+              class="author__avatar-trigger"
+              aria-label="Open enlarged photo of {{ author.name }} companion photo">
+              <img src="{{ author.avatar_secondary | relative_url }}" alt="{{ author.name }} companion photo" class="u-photo">
+            </label>
+            <div class="author-photo-modal" aria-hidden="true">
+              <label for="author-photo-secondary-toggle" class="author-photo-modal__backdrop" aria-label="Close enlarged photo"></label>
+              <div class="author-photo-modal__dialog">
+                <label for="author-photo-secondary-toggle" class="author-photo-modal__close" aria-label="Close enlarged photo">&times;</label>
+                <img src="{{ author.avatar_secondary | relative_url }}" alt="{{ author.name }} companion photo" class="author-photo-modal__image">
+              </div>
+            </div>
+          </div>
         {% endif %}
       </div>
     </div>
@@ -259,21 +278,3 @@
     </ul>
   </div>
 </div>
-
-<div id="author-photo-primary" class="author-photo-modal" aria-hidden="true">
-  <a href="#{{ author_profile_id }}" class="author-photo-modal__backdrop" aria-label="Close enlarged photo"></a>
-  <div class="author-photo-modal__dialog">
-    <a href="#{{ author_profile_id }}" class="author-photo-modal__close" aria-label="Close enlarged photo">&times;</a>
-    <img src="{{ author.avatar | relative_url }}" alt="{{ author.name }}" class="author-photo-modal__image">
-  </div>
-</div>
-
-{% if author.avatar_secondary %}
-  <div id="author-photo-secondary" class="author-photo-modal" aria-hidden="true">
-    <a href="#{{ author_profile_id }}" class="author-photo-modal__backdrop" aria-label="Close enlarged photo"></a>
-    <div class="author-photo-modal__dialog">
-      <a href="#{{ author_profile_id }}" class="author-photo-modal__close" aria-label="Close enlarged photo">&times;</a>
-      <img src="{{ author.avatar_secondary | relative_url }}" alt="{{ author.name }} companion photo" class="author-photo-modal__image">
-    </div>
-  </div>
-{% endif %}

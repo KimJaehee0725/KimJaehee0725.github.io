@@ -38,6 +38,16 @@ $right-sidebar-width: 360px;
   max-width: none;
 }
 
+.author-photo-card {
+  position: relative;
+}
+
+.author-photo-toggle {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
 .author__avatar-trigger {
   display: block;
   padding: 0;
@@ -70,7 +80,7 @@ $right-sidebar-width: 360px;
   padding: 4vh 4vw;
 }
 
-.author-photo-modal:target {
+.author-photo-toggle:checked + .author__avatar-trigger + .author-photo-modal {
   display: grid;
   place-items: center;
 }
