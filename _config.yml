@@ -34,6 +34,7 @@ permalink: /:categories/:title/
 author:
   name: "Jaehee Kim"
   avatar: "/assets/images/profile/jaehee-kim-profile.jpg"
+  avatar_secondary: "/assets/images/profile/hoyang.jpg"
   bio: >-
     Ph.D. student working on natural language processing for privacy-preserving and trustworthy AI.
   location: "Seoul, Korea"
