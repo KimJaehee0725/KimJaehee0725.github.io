@@ -17,6 +17,11 @@ $right-sidebar-width: 360px;
   .sidebar:hover {
     opacity: 1;
   }
+
+  .sidebar.sticky {
+    overflow-y: visible;
+    max-height: none;
+  }
 }
 
 .author__avatar {
@@ -39,6 +44,7 @@ $right-sidebar-width: 360px;
   border: 0;
   background: none;
   cursor: zoom-in;
+  text-decoration: none;
 }
 
 .author__avatar img {
@@ -56,22 +62,32 @@ $right-sidebar-width: 360px;
   }
 }
 
-.author-photo-dialog {
-  position: relative;
-  width: fit-content;
-  max-width: min(92vw, 960px);
-  padding: 0;
-  border: 0;
-  background: transparent;
-  overflow: visible;
+.author-photo-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  display: none;
+  padding: 4vh 4vw;
 }
 
-.author-photo-dialog::backdrop {
+.author-photo-modal:target {
+  display: grid;
+  place-items: center;
+}
+
+.author-photo-modal__backdrop {
+  position: absolute;
+  inset: 0;
   background: rgba(15, 20, 25, 0.78);
   backdrop-filter: blur(2px);
 }
 
-.author-photo-dialog__image {
+.author-photo-modal__dialog {
+  position: relative;
+  z-index: 1;
+}
+
+.author-photo-modal__image {
   display: block;
   max-width: min(92vw, 960px);
   max-height: 84vh;
@@ -81,7 +97,7 @@ $right-sidebar-width: 360px;
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
 }
 
-.author-photo-dialog__close {
+.author-photo-modal__close {
   position: absolute;
   top: -0.875rem;
   right: -0.875rem;
@@ -97,4 +113,5 @@ $right-sidebar-width: 360px;
   line-height: 1;
   cursor: pointer;
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
 }
