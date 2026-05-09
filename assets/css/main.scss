@@ -140,3 +140,31 @@ $right-sidebar-width: 360px;
 .cv-download-card__button {
   margin-bottom: 0;
 }
+
+.home-update-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.home-update-card {
+  padding: 1.125rem 1.25rem;
+  border: 1px solid #d8dee6;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.home-update-card h2 {
+  margin-top: 0;
+}
+
+.home-update-card li {
+  margin-bottom: 0.5rem;
+}
+
+@media (max-width: 37.5em) {
+  .home-update-grid {
+    grid-template-columns: 1fr;
+  }
+}
