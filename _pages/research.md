@@ -1,14 +1,14 @@
 ---
 title: "Research"
 permalink: /research/
-excerpt: "Research agenda across trustworthy, industry-ready NLP systems."
+excerpt: "Research agenda across trustworthy, industry-ready language model and retrieval systems."
 ---
 
 ## Research Focus
 
-1. **Integrated NLU/NLG Systems**: Unifying understanding and generation modules so language models can interpret complex inputs and respond with grounded, controllable outputs.
-2. **Reasoning Data & Decoding**: Designing high-quality reasoning datasets and decoding strategies that improve chain-of-thought fidelity while keeping inference efficient.
-3. **Domain-Specific LLM Evaluation**: Building trustworthy, repeatable evaluation pipelines that adapt to regulated domains such as finance, manufacturing, and insurance.
+1. **Semantic Embedding & Retrieval**: Training and evaluating dense retrievers for scientific, industrial, and domain-specialized corpora.
+2. **Reasoning Signals & Efficiency**: Designing reward signals, rationale reduction methods, and decoding strategies that improve reasoning while keeping inference efficient.
+3. **Trustworthy LLM Systems**: Building privacy-aware, repeatable evaluation and deployment pipelines for regulated domains such as finance, manufacturing, and insurance.
 
 ## Data Science and Business Analytics Lab
 
@@ -16,10 +16,10 @@ I am a member of the [Data Science and Business Analytics Lab](https://dsbal.snu
 
 ### Selected Sponsored Projects
 
-- **Development of Worker-Friendly Innovative AI Agents for Autonomous Manufacturing** (IITP, Apr 2025–Present)  
+- **Development of Worker-Friendly Innovative AI Agents for Autonomous Manufacturing** (IITP, Apr 2025–Dec 2025)  
   Building a multi-agent, multi-party engine and orchestration pipeline that supports retrieval-augmented workflows for factory operations.
 
-- **Data Construction and Optimization for Training/Inference of AI Chatbot** (Samsung Fire & Marine Insurance, Mar 2025–Present)  
+- **Data Construction and Optimization for Training/Inference of AI Chatbot** (Samsung Fire & Marine Insurance, Mar 2025–Mar 2026)  
   Designing a document preprocessing architecture, PDF parsing modules, and hierarchical training datasets that strengthen in-house chatbots.
 
 - **Information Retrieval System for Scholarly Achievement and Research Projects** (College of Engineering, SNU, Jan–Jul 2025)  

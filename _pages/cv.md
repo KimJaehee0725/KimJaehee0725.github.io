@@ -6,7 +6,7 @@ excerpt: "Academic background, appointments, and contact details."
 
 <div class="cv-download-card">
   <p class="cv-download-card__body">Download the latest CV as a PDF.</p>
-  <a class="btn btn--inverse cv-download-card__button" href="/Kim_Jaehee_CV_2601.pdf" download>
+  <a class="btn btn--inverse cv-download-card__button" href="/Kim_Jaehee_CV_2605.pdf" download>
     Download CV (PDF)
   </a>
 </div>
@@ -17,6 +17,7 @@ excerpt: "Academic background, appointments, and contact details."
 - Email: [jaehee_kim@snu.ac.kr](mailto:jaehee_kim@snu.ac.kr)
 - Blog: [velog.io/@stapers](https://velog.io/@stapers)
 - GitHub: [github.com/KimJaehee0725](https://github.com/KimJaehee0725)
+- LinkedIn: [linkedin.com/in/jaehee-kim-hoyang](https://www.linkedin.com/in/jaehee-kim-hoyang)
 
 ## Education
 
@@ -33,8 +34,8 @@ excerpt: "Academic background, appointments, and contact details."
 
 ## Highlights
 
-- Researching trustworthy and privacy-preserving language model systems
-- Experience leading multi-institution collaborations on evaluation frameworks
-- Published across premier NLP and AI venues including NeurIPS, ACL, EMNLP, and CVPR workshops
+- Researching trustworthy, privacy-preserving, and reasoning-oriented language model systems
+- Work spans belief-shift rewards, API-boundary privacy, semantic retrieval, and LLM-as-a-judge evaluation
+- Published across premier ML and NLP venues including ICML, NeurIPS, ACL, EMNLP, and CVPR workshops
 
 For a complete list of publications, see the [Publications](/publications/) page.
