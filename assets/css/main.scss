@@ -141,6 +141,46 @@ $right-sidebar-width: 360px;
   margin-bottom: 0;
 }
 
+.language-toggle {
+  display: inline-flex;
+  align-items: center;
+  margin: 0 0 1.5rem;
+  padding: 0.125rem;
+  border: 1px solid #d8dee6;
+  border-radius: 999px;
+  background: #fff;
+}
+
+.language-toggle__link {
+  display: inline-block;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  color: #3d4144;
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.language-toggle__link:visited {
+  color: #3d4144;
+}
+
+.language-toggle__link:hover {
+  color: #000;
+  text-decoration: none;
+}
+
+.language-toggle__link--active {
+  background: #111;
+  color: #fff;
+}
+
+.language-toggle__link--active:visited,
+.language-toggle__link--active:hover {
+  color: #fff;
+}
+
 .home-update-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));

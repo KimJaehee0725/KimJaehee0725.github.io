@@ -7,3 +7,5 @@ main:
     url: /publications/
   - title: "CV"
     url: /cv/
+  - title: "한국어"
+    url: /ko/

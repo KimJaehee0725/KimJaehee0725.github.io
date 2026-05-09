@@ -1,8 +1,12 @@
 ---
 title: "Research"
 permalink: /research/
+lang: en
+translation_url: /ko/research/
 excerpt: "Research agenda across trustworthy, industry-ready language model and retrieval systems."
 ---
+
+{% include language-toggle.html %}
 
 ## Research Focus
 

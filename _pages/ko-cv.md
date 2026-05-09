@@ -1,17 +1,17 @@
 ---
 title: "Curriculum Vitae"
-permalink: /cv/
-lang: en
-translation_url: /ko/cv/
-excerpt: "Academic background, appointments, and contact details."
+permalink: /ko/cv/
+lang: ko
+translation_url: /cv/
+excerpt: "학력, 주요 연구 분야, 연락처, 최신 CV."
 ---
 
 {% include language-toggle.html %}
 
 <div class="cv-download-card">
-  <p class="cv-download-card__body">Download the latest CV as a PDF.</p>
+  <p class="cv-download-card__body">최신 CV를 PDF로 다운로드할 수 있습니다.</p>
   <a class="btn btn--inverse cv-download-card__button" href="/Kim_Jaehee_CV_2605.pdf" download>
-    Download CV (PDF)
+    CV 다운로드 (PDF)
   </a>
 </div>
 
@@ -37,8 +37,8 @@ excerpt: "Academic background, appointments, and contact details."
 
 ## Highlights
 
-- Researching trustworthy, privacy-preserving, and reasoning-oriented language model systems
-- Work spans belief-shift rewards, API-boundary privacy, semantic retrieval, and LLM-as-a-judge evaluation
-- Published across premier ML and NLP venues including ICML, NeurIPS, ACL, EMNLP, and CVPR workshops
+- Trustworthy, privacy-preserving, reasoning-oriented language model systems를 연구합니다.
+- Belief-shift rewards, API-boundary privacy, semantic retrieval, LLM-as-a-Judge evaluation에 관심이 있습니다.
+- ICML, NeurIPS, ACL, EMNLP, CVPR workshops 등 ML/NLP venue에 논문을 발표했습니다.
 
-For a complete list of publications, see the [Publications](/publications/) page.
+전체 논문 목록은 [Publications](/ko/publications/)에서 볼 수 있습니다.

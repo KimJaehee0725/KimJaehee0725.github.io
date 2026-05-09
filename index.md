@@ -1,6 +1,8 @@
 ---
 layout: home
 author_profile: true
+lang: en
+translation_url: /ko/
 excerpt: >-
   Ph.D. candidate at Seoul National University studying language models for privacy-preserving, trustworthy, and retrieval-oriented AI systems.
 feature_row:
@@ -17,6 +19,8 @@ feature_row:
     url: "/cv/"
     btn_label: "View CV"
 ---
+
+{% include language-toggle.html %}
 
 {% include feature_row %}
 

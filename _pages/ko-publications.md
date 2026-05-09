@@ -1,9 +1,9 @@
 ---
 title: "Publications"
-permalink: /publications/
-lang: en
-translation_url: /ko/publications/
-excerpt: "Selected publications and manuscripts in language models, retrieval, and trustworthy AI."
+permalink: /ko/publications/
+lang: ko
+translation_url: /publications/
+excerpt: "Language models, retrieval, trustworthy AI 관련 publications와 manuscripts."
 ---
 
 {% include language-toggle.html %}

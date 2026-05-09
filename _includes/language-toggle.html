@@ -1,0 +1,13 @@
+{% assign current_lang = page.lang | default: "en" %}
+{% assign current_url = page.url | relative_url %}
+{% assign translation_url = page.translation_url | default: "/" | relative_url %}
+
+<nav class="language-toggle" aria-label="Language switcher">
+  {% if current_lang == "ko" %}
+    <a class="language-toggle__link" href="{{ translation_url }}">English</a>
+    <span class="language-toggle__link language-toggle__link--active" aria-current="page">한국어</span>
+  {% else %}
+    <span class="language-toggle__link language-toggle__link--active" aria-current="page">English</span>
+    <a class="language-toggle__link" href="{{ translation_url }}">한국어</a>
+  {% endif %}
+</nav>
