@@ -9,6 +9,40 @@ $right-sidebar-width: 360px;
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}";
 @import "minimal-mistakes";
 
+a {
+  color: #3f5f63;
+  text-decoration-color: #aac7ca;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.16em;
+}
+
+a:visited {
+  color: #4f6468;
+}
+
+a:hover,
+a:active {
+  color: #263f43;
+  text-decoration-color: #7da6aa;
+}
+
+a:focus,
+button:focus {
+  outline-color: #8fb7bb;
+}
+
+.page__content a:not(.btn),
+.archive__item a:not(.btn) {
+  color: inherit;
+  text-decoration-color: #aac7ca;
+}
+
+.page__content a:not(.btn):hover,
+.archive__item a:not(.btn):hover {
+  color: #263f43;
+  text-decoration-color: #7da6aa;
+}
+
 @include breakpoint($large) {
   .sidebar {
     position: relative;
