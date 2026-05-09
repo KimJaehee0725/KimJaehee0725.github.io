@@ -26,16 +26,12 @@ feature_row:
 
 I am a Ph.D. candidate in Industrial Engineering at Seoul National University, advised by **Prof. Pilsung Kang** in the Data Science and Business Analytics Lab. My current work centers on text embedders, LLM reasoning, API-boundary privacy, and solving practical challenges that arise when bringing large language models into production settings.
 
-<div class="home-update-grid" markdown="1">
-<section class="home-update-card" markdown="1">
 ## What I'm Up To
 
 - I am currently shaping my Ph.D. research around the question of how language models can become useful in real deployment settings without giving up reliability, privacy, or efficiency.
 - I like projects that sit close to practice: dense retrieval for specialized documents, evaluation frameworks that teams can actually maintain, and LLM systems that have to work under real constraints.
 - I co-organize an NLP paper review study group called **Unknown NLP**. We publish our session write-ups at [unknown-nlp.github.io](https://unknown-nlp.github.io).
 
-</section>
-<section class="home-update-card" markdown="1">
 ## Recent Updates
 
 - **May 2026**: Updated my CV with new under-review manuscripts and archived publications.
@@ -43,9 +39,6 @@ I am a Ph.D. candidate in Industrial Engineering at Seoul National University, a
 - **2026**: New manuscripts on belief-shift rewards and semiconductor equipment log retrieval are under review.
 - **2025**: **CheckEval** appeared at EMNLP 2025 and **Verbosity-Aware Rationale Reduction** appeared at ACL 2025.
 - **2024**: **ContAccum**, a memory-efficient dense retriever training method, appeared at NeurIPS 2024.
-
-</section>
-</div>
 
 ## Research Themes
 
