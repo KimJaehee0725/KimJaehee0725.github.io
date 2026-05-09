@@ -5,24 +5,9 @@ lang: en
 translation_url: /ko/
 excerpt: >-
   Ph.D. candidate at Seoul National University studying language models for privacy-preserving, trustworthy, and retrieval-oriented AI systems.
-feature_row:
-  - title: "Research"
-    excerpt: "Semantic retrieval, reasoning rewards, privacy-aware LLM systems, and evaluation frameworks."
-    url: "/research/"
-    btn_label: "Learn more"
-  - title: "Publications"
-    excerpt: "Peer-reviewed papers on API-boundary privacy, checklist-based evaluation, dense retrieval, and efficient reasoning."
-    url: "/publications/"
-    btn_label: "Read papers"
-  - title: "CV"
-    excerpt: "Academic background, appointments, and collaborative projects."
-    url: "/cv/"
-    btn_label: "View CV"
 ---
 
 {% include language-toggle.html %}
-
-{% include feature_row %}
 
 I am a Ph.D. candidate in Industrial Engineering at Seoul National University, advised by **Prof. Pilsung Kang** in the Data Science and Business Analytics Lab. My current work centers on text embedders, LLM reasoning, API-boundary privacy, and solving practical challenges that arise when bringing large language models into production settings.
 

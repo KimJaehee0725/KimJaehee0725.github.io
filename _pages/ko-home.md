@@ -6,24 +6,9 @@ translation_url: /
 permalink: /ko/
 excerpt: >-
   서울대학교 산업공학과 박사과정. privacy-preserving, trustworthy, retrieval-oriented AI systems를 연구합니다.
-feature_row:
-  - title: "Research"
-    excerpt: "Semantic retrieval, reasoning rewards, privacy-aware LLM systems, evaluation frameworks."
-    url: "/ko/research/"
-    btn_label: "연구 보기"
-  - title: "Publications"
-    excerpt: "API-boundary privacy, checklist-based evaluation, dense retrieval, efficient reasoning 관련 논문."
-    url: "/ko/publications/"
-    btn_label: "논문 보기"
-  - title: "CV"
-    excerpt: "학력, 프로젝트, 연락처, 최신 CV."
-    url: "/ko/cv/"
-    btn_label: "CV 보기"
 ---
 
 {% include language-toggle.html %}
-
-{% include feature_row %}
 
 저는 서울대학교 산업공학과 강필성 교수님의 DSBA 연구실에서 박사과정으로 재학 중인 김재희라고 합니다. 박사과정 동안 text embedder, LLM reasoning, LLM evaluation, API-boundary privacy 등의 연구 분야에서 좋은 연구를 수행하고 싶습니다. 언제든 연구에 관심이 있으시면 편히 연락주세요!
 
