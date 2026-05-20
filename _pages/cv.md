@@ -17,7 +17,6 @@ excerpt: "Academic background, appointments, and contact details."
 
 ## Contact
 
-- Phone: +82-10-5121-6513
 - Email: [jaehee_kim@snu.ac.kr](mailto:jaehee_kim@snu.ac.kr)
 - GitHub: [github.com/KimJaehee0725](https://github.com/KimJaehee0725)
 - LinkedIn: [linkedin.com/in/jaehee-kim-hoyang](https://www.linkedin.com/in/jaehee-kim-hoyang)

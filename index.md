@@ -4,17 +4,19 @@ author_profile: true
 lang: en
 translation_url: /ko/
 excerpt: >-
-  Ph.D. candidate at Seoul National University studying language models for privacy-preserving, trustworthy, and retrieval-oriented AI systems.
+  Ph.D. candidate at Seoul National University researching reasoning, scalable supervision, and agentic systems for large language models.
 ---
 
 {% include language-toggle.html %}
 
-I am a Ph.D. candidate in Industrial Engineering at Seoul National University, advised by **Prof. Pilsung Kang** in the Data Science and Business Analytics Lab. My current work centers on text embedders, LLM reasoning, API-boundary privacy, and solving practical challenges that arise when bringing large language models into production settings.
+I am a Ph.D. candidate in Industrial Engineering at Seoul National University, advised by **Prof. Pilsung Kang** in the Data Science and Business Analytics Lab. My research centers on how language models reason, adapt, and act in real-world environments — studying process-level supervision, reinforcement learning for LLMs, and agentic systems that operate under practical constraints.
 
 ## What I'm Up To
 
-- I am currently shaping my Ph.D. research around the question of how language models can become useful in real deployment settings without giving up reliability, privacy, or efficiency.
-- I like projects that sit close to practice: dense retrieval for specialized documents, evaluation frameworks that teams can actually maintain, and LLM systems that have to work under real constraints.
+- My Ph.D. research asks how language models can go beyond imitation — reasoning through multi-step problems, learning from process-level signals, and acting reliably in real-world settings.
+- I gravitate toward projects that sit close to practice: benchmarks teams can actually maintain, retrieval systems for specialized corpora, and LLM pipelines that have to work under real-world constraints.
+- I am currently building a stream-based benchmark for evaluating language model agents on sequential, real-world tasks — measuring how well they reason, use tools, and adapt across a stream of observations.
+- I am looking to collaborate with researchers from diverse domains. If your field involves reasoning, retrieval, or decision-making problems that language models might help solve, I would be glad to explore potential joint work.
 - I co-organize an NLP paper review study group called **Unknown NLP**. We publish our session write-ups at [unknown-nlp.github.io](https://unknown-nlp.github.io).
 
 ## Recent Updates
@@ -27,17 +29,17 @@ I am a Ph.D. candidate in Industrial Engineering at Seoul National University, a
 
 ## Research Themes
 
+### Reasoning Signals & Process Supervision
+
+I study process-level supervision and reinforcement learning for reasoning-oriented models — moving beyond outcome-based rewards toward belief-aware training signals that shape how models reason step by step. I am also interested in rationale reduction and decoding strategies that preserve reasoning quality while keeping inference efficient.
+
 ### Semantic Embedding & Retrieval
 
 I work on retrieval systems for domain-specific and document-heavy settings, including scientific metadata, industrial logs, and hierarchical business documents. I am especially interested in training embedders that remain useful when data is specialized, sparse, or operationally messy.
 
-### Reasoning Signals & Efficient Inference
-
-I study ways to make reasoning-oriented language models more efficient and better supervised. Recent directions include reward signals for reinforcement learning, rationale reduction, and training strategies that preserve reasoning quality while reducing unnecessary computation.
-
 ### Trustworthy & Privacy-Preserving LLM Systems
 
-I build evaluation and deployment methods for LLM systems used in sensitive domains. This includes checklist-based LLM-as-a-judge evaluation, API-boundary privacy, and pipelines where reliability and auditability matter as much as benchmark performance.
+I build evaluation and deployment methods for LLM systems used in sensitive domains. This includes checklist-based LLM-as-a-judge evaluation, API-boundary privacy via transformed representation spaces, and agent benchmarks where reliability and auditability matter as much as task performance.
 
 ## Selected Publications
 
@@ -51,10 +53,13 @@ For the complete list, including workshops and domestic journal papers, see [Pub
 
 ## Applied AI Projects
 
-- **Autonomous manufacturing agents**: Multi-agent orchestration and retrieval-augmented workflows for worker-friendly factory AI systems.
-- **Insurance-domain chatbot data**: PDF parsing, hierarchical document preprocessing, and training data construction for enterprise chatbot systems.
-- **Scholarly achievement retrieval**: Dense retrieval and evaluation pipelines for research metadata and scientific documents.
+- **Development of Worker-Friendly Innovative AI Agents for Autonomous Manufacturing** (IITP, Apr 2025–Dec 2025): Built multi-agent orchestration, multi-party engine, and RAG pipeline for autonomous manufacturing AI agents assisting factory workers.
+- **Data Construction and Optimization for Training/Inference of AI Chatbot** (Samsung Fire & Marine Insurance, Mar 2025–Mar 2026): Conducting PDF parsing, hierarchical document preprocessing, and chatbot training data construction for insurance-domain documents.
+- **Developing an Information Retrieval System for Scholarly Achievement and Research Projects in the College of Engineering** (College of Engineering, SNU, Jan 2025–Jul 2025): Developed scientific-domain dense retrievers and evaluation pipelines based on research lab and achievement metadata.
+- **Developing a Large Language Model Evaluation Framework for Financial Domain** (KakaoBank, Nov 2023–Aug 2024): Built safety, truthfulness, and mathematical reasoning benchmarks and evaluation frameworks for finance-domain LLMs.
+- **Developing Customer Content via Data Analysis Techniques 2nd Stage** (LG Electronics, Dec 2022–Nov 2023): Performed unsupervised dense retrieval, review clustering, and text/meta information visualization using customer reviews.
+- **Developing Customer Content via Data Analysis Techniques 1st Stage** (LG Electronics, Apr 2022–Nov 2022): Developed customer insight mining pipeline using sentence anomaly detection, pain point discovery, and clustering via self-training.
 
 ## Collaboration
 
-I enjoy working with people who want to turn research prototypes into systems that can survive real users, real documents, and real constraints. Feel free to [reach out](mailto:jaehee_kim@snu.ac.kr) if you are interested in collaborating.
+I enjoy working with researchers across disciplines — NLP, RL, systems, and applied domains — who want to push language models toward more reliable and autonomous behavior. If you see a problem where reasoning, retrieval, or agentic AI might help, feel free to [reach out](mailto:jaehee_kim@snu.ac.kr).

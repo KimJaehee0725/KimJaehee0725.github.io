@@ -7,3 +7,13 @@ main:
     url: /publications/
   - title: "CV"
     url: /cv/
+
+ko_main:
+  - title: "Home"
+    url: /ko/
+  - title: "Research"
+    url: /ko/research/
+  - title: "Publications"
+    url: /ko/publications/
+  - title: "CV"
+    url: /ko/cv/

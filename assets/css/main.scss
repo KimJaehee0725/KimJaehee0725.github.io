@@ -2,12 +2,21 @@
 # Only the main Sass file needs front matter.
 ---
 
-$max-width: 1500px;
-$right-sidebar-width-narrow: 260px;
-$right-sidebar-width: 360px;
+// Layout
+$max-width: 1600px;
+$right-sidebar-width-narrow: 200px;
+$right-sidebar-width: 240px;
+
+// Typography – Pretendard Variable
+$sans-serif: "Pretendard Variable", "Pretendard", -apple-system, BlinkMacSystemFont,
+  "Apple SD Gothic Neo", "Noto Sans KR", "Segoe UI", Arial, sans-serif;
+$global-font-family: $sans-serif;
+$header-font-family: $sans-serif;
 
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}";
 @import "minimal-mistakes";
+
+// ── Links ────────────────────────────────────────────────────────────────────
 
 a {
   color: #3f5f63;
@@ -43,6 +52,8 @@ button:focus {
   text-decoration-color: #7da6aa;
 }
 
+// ── Sidebar (always visible on large screens) ─────────────────────────────────
+
 @include breakpoint($large) {
   .sidebar {
     position: relative;
@@ -59,6 +70,8 @@ button:focus {
     max-height: none;
   }
 }
+
+// ── Author avatar (2-up grid with click-to-enlarge) ──────────────────────────
 
 .author__avatar {
   display: block;
@@ -162,6 +175,8 @@ button:focus {
   text-decoration: none;
 }
 
+// ── CV download card ──────────────────────────────────────────────────────────
+
 .cv-download-card {
   margin: 1.5rem 0 2rem;
   padding: 0;
@@ -174,6 +189,8 @@ button:focus {
 .cv-download-card__button {
   margin-bottom: 0;
 }
+
+// ── Language toggle ───────────────────────────────────────────────────────────
 
 .language-toggle {
   display: inline-flex;
@@ -213,4 +230,96 @@ button:focus {
 .language-toggle__link--active:visited,
 .language-toggle__link--active:hover {
   color: #fff;
+}
+
+// ── General page content typography ──────────────────────────────────────────
+
+.page__content {
+  p {
+    line-height: 1.78;
+  }
+
+  h2 {
+    margin-top: 2em;
+    margin-bottom: 0.6em;
+    padding-bottom: 0.3em;
+    border-bottom: 1px solid #e4e8ec;
+    font-size: 1.08em;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    color: #1a1f24;
+  }
+
+  h3 {
+    font-size: 0.95em;
+    font-weight: 700;
+    color: #2d3439;
+  }
+
+  // Tighten bullet list line-height slightly for dense info lists
+  ul:not(.pub-list) li {
+    line-height: 1.68;
+    margin-bottom: 0.25em;
+  }
+}
+
+// ── Publications page (.pub-page body class) ──────────────────────────────────
+
+.pub-page .page__content {
+  // Year / section H2 headers (e.g., "2026", "Under Review")
+  h2 {
+    font-size: 0.78em;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #7a8490;
+    border-bottom: 1px solid #e4e8ec;
+    padding-bottom: 0.35em;
+    margin-top: 2.4em;
+    margin-bottom: 0;
+  }
+
+  // Publication list
+  ul {
+    padding-left: 0;
+    margin-left: 0;
+    margin-top: 0;
+  }
+
+  ul > li {
+    list-style: none;
+    padding: 0.9em 0;
+    border-bottom: 1px solid #f0f2f4;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    // Title paragraph (first <p> in a loose list item)
+    p:first-child {
+      margin: 0 0 0.3em;
+      line-height: 1.5;
+      font-size: 0.97em;
+    }
+
+    // Authors + venue paragraph (second <p>)
+    p:last-child {
+      margin: 0;
+      font-size: 0.855em;
+      color: #5a6472;
+      line-height: 1.55;
+    }
+
+    // Venue name (bold inside the author/venue paragraph)
+    p:last-child strong {
+      font-weight: 600;
+      color: #3f5f63;
+    }
+  }
+
+  // Footnote ("Α: First author" etc.)
+  em:last-of-type {
+    font-size: 0.82em;
+    color: #8a9299;
+  }
 }

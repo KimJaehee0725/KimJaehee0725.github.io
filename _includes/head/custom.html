@@ -1,0 +1,22 @@
+<!-- Pretendard Variable (EN + KO) -->
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+
+<!-- Academicons (Google Scholar, ORCID, etc.) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1/css/academicons.min.css">
+
+{% if page.lang == "ko" %}
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('.greedy-nav .visible-links a, .greedy-nav .hidden-links a, .greedy-nav .site-title').forEach(function (link) {
+    var href = link.getAttribute('href');
+    if (!href) return;
+    if (href === '/') {
+      link.setAttribute('href', '/ko/');
+    } else if (href.startsWith('/') && !href.startsWith('/ko/')) {
+      link.setAttribute('href', '/ko' + href);
+    }
+  });
+});
+</script>
+{% endif %}

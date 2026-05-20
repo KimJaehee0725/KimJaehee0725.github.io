@@ -10,9 +10,9 @@ excerpt: "Research agenda across trustworthy, industry-ready language model and 
 
 ## Research Focus
 
-1. **Semantic Embedding & Retrieval**: Training and evaluating dense retrievers for scientific, industrial, and domain-specialized corpora.
-2. **Reasoning Signals & Efficiency**: Designing reward signals, rationale reduction methods, and decoding strategies that improve reasoning while keeping inference efficient.
-3. **Trustworthy LLM Systems**: Building privacy-aware, repeatable evaluation and deployment pipelines for regulated domains such as finance, manufacturing, and insurance.
+1. **Reasoning Signals & Process Supervision**: Designing process-level training signals and reinforcement learning methods that teach models to reason step by step — moving beyond outcome-based rewards toward belief-aware supervision.
+2. **Semantic Embedding & Retrieval**: Training and evaluating dense retrievers for scientific, industrial, and domain-specialized corpora where data is sparse, heterogeneous, or operationally complex.
+3. **Trustworthy LLM Systems**: Building privacy-aware evaluation and deployment pipelines — including API-boundary privacy via transformed representation spaces and agent benchmarks where reliability and auditability matter.
 
 ## Data Science and Business Analytics Lab
 

@@ -17,7 +17,6 @@ excerpt: "학력, 주요 연구 분야, 연락처, 최신 CV."
 
 ## Contact
 
-- Phone: +82-10-5121-6513
 - Email: [jaehee_kim@snu.ac.kr](mailto:jaehee_kim@snu.ac.kr)
 - GitHub: [github.com/KimJaehee0725](https://github.com/KimJaehee0725)
 - LinkedIn: [linkedin.com/in/jaehee-kim-hoyang](https://www.linkedin.com/in/jaehee-kim-hoyang)
