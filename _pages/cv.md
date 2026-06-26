@@ -24,20 +24,20 @@ excerpt: "Academic background, appointments, and contact details."
 ## Education
 
 - **Seoul National University**, Seoul, Korea  
-  *Ph.D. Candidate in Industrial Engineering* — Sep 2024 to present  
-  Advisor: Prof. Pilsung Kang • Data Science and Business Analytics Lab
+  *Ph.D. student in Industrial Engineering*, Sep 2024 to present  
+  Advisor: Prof. Pilsung Kang, Data Science and Business Analytics Lab
 
 - **Korea University**, Seoul, Korea  
-  *M.S. in Industrial and Management Engineering* — Mar 2022 to Aug 2024  
-  Advisor: Prof. Pilsung Kang • Data Science and Business Analytics Lab
+  *M.S. in Industrial and Management Engineering*, Mar 2022 to Aug 2024  
+  Advisor: Prof. Pilsung Kang, Data Science and Business Analytics Lab
 
 - **Sungkyunkwan University**, Seoul, Korea  
-  *B.A. in Consumer Science* — Mar 2014 to Feb 2021
+  *B.A. in Consumer Science*, Mar 2014 to Feb 2021
 
 ## Highlights
 
-- Researching trustworthy, privacy-preserving, and reasoning-oriented language model systems
-- Work spans belief-shift rewards, API-boundary privacy, semantic retrieval, and LLM-as-a-judge evaluation
-- Published across premier ML and NLP venues including ICML, NeurIPS, ACL, EMNLP, and CVPR workshops
+- I study how language models reason, retrieve, and operate over time
+- My work spans LLM reasoning and reinforcement learning, agents that operate over time, and retrieval
+- Published at ICML, NeurIPS, ACL, EMNLP, and CVPR workshops
 
 For a complete list of publications, see the [Publications](/publications/) page.

@@ -5,62 +5,89 @@ lang: ko
 translation_url: /
 permalink: /ko/
 excerpt: >-
-  서울대학교 산업공학과 박사과정. 언어 모델의 추론, 감독 신호, 에이전트 시스템을 연구합니다.
+  서울대학교 산업공학과 박사과정. 언어 모델이 어떻게 추론하고, 검색하고, 시간 속에서 작동하는지를 연구합니다.
 ---
 
 {% include language-toggle.html %}
 
-저는 서울대학교 산업공학과 강필성 교수님의 DSBA 연구실에서 박사과정을 밟고 있는 김재희입니다. 언어 모델이 어떻게 추론하고, 적응하고, 실제 환경에서 행동할 수 있는지를 연구합니다 — process-level supervision, LLM을 위한 강화학습, 그리고 현실적인 제약 아래에서 동작하는 agentic systems를 중심으로.
+<div class="hero">
+  <p class="hero__lead">정적인 과제를 넘어선 언어 모델을 연구합니다. 모델이 어떻게 추론하고, 검색하고, 시간 속에서 작동하는지에 대해서요.</p>
+  <p class="hero__sub">기존 연구에 숨어 있는 가정을 찾고, 모호한 능력이 드러나는 실험 환경을 설계하는 일을 좋아합니다.</p>
+  <p class="hero__intern"><i class="fas fa-paper-plane" aria-hidden="true"></i> LLM reasoning, agents, RL, retrieval 분야의 연구 인턴십을 찾고 있습니다.</p>
+</div>
 
-## 요즘 하는 일
+## 소개
 
-- Ph.D. 연구의 핵심 질문은 언어 모델이 단순 모방을 넘어 multi-step 문제를 추론하고, process-level signals로부터 학습하고, 실세계에서 신뢰할 수 있게 행동하는 방법입니다.
-- 실제에 가까운 프로젝트를 좋아합니다 — 팀이 유지할 수 있는 벤치마크, 전문 코퍼스를 위한 retrieval 시스템, 현실적인 제약 아래에서 동작해야 하는 LLM 파이프라인.
-- 현재 stream-based agent benchmark를 만들고 있습니다 — 언어 모델 에이전트가 순차적인 실세계 과제에서 얼마나 잘 추론하고, 도구를 사용하고, 관찰 스트림에 적응하는지를 평가하기 위한 프레임워크입니다.
-- 다양한 도메인의 연구자들과의 협업을 찾고 있습니다. 추론, 검색, 의사결정 문제에 언어 모델이 도움이 될 것 같은 분야가 있다면 편히 연락 주세요.
-- **Unknown NLP**라는 NLP paper review study group을 함께 운영하고 있습니다. 세션 정리 글은 [unknown-nlp.github.io](https://unknown-nlp.github.io)에 공개합니다.
+서울대학교 산업공학과 박사과정 김재희입니다. DSBA 연구실에서 강필성 교수님의 지도를 받고 있습니다.
 
-## Recent Updates
+제 연구는 대체로 작은 불편함에서 시작합니다. 어딘가 비어 보이는 비교 구조, 꼭 필요하지는 않아 보이는 표면 형태, 너무 좁아 보이는 평가 주장, 지나치게 고정된 에이전트 환경 같은 것들이요. 저는 그 불편함을, 모호한 능력이 실제로 눈에 보이는 실험 환경으로 바꾸려고 합니다.
 
-- **2026년 5월**: 새 under-review manuscripts와 archived publications를 반영해 CV를 업데이트했습니다.
-- **2026년**: **AlienLM**이 ICML 2026에 accept되었습니다.
-- **2026년**: belief-shift rewards와 semiconductor equipment log retrieval 관련 manuscript가 under review입니다.
-- **2025년**: **CheckEval**은 EMNLP 2025, **Verbosity-Aware Rationale Reduction**은 ACL 2025에 게재되었습니다.
-- **2024년**: memory-efficient dense retriever training method인 **ContAccum**이 NeurIPS 2024에 게재되었습니다.
+어려운 문제일수록 쉬운 문장으로 쓰고 싶습니다. 모델을 개선하기 전에, 우리가 말하는 "추론", "운영", "적응"이 정확히 무엇인지, 그리고 그 능력이 드러나려면 어떤 설정이 필요한지를 먼저 묻는 편입니다.
 
-## Research Themes
+## 대표 연구
 
-### Reasoning Signals & Process Supervision
+<div class="research-cards">
+  <div class="research-card">
+    <p class="research-card__venue">ICML 2026</p>
+    <h3 class="research-card__title"><a href="https://arxiv.org/abs/2601.22710">AlienLM</a></h3>
+    <p class="research-card__desc">단순한 호기심에서 출발했습니다. 외계어처럼 보이는 언어로 모델을 학습시키면 어떻게 될까? 그 질문은, 모델에게는 여전히 쓸모 있지만 외부 관찰자가 원래 형태를 복원하기는 어려운 변환된 표현에 대한 연구로 자랐습니다.</p>
+  </div>
+  <div class="research-card">
+    <p class="research-card__venue">NeurIPS 2024</p>
+    <h3 class="research-card__title"><a href="https://proceedings.neurips.cc/paper_files/paper/2024/hash/15ba84c1e19b0eb75f96922f5da0a021-Abstract-Conference.html">ContAccum</a></h3>
+    <p class="research-card__desc">제 첫 1저자 논문이자, 연구가 무엇인지 처음 배운 프로젝트입니다. 대조학습의 작은 질문에서 시작했습니다. 비교 대상을 늘리면 좋아진다면, 비교 기준이 되는 query도 함께 쌓으면 어떨까?</p>
+  </div>
+  <div class="research-card">
+    <p class="research-card__venue">EMNLP 2025</p>
+    <h3 class="research-card__title"><a href="https://aclanthology.org/2025.emnlp-main.796/">CheckEval</a></h3>
+    <p class="research-card__desc">단순해 보였지만, 진짜 기여가 무엇이냐고 묻는 순간 훨씬 어려워진 평가 아이디어입니다. 높은 human correlation만이 아니라 모델과 샘플 변화에 대한 안정성을 중심으로 LLM-as-a-judge를 다시 봅니다.</p>
+  </div>
+</div>
 
-Process-level supervision과 강화학습을 통해 reasoning-oriented 모델을 개선하는 방법을 연구합니다 — 단순한 outcome-based reward를 넘어, 모델이 단계별로 어떻게 추론하는지를 형성하는 belief-aware training signals를 탐구합니다. 추론 품질을 유지하면서 inference 효율을 높이는 rationale reduction과 decoding strategies에도 관심이 있습니다.
+<p class="see-all"><a href="/ko/publications/">전체 논문 보기</a></p>
 
-### Semantic Embedding & Retrieval
+## 진행 중인 방향
 
-Domain-specific하고 document-heavy한 환경을 위한 retrieval systems를 연구합니다. Scientific metadata, industrial logs, hierarchical business documents처럼 데이터가 특수하거나 정돈되어 있지 않은 상황에서도 유용한 embedders를 만드는 데 관심이 있습니다.
+<div class="ongoing">
+  <p class="ongoing__quote">The output is not the answer. The output is the trajectory.</p>
+  <p class="ongoing__body">대부분의 에이전트 벤치마크는 에이전트가 과제를 끝낼 수 있는지를 묻습니다. 저는 그 일을 계속 해낼 수 있는지에 더 관심이 있습니다. 세상이 바뀌는 순간을 알아차리고, 언제 개입할지 판단하고, 끝이 분명하지 않은 목표를 끝까지 붙드는 것. <strong>OperationBench</strong>는 바로 그것을 평가하려는 초기 단계 프로젝트입니다.</p>
+</div>
 
-### Trustworthy & Privacy-Preserving LLM Systems
+## 연구 밖에서
 
-민감한 도메인에서 사용할 수 있는 LLM evaluation 및 deployment methods를 연구합니다. Checklist-based LLM-as-a-Judge evaluation, transformed representation space를 활용한 API-boundary privacy, 그리고 task performance만큼 reliability와 auditability가 중요한 agent benchmark에 관심이 있습니다.
+책과 영화, 약간의 건조한 유머, 그리고 다이빙을 좋아합니다. 스쿠버다이빙과 프리다이빙은 요즘 머릿속을 비우는 가장 좋아하는 방법이고요. 생각이 너무 많아질 때는 러닝과 배드민턴도 합니다.
 
-## Selected Publications
+두 마리 고양이 Luce와 hoyang과 함께 지냅니다. 제 재택 근무 일정에 대해 확고한 의견을 가진 친구들이에요.
 
-- [**AlienLM: Alienization of Language for API-Boundary Privacy in Black-Box LLMs**](https://arxiv.org/abs/2601.22710). *Jaehee Kim* Α, Pilsung Kang Ω. ICML 2026.
-- **Belief-Shift Reward: Sculpting the Flat Reward Landscape via Telescoping Information Gain**. Keonwoo Kim Α, *Jaehee Kim*, Dongyoon Han, Haanju Yoo Ω. Under review, 2026.
-- [**CheckEval: A reliable LLM-as-a-Judge framework for evaluating text generation using checklists**](https://aclanthology.org/2025.emnlp-main.796/). Yukyung Lee Α, JoongHoon Kim, *Jaehee Kim*, Hyowon Cho, Jaewook Kang, Pilsung Kang Ω, Najoung Kim Ω. EMNLP 2025.
-- [**Verbosity-Aware Rationale Reduction: Sentence-Level Rationale Reduction for Efficient and Effective Reasoning**](https://aclanthology.org/2025.findings-acl.1068/). Joonwon Jang Α, *Jaehee Kim*, Wonbin Kweon, Seonghyeon Lee, Hwanjo Yu Ω. ACL 2025.
-- [**A Gradient Accumulation Method for Dense Retriever under Memory Constraint**](https://proceedings.neurips.cc/paper_files/paper/2024/hash/15ba84c1e19b0eb75f96922f5da0a021-Abstract-Conference.html). *Jaehee Kim* Α, Yukyung Lee, Pilsung Kang Ω. NeurIPS 2024.
+<div class="cat-photos">
+  <figure class="cat-photo">
+    <div class="cat-photo__frame">
+      <img src="/assets/images/profile/luce.jpg" alt="고양이 Luce" onerror="this.remove()">
+      <span class="cat-photo__ph"><i class="fas fa-cat" aria-hidden="true"></i><span>사진 준비 중</span></span>
+    </div>
+    <figcaption>Luce</figcaption>
+  </figure>
+  <figure class="cat-photo">
+    <div class="cat-photo__frame">
+      <img src="/assets/images/profile/hoyang.jpg" alt="고양이 hoyang" onerror="this.remove()">
+      <span class="cat-photo__ph"><i class="fas fa-cat" aria-hidden="true"></i><span>사진 준비 중</span></span>
+    </div>
+    <figcaption>hoyang</figcaption>
+  </figure>
+</div>
 
-Workshop과 국내 학술지 논문을 포함한 전체 목록은 [Publications](/ko/publications/)에서 볼 수 있습니다.
+## 연락
 
-## Applied AI Projects
+LLM reasoning, agents, RL, retrieval 쪽 문제를 다루고 계신다면 언제든 이야기 나누고 싶습니다. 지금은 연구 인턴십 기회를 찾고 있고, 해외 연구소나 연구 중심 팀이라면 특히 반갑습니다.
 
-- **Development of Worker-Friendly Innovative AI Agents for Autonomous Manufacturing** (IITP, Apr 2025–Dec 2025): 공장 운영자를 돕는 autonomous manufacturing AI agents를 위해 multi-agent orchestration, multi-party engine, RAG pipeline을 개발했습니다.
-- **Data Construction and Optimization for Training/Inference of AI Chatbot** (Samsung Fire & Marine Insurance, Mar 2025–Mar 2026): 보험 도메인 문서를 대상으로 PDF parsing, hierarchical document preprocessing, chatbot training data construction을 수행하고 있습니다.
-- **Developing an Information Retrieval System for Scholarly Achievement and Research Projects in the College of Engineering** (College of Engineering, SNU, Jan 2025–Jul 2025): 연구실 및 연구성과 metadata를 기반으로 scientific-domain dense retriever와 evaluation pipeline을 개발했습니다.
-- **Developing a Large Language Model Evaluation Framework for Financial Domain** (KakaoBank, Nov 2023–Aug 2024): Finance-domain LLM의 safety, truthfulness, mathematical reasoning을 평가하기 위한 benchmark와 evaluation framework를 구축했습니다.
-- **Developing Customer Content via Data Analysis Techniques 2nd Stage** (LG Electronics, Dec 2022–Nov 2023): Customer review를 활용한 unsupervised dense retrieval, review clustering, text/meta information visualization을 수행했습니다.
-- **Developing Customer Content via Data Analysis Techniques 1st Stage** (LG Electronics, Apr 2022–Nov 2022): Sentence anomaly detection, pain point discovery, clustering via self-training을 활용해 customer insight mining pipeline을 개발했습니다.
+[jaehee_kim@snu.ac.kr](mailto:jaehee_kim@snu.ac.kr)로 연락 주세요. NLP 논문 리뷰 모임 [Unknown NLP](https://unknown-nlp.github.io)도 함께 운영하고 있습니다.
 
-## Collaboration
+## 소식
 
-NLP, RL, systems, 응용 도메인을 막론하고, 언어 모델을 더 신뢰할 수 있고 자율적인 방향으로 발전시키고 싶은 연구자들과 함께 일하는 것을 즐깁니다. 추론, 검색, agentic AI가 도움이 될 것 같은 문제가 있다면 [편히 연락 주세요](mailto:jaehee_kim@snu.ac.kr).
+<ul class="news-list">
+  <li><span class="news-list__date">2026년 5월</span> 새 under-review 원고와 정리된 논문을 반영해 CV를 업데이트했습니다.</li>
+  <li><span class="news-list__date">2026년</span> AlienLM이 ICML 2026에 accept되었습니다.</li>
+  <li><span class="news-list__date">2026년</span> belief-shift reward와 반도체 장비 로그 retrieval 관련 원고가 under review입니다.</li>
+  <li><span class="news-list__date">2025년</span> CheckEval이 EMNLP 2025에, Verbosity-Aware Rationale Reduction이 ACL 2025에 게재되었습니다.</li>
+  <li><span class="news-list__date">2024년</span> memory-efficient dense retriever 학습 방법인 ContAccum이 NeurIPS 2024에 게재되었습니다.</li>
+</ul>

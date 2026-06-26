@@ -3,36 +3,44 @@ title: "Research"
 permalink: /research/
 lang: en
 translation_url: /ko/research/
-excerpt: "Research agenda across trustworthy, industry-ready language model and retrieval systems."
+excerpt: "How I think about language models that reason, retrieve, and operate over time."
 ---
 
 {% include language-toggle.html %}
 
-## Research Focus
+I study language models beyond static tasks. I like finding hidden assumptions in existing research, and designing experimental settings where ambiguous capabilities become visible. Most of my work falls into three overlapping directions.
 
-1. **Reasoning Signals & Process Supervision**: Designing process-level training signals and reinforcement learning methods that teach models to reason step by step — moving beyond outcome-based rewards toward belief-aware supervision.
-2. **Semantic Embedding & Retrieval**: Training and evaluating dense retrievers for scientific, industrial, and domain-specialized corpora where data is sparse, heterogeneous, or operationally complex.
-3. **Trustworthy LLM Systems**: Building privacy-aware evaluation and deployment pipelines — including API-boundary privacy via transformed representation spaces and agent benchmarks where reliability and auditability matter.
+## Reasoning and reinforcement learning
+
+I am interested in how models reason, and in RL as a way to study long-horizon agent behavior. The harder question often comes before the reward: defining the agent's role, action space, environment dynamics, and feedback structure in a realistic way. I also work on rationale reduction and decoding strategies that keep reasoning quality while staying efficient.
+
+## Agents that operate over time
+
+Most agent benchmarks ask whether an agent can finish a task. I am more interested in whether it can keep doing the job: noticing when the world changes, deciding when to intervene, and holding a goal that may not have a clean endpoint. This is the direction behind OperationBench, my current early-stage project.
+
+## Retrieval as a channel to external information
+
+I view retrieval broadly, as channeling external information into a language model. Depending on what is retrieved, it can act as memory, personalization, reasoning support, or an observation mechanism for changing environments. My earlier work trained dense retrievers for specialized and document-heavy settings, where data is sparse or operationally messy.
 
 ## Data Science and Business Analytics Lab
 
-I am a member of the [Data Science and Business Analytics Lab](https://dsbal.snu.ac.kr) led by Prof. Pilsung Kang. We collaborate on projects spanning trustworthy AI, healthcare analytics, and user-centered evaluation methodologies.
+I am a member of the [Data Science and Business Analytics Lab](https://dsbal.snu.ac.kr) led by Prof. Pilsung Kang, where I have worked on a range of applied research projects with industry and public partners.
 
-### Selected Sponsored Projects
+### Selected applied projects
 
-- **Development of Worker-Friendly Innovative AI Agents for Autonomous Manufacturing** (IITP, Apr 2025–Dec 2025)  
-  Building a multi-agent, multi-party engine and orchestration pipeline that supports retrieval-augmented workflows for factory operations.
+- **Worker-Friendly AI Agents for Autonomous Manufacturing** (IITP, Apr 2025 to Dec 2025)  
+  Built multi-agent orchestration, a multi-party engine, and a RAG pipeline for manufacturing agents that assist factory workers.
 
-- **Data Construction and Optimization for Training/Inference of AI Chatbot** (Samsung Fire & Marine Insurance, Mar 2025–Mar 2026)  
-  Designing a document preprocessing architecture, PDF parsing modules, and hierarchical training datasets that strengthen in-house chatbots.
+- **Training and Inference Data for an AI Chatbot** (Samsung Fire & Marine Insurance, Mar 2025 to Mar 2026)  
+  PDF parsing, hierarchical document preprocessing, and chatbot training data construction for insurance-domain documents.
 
-- **Information Retrieval System for Scholarly Achievement and Research Projects** (College of Engineering, SNU, Jan–Jul 2025)  
-  Developing evaluation protocols for finance-domain LLMs, assembling metadata-driven corpora, and training dense retrievers for scientific content.
+- **Information Retrieval for Scholarly Achievements** (College of Engineering, SNU, Jan 2025 to Jul 2025)  
+  Scientific-domain dense retrievers and evaluation pipelines built on research lab and achievement metadata.
 
-- **Large Language Model Evaluation Framework for the Financial Domain** (KakaoBank, Nov 2023–Aug 2024)  
-  Constructing safety, truthfulness, and numerical reasoning benchmarks and deploying finance-specific LLM evaluation pipelines.
+- **LLM Evaluation Framework for the Financial Domain** (KakaoBank, Nov 2023 to Aug 2024)  
+  Safety, truthfulness, and mathematical reasoning benchmarks for finance-domain LLMs.
 
-- **Developing Customer Content via Data Analysis Techniques (Stages 1 & 2)** (LG Electronics, Apr 2022–Nov 2023)  
-  Delivering unsupervised dense retrieval, review clustering, anomaly detection, and self-training pipelines for customer insight discovery.
+- **Customer Content via Data Analysis, Stages 1 and 2** (LG Electronics, Apr 2022 to Nov 2023)  
+  Unsupervised dense retrieval, review clustering, anomaly detection, and self-training pipelines for customer insight discovery.
 
 If you are interested in collaborations or internships, feel free to [reach out](mailto:jaehee_kim@snu.ac.kr).

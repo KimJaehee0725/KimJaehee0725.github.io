@@ -4,62 +4,89 @@ author_profile: true
 lang: en
 translation_url: /ko/
 excerpt: >-
-  Ph.D. candidate at Seoul National University researching reasoning, scalable supervision, and agentic systems for large language models.
+  Ph.D. student at Seoul National University studying how language models reason, retrieve, and operate over time.
 ---
 
 {% include language-toggle.html %}
 
-I am a Ph.D. candidate in Industrial Engineering at Seoul National University, advised by **Prof. Pilsung Kang** in the Data Science and Business Analytics Lab. My research centers on how language models reason, adapt, and act in real-world environments — studying process-level supervision, reinforcement learning for LLMs, and agentic systems that operate under practical constraints.
+<div class="hero">
+  <p class="hero__lead">I study language models beyond static tasks: how they reason, retrieve, and operate over time.</p>
+  <p class="hero__sub">I like finding hidden assumptions in existing research, and designing experimental settings where ambiguous capabilities become visible.</p>
+  <p class="hero__intern"><i class="fas fa-paper-plane" aria-hidden="true"></i> Open to research internships in LLM reasoning, agents, RL, and retrieval.</p>
+</div>
 
-## What I'm Up To
+## About
 
-- My Ph.D. research asks how language models can go beyond imitation — reasoning through multi-step problems, learning from process-level signals, and acting reliably in real-world settings.
-- I gravitate toward projects that sit close to practice: benchmarks teams can actually maintain, retrieval systems for specialized corpora, and LLM pipelines that have to work under real-world constraints.
-- I am currently building a stream-based benchmark for evaluating language model agents on sequential, real-world tasks — measuring how well they reason, use tools, and adapt across a stream of observations.
-- I am looking to collaborate with researchers from diverse domains. If your field involves reasoning, retrieval, or decision-making problems that language models might help solve, I would be glad to explore potential joint work.
-- I co-organize an NLP paper review study group called **Unknown NLP**. We publish our session write-ups at [unknown-nlp.github.io](https://unknown-nlp.github.io).
+I am a Ph.D. student in Industrial Engineering at Seoul National University, advised by Prof. Pilsung Kang in the Data Science and Business Analytics Lab.
 
-## Recent Updates
+Many of my projects start from a small discomfort. A comparison structure that feels incomplete. A surface form that may not be essential. An evaluation claim that seems too narrow. An agent environment that feels too static. I try to turn that discomfort into a setting where a vague capability becomes something we can actually look at.
 
-- **May 2026**: Updated my CV with new under-review manuscripts and archived publications.
-- **2026**: **AlienLM** was accepted to ICML 2026.
-- **2026**: New manuscripts on belief-shift rewards and semiconductor equipment log retrieval are under review.
-- **2025**: **CheckEval** appeared at EMNLP 2025 and **Verbosity-Aware Rationale Reduction** appeared at ACL 2025.
-- **2024**: **ContAccum**, a memory-efficient dense retriever training method, appeared at NeurIPS 2024.
+I like simple sentences for difficult problems. Before improving a model, I want to know what we even mean by "reasoning," "operation," or "adaptation," and what setup would make that ability visible.
 
-## Research Themes
+## Selected research
 
-### Reasoning Signals & Process Supervision
+<div class="research-cards">
+  <div class="research-card">
+    <p class="research-card__venue">ICML 2026</p>
+    <h3 class="research-card__title"><a href="https://arxiv.org/abs/2601.22710">AlienLM</a></h3>
+    <p class="research-card__desc">It started from a simple question. What happens if you train a language model on language that looks alien? It grew into a study of representations that stay useful to a model but hard for an outside observer to recover.</p>
+  </div>
+  <div class="research-card">
+    <p class="research-card__venue">NeurIPS 2024</p>
+    <h3 class="research-card__title"><a href="https://proceedings.neurips.cc/paper_files/paper/2024/hash/15ba84c1e19b0eb75f96922f5da0a021-Abstract-Conference.html">ContAccum</a></h3>
+    <p class="research-card__desc">My first first-author paper, and where I first learned what research is. It asks a small question in contrastive learning. If more comparison targets help, why not accumulate the comparison queries too?</p>
+  </div>
+  <div class="research-card">
+    <p class="research-card__venue">EMNLP 2025</p>
+    <h3 class="research-card__title"><a href="https://aclanthology.org/2025.emnlp-main.796/">CheckEval</a></h3>
+    <p class="research-card__desc">A simple-looking evaluation idea that got harder once we asked what it really contributed. It judges LLM evaluators by stability under model and sample changes, not by human correlation alone.</p>
+  </div>
+</div>
 
-I study process-level supervision and reinforcement learning for reasoning-oriented models — moving beyond outcome-based rewards toward belief-aware training signals that shape how models reason step by step. I am also interested in rationale reduction and decoding strategies that preserve reasoning quality while keeping inference efficient.
+<p class="see-all"><a href="/publications/">See all publications</a></p>
 
-### Semantic Embedding & Retrieval
+## Ongoing direction
 
-I work on retrieval systems for domain-specific and document-heavy settings, including scientific metadata, industrial logs, and hierarchical business documents. I am especially interested in training embedders that remain useful when data is specialized, sparse, or operationally messy.
+<div class="ongoing">
+  <p class="ongoing__quote">The output is not the answer. The output is the trajectory.</p>
+  <p class="ongoing__body">Most agent benchmarks ask whether an agent can finish a task. I care more about whether it can keep doing the job. Noticing when the world changes, deciding when to intervene, and holding a goal that may not have a clean endpoint. <strong>OperationBench</strong> is my early-stage attempt to evaluate exactly that.</p>
+</div>
 
-### Trustworthy & Privacy-Preserving LLM Systems
+## Beyond research
 
-I build evaluation and deployment methods for LLM systems used in sensitive domains. This includes checklist-based LLM-as-a-judge evaluation, API-boundary privacy via transformed representation spaces, and agent benchmarks where reliability and auditability matter as much as task performance.
+Outside research, I like books, films, dry humor, and diving. Scuba and freediving have recently become my favorite ways to get out of my head. I also run and play badminton when I want to stop overthinking for a while.
 
-## Selected Publications
+I share my days with two cats, Luce and hoyang, who have firm opinions about my working-from-home schedule.
 
-- [**AlienLM: Alienization of Language for API-Boundary Privacy in Black-Box LLMs**](https://arxiv.org/abs/2601.22710). *Jaehee Kim* Α, Pilsung Kang Ω. ICML 2026.
-- **Belief-Shift Reward: Sculpting the Flat Reward Landscape via Telescoping Information Gain**. Keonwoo Kim Α, *Jaehee Kim*, Dongyoon Han, Haanju Yoo Ω. Under review, 2026.
-- [**CheckEval: A reliable LLM-as-a-Judge framework for evaluating text generation using checklists**](https://aclanthology.org/2025.emnlp-main.796/). Yukyung Lee Α, JoongHoon Kim, *Jaehee Kim*, Hyowon Cho, Jaewook Kang, Pilsung Kang Ω, Najoung Kim Ω. EMNLP 2025.
-- [**Verbosity-Aware Rationale Reduction: Sentence-Level Rationale Reduction for Efficient and Effective Reasoning**](https://aclanthology.org/2025.findings-acl.1068/). Joonwon Jang Α, *Jaehee Kim*, Wonbin Kweon, Seonghyeon Lee, Hwanjo Yu Ω. ACL 2025.
-- [**A Gradient Accumulation Method for Dense Retriever under Memory Constraint**](https://proceedings.neurips.cc/paper_files/paper/2024/hash/15ba84c1e19b0eb75f96922f5da0a021-Abstract-Conference.html). *Jaehee Kim* Α, Yukyung Lee, Pilsung Kang Ω. NeurIPS 2024.
+<div class="cat-photos">
+  <figure class="cat-photo">
+    <div class="cat-photo__frame">
+      <img src="/assets/images/profile/luce.jpg" alt="Luce the cat" onerror="this.remove()">
+      <span class="cat-photo__ph"><i class="fas fa-cat" aria-hidden="true"></i><span>photo coming soon</span></span>
+    </div>
+    <figcaption>Luce</figcaption>
+  </figure>
+  <figure class="cat-photo">
+    <div class="cat-photo__frame">
+      <img src="/assets/images/profile/hoyang.jpg" alt="hoyang the cat" onerror="this.remove()">
+      <span class="cat-photo__ph"><i class="fas fa-cat" aria-hidden="true"></i><span>photo coming soon</span></span>
+    </div>
+    <figcaption>hoyang</figcaption>
+  </figure>
+</div>
 
-For the complete list, including workshops and domestic journal papers, see [Publications](/publications/).
+## Get in touch
 
-## Applied AI Projects
+If you work on LLM reasoning, agents, RL, or retrieval, I would be glad to talk. I am looking for a research internship, especially at an overseas lab or a research-focused team.
 
-- **Development of Worker-Friendly Innovative AI Agents for Autonomous Manufacturing** (IITP, Apr 2025–Dec 2025): Built multi-agent orchestration, multi-party engine, and RAG pipeline for autonomous manufacturing AI agents assisting factory workers.
-- **Data Construction and Optimization for Training/Inference of AI Chatbot** (Samsung Fire & Marine Insurance, Mar 2025–Mar 2026): Conducting PDF parsing, hierarchical document preprocessing, and chatbot training data construction for insurance-domain documents.
-- **Developing an Information Retrieval System for Scholarly Achievement and Research Projects in the College of Engineering** (College of Engineering, SNU, Jan 2025–Jul 2025): Developed scientific-domain dense retrievers and evaluation pipelines based on research lab and achievement metadata.
-- **Developing a Large Language Model Evaluation Framework for Financial Domain** (KakaoBank, Nov 2023–Aug 2024): Built safety, truthfulness, and mathematical reasoning benchmarks and evaluation frameworks for finance-domain LLMs.
-- **Developing Customer Content via Data Analysis Techniques 2nd Stage** (LG Electronics, Dec 2022–Nov 2023): Performed unsupervised dense retrieval, review clustering, and text/meta information visualization using customer reviews.
-- **Developing Customer Content via Data Analysis Techniques 1st Stage** (LG Electronics, Apr 2022–Nov 2022): Developed customer insight mining pipeline using sentence anomaly detection, pain point discovery, and clustering via self-training.
+Reach me at [jaehee_kim@snu.ac.kr](mailto:jaehee_kim@snu.ac.kr). I also co-organize an NLP paper review group called [Unknown NLP](https://unknown-nlp.github.io).
 
-## Collaboration
+## News
 
-I enjoy working with researchers across disciplines — NLP, RL, systems, and applied domains — who want to push language models toward more reliable and autonomous behavior. If you see a problem where reasoning, retrieval, or agentic AI might help, feel free to [reach out](mailto:jaehee_kim@snu.ac.kr).
+<ul class="news-list">
+  <li><span class="news-list__date">May 2026</span> Updated my CV with new under-review manuscripts and archived publications.</li>
+  <li><span class="news-list__date">2026</span> AlienLM was accepted to ICML 2026.</li>
+  <li><span class="news-list__date">2026</span> New manuscripts on belief-shift rewards and semiconductor equipment log retrieval are under review.</li>
+  <li><span class="news-list__date">2025</span> CheckEval appeared at EMNLP 2025, and Verbosity-Aware Rationale Reduction appeared at ACL 2025.</li>
+  <li><span class="news-list__date">2024</span> ContAccum, a memory-efficient dense retriever training method, appeared at NeurIPS 2024.</li>
+</ul>

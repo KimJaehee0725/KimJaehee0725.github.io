@@ -3,36 +3,44 @@ title: "Research"
 permalink: /ko/research/
 lang: ko
 translation_url: /research/
-excerpt: "Trustworthy, industry-ready language model and retrieval systems에 대한 연구 소개."
+excerpt: "정적인 과제를 넘어, 추론하고 검색하고 시간 속에서 작동하는 언어 모델에 대한 연구."
 ---
 
 {% include language-toggle.html %}
 
-## Research Focus
+정적인 과제를 넘어선 언어 모델을 연구합니다. 기존 연구에 숨은 가정을 찾고, 모호한 능력이 드러나는 실험 환경을 설계하는 일을 좋아합니다. 제 연구는 크게 세 가지 방향으로 겹쳐 있습니다.
 
-1. **Reasoning Signals & Process Supervision**: 모델이 단계별로 추론하도록 가르치는 process-level training signals와 강화학습 방법을 연구합니다 — outcome-based reward를 넘어 belief-aware supervision으로.
-2. **Semantic Embedding & Retrieval**: 데이터가 희소하거나 이질적인 scientific, industrial, domain-specialized corpora를 위한 dense retrievers를 학습하고 평가합니다.
-3. **Trustworthy LLM Systems**: Transformed representation space를 활용한 API-boundary privacy, checklist-based evaluation, 그리고 reliability와 auditability가 중요한 agent benchmark를 포함하는 신뢰할 수 있는 LLM deployment 방법을 연구합니다.
+## 추론과 강화학습
+
+모델이 어떻게 추론하는지, 그리고 RL을 long-horizon 에이전트 행동을 연구하는 방법으로서 관심을 둡니다. 더 어려운 질문은 보통 reward 이전에 옵니다. 에이전트의 역할, action space, 환경의 동역학, 피드백 구조를 현실적으로 정의하는 일이요. 추론 품질을 유지하면서 효율을 지키는 rationale reduction과 decoding 전략도 함께 연구합니다.
+
+## 시간 속에서 작동하는 에이전트
+
+대부분의 에이전트 벤치마크는 에이전트가 과제를 끝낼 수 있는지를 묻습니다. 저는 그 일을 계속 해낼 수 있는지에 더 관심이 있습니다. 세상이 바뀌는 순간을 알아차리고, 언제 개입할지 판단하고, 끝이 분명하지 않은 목표를 붙드는 것. 현재 초기 단계 프로젝트인 OperationBench가 이 방향에 있습니다.
+
+## 외부 정보로 향하는 통로로서의 retrieval
+
+저는 retrieval을 넓게, 외부 정보를 언어 모델로 연결하는 통로로 봅니다. 무엇을 검색하느냐에 따라 memory, personalization, 추론 지원, 혹은 변화하는 환경에 대한 관찰 장치가 될 수 있습니다. 이전 연구에서는 데이터가 희소하거나 정돈되어 있지 않은, 전문적이고 문서 중심의 환경을 위한 dense retriever를 학습했습니다.
 
 ## Data Science and Business Analytics Lab
 
-저는 [Data Science and Business Analytics Lab](https://dsbal.snu.ac.kr)의 구성원이며, Prof. Pilsung Kang의 지도를 받고 있습니다. 연구실에서는 trustworthy AI, healthcare analytics, user-centered evaluation methodologies 등 다양한 주제로 협업하고 있습니다.
+저는 강필성 교수님이 이끄시는 [Data Science and Business Analytics Lab](https://dsbal.snu.ac.kr)의 구성원이며, 산업 및 공공 파트너와 함께 다양한 응용 연구 프로젝트를 수행해 왔습니다.
 
-### Selected Sponsored Projects
+### 주요 응용 프로젝트
 
-- **Development of Worker-Friendly Innovative AI Agents for Autonomous Manufacturing** (IITP, Apr 2025–Dec 2025)  
-  Factory operations를 위한 multi-agent, multi-party engine과 retrieval-augmented orchestration pipeline을 구축했습니다.
+- **Worker-Friendly AI Agents for Autonomous Manufacturing** (IITP, 2025년 4월 ~ 2025년 12월)  
+  공장 작업자를 돕는 제조 에이전트를 위해 multi-agent orchestration, multi-party engine, RAG 파이프라인을 구축했습니다.
 
-- **Data Construction and Optimization for Training/Inference of AI Chatbot** (Samsung Fire & Marine Insurance, Mar 2025–Mar 2026)  
-  Hierarchical documents를 활용한 document preprocessing architecture, PDF parsing modules, training dataset을 설계하고 구축하고 있습니다.
+- **Training and Inference Data for an AI Chatbot** (삼성화재, 2025년 3월 ~ 2026년 3월)  
+  보험 도메인 문서를 대상으로 PDF 파싱, 계층적 문서 전처리, 챗봇 학습 데이터 구축을 진행하고 있습니다.
 
-- **Information Retrieval System for Scholarly Achievement and Research Projects** (College of Engineering, SNU, Jan–Jul 2025)  
-  Research metadata와 scientific content를 위한 evaluation protocols, metadata-driven corpora, dense retrievers를 개발했습니다.
+- **Information Retrieval for Scholarly Achievements** (서울대 공과대학, 2025년 1월 ~ 2025년 7월)  
+  연구실과 연구성과 메타데이터를 기반으로 과학 도메인 dense retriever와 평가 파이프라인을 개발했습니다.
 
-- **Large Language Model Evaluation Framework for the Financial Domain** (KakaoBank, Nov 2023–Aug 2024)  
-  Finance-domain LLM evaluation을 위해 safety, truthfulness, numerical reasoning benchmark와 evaluation pipeline을 구축했습니다.
+- **LLM Evaluation Framework for the Financial Domain** (KakaoBank, 2023년 11월 ~ 2024년 8월)  
+  금융 도메인 LLM을 위한 safety, truthfulness, 수리 추론 벤치마크와 평가 파이프라인을 구축했습니다.
 
-- **Developing Customer Content via Data Analysis Techniques (Stages 1 & 2)** (LG Electronics, Apr 2022–Nov 2023)  
-  Customer insight discovery를 위한 unsupervised dense retrieval, review clustering, anomaly detection, self-training pipeline을 개발했습니다.
+- **Customer Content via Data Analysis, Stages 1 and 2** (LG전자, 2022년 4월 ~ 2023년 11월)  
+  고객 인사이트 발굴을 위한 unsupervised dense retrieval, 리뷰 클러스터링, 이상치 탐지, self-training 파이프라인을 개발했습니다.
 
-협업이나 인턴십 관련 문의는 [이메일](mailto:jaehee_kim@snu.ac.kr)로 연락 주세요.
+협업이나 인턴십 관련 문의는 [이메일](mailto:jaehee_kim@snu.ac.kr)로 편하게 연락 주세요.

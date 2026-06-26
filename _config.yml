@@ -2,7 +2,7 @@ title: "Jaehee Kim"
 name: "Jaehee Kim"
 email: "jaehee_kim@snu.ac.kr"
 description: >-
-  Ph.D. student in Industrial Engineering at Seoul National University focusing on language models, retrieval, and trustworthy privacy-aware AI systems.
+  Ph.D. student in Industrial Engineering at Seoul National University studying how language models reason, retrieve, and operate over time.
 url: "https://kimjaehee0725.github.io"
 baseurl: ""
 
@@ -36,9 +36,9 @@ author:
   avatar: "/assets/images/profile/jaehee-kim-profile.jpg"
   avatar_secondary: "/assets/images/profile/hoyang.jpg"
   bio: |-
-    Ph.D. student researching reasoning, scalable supervision, and agentic systems for large language models.
+    Ph.D. student studying how language models reason, retrieve, and operate over time.
 
-    This adorable cat's name is hoyang (호양), a Korean portmanteau combining the words for tiger and cat.
+    Open to research internships. I share my desk with two cats, Luce and hoyang.
   location: "Seoul, Korea"
   links:
     - label: "Email"
