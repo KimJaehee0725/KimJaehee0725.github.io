@@ -11,8 +11,8 @@ excerpt: >-
 
 <div class="hero">
   <p class="hero__lead">I study language models beyond static tasks: how they reason, retrieve, and operate over time.</p>
-  <p class="hero__sub">I like finding hidden assumptions in existing research, and designing experimental settings where ambiguous capabilities become visible.</p>
-  <p class="hero__intern"><i class="fas fa-paper-plane" aria-hidden="true"></i> Open to research internships in LLM reasoning, agents, RL, and retrieval.</p>
+  <p class="hero__sub">I like finding hidden assumptions in existing research. I believe the hard part is not raising a score, but saying what a capability is and building a setting where it becomes visible.</p>
+  <p class="hero__intern">Open to research internships in LLM reasoning, agents, RL, and retrieval.</p>
 </div>
 
 ## About
@@ -25,23 +25,20 @@ I like simple sentences for difficult problems. Before improving a model, I want
 
 ## Selected research
 
-<div class="research-cards">
-  <div class="research-card">
-    <p class="research-card__venue">ICML 2026</p>
-    <h3 class="research-card__title"><a href="https://arxiv.org/abs/2601.22710">AlienLM</a></h3>
-    <p class="research-card__desc">It started from a simple question. What happens if you train a language model on language that looks alien? It grew into a study of representations that stay useful to a model but hard for an outside observer to recover.</p>
-  </div>
-  <div class="research-card">
-    <p class="research-card__venue">NeurIPS 2024</p>
-    <h3 class="research-card__title"><a href="https://proceedings.neurips.cc/paper_files/paper/2024/hash/15ba84c1e19b0eb75f96922f5da0a021-Abstract-Conference.html">ContAccum</a></h3>
-    <p class="research-card__desc">My first first-author paper, and where I first learned what research is. It asks a small question in contrastive learning. If more comparison targets help, why not accumulate the comparison queries too?</p>
-  </div>
-  <div class="research-card">
-    <p class="research-card__venue">EMNLP 2025</p>
-    <h3 class="research-card__title"><a href="https://aclanthology.org/2025.emnlp-main.796/">CheckEval</a></h3>
-    <p class="research-card__desc">A simple-looking evaluation idea that got harder once we asked what it really contributed. It judges LLM evaluators by stability under model and sample changes, not by human correlation alone.</p>
-  </div>
-</div>
+<ul class="selected">
+  <li>
+    <p class="selected__head"><a href="https://arxiv.org/abs/2601.22710">AlienLM</a><span class="selected__venue">ICML 2026</span></p>
+    <p class="selected__desc">It started from a simple question. What happens if you train a language model on language that looks alien? It grew into a study of representations that stay useful to a model but hard for an outside observer to recover.</p>
+  </li>
+  <li>
+    <p class="selected__head"><a href="https://proceedings.neurips.cc/paper_files/paper/2024/hash/15ba84c1e19b0eb75f96922f5da0a021-Abstract-Conference.html">ContAccum</a><span class="selected__venue">NeurIPS 2024</span></p>
+    <p class="selected__desc">My first first-author paper, and where I first learned what research is. It asks a small question in contrastive learning. If more comparison targets help, why not accumulate the comparison queries too?</p>
+  </li>
+  <li>
+    <p class="selected__head"><a href="https://aclanthology.org/2025.emnlp-main.796/">CheckEval</a><span class="selected__venue">EMNLP 2025</span></p>
+    <p class="selected__desc">A simple-looking evaluation idea that got harder once we asked what it really contributed. It judges LLM evaluators by stability under model and sample changes, not by human correlation alone.</p>
+  </li>
+</ul>
 
 <p class="see-all"><a href="/publications/">See all publications</a></p>
 

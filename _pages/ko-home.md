@@ -12,8 +12,8 @@ excerpt: >-
 
 <div class="hero">
   <p class="hero__lead">정적인 과제를 넘어선 언어 모델을 연구합니다. 모델이 어떻게 추론하고, 검색하고, 시간 속에서 작동하는지에 대해서요.</p>
-  <p class="hero__sub">기존 연구에 숨어 있는 가정을 찾고, 모호한 능력이 드러나는 실험 환경을 설계하는 일을 좋아합니다.</p>
-  <p class="hero__intern"><i class="fas fa-paper-plane" aria-hidden="true"></i> LLM reasoning, agents, RL, retrieval 분야의 연구 인턴십을 찾고 있습니다.</p>
+  <p class="hero__sub">기존 연구에 숨은 가정을 찾는 일을 좋아합니다. 어려운 부분은 점수를 올리는 게 아니라, 어떤 능력이 무엇인지 말하고 그것이 드러나는 환경을 만드는 데 있다고 믿습니다.</p>
+  <p class="hero__intern">LLM reasoning, agents, RL, retrieval 분야의 연구 인턴십을 찾고 있습니다.</p>
 </div>
 
 ## 소개
@@ -26,23 +26,20 @@ excerpt: >-
 
 ## 대표 연구
 
-<div class="research-cards">
-  <div class="research-card">
-    <p class="research-card__venue">ICML 2026</p>
-    <h3 class="research-card__title"><a href="https://arxiv.org/abs/2601.22710">AlienLM</a></h3>
-    <p class="research-card__desc">단순한 호기심에서 출발했습니다. 외계어처럼 보이는 언어로 모델을 학습시키면 어떻게 될까? 그 질문은, 모델에게는 여전히 쓸모 있지만 외부 관찰자가 원래 형태를 복원하기는 어려운 변환된 표현에 대한 연구로 자랐습니다.</p>
-  </div>
-  <div class="research-card">
-    <p class="research-card__venue">NeurIPS 2024</p>
-    <h3 class="research-card__title"><a href="https://proceedings.neurips.cc/paper_files/paper/2024/hash/15ba84c1e19b0eb75f96922f5da0a021-Abstract-Conference.html">ContAccum</a></h3>
-    <p class="research-card__desc">제 첫 1저자 논문이자, 연구가 무엇인지 처음 배운 프로젝트입니다. 대조학습의 작은 질문에서 시작했습니다. 비교 대상을 늘리면 좋아진다면, 비교 기준이 되는 query도 함께 쌓으면 어떨까?</p>
-  </div>
-  <div class="research-card">
-    <p class="research-card__venue">EMNLP 2025</p>
-    <h3 class="research-card__title"><a href="https://aclanthology.org/2025.emnlp-main.796/">CheckEval</a></h3>
-    <p class="research-card__desc">단순해 보였지만, 진짜 기여가 무엇이냐고 묻는 순간 훨씬 어려워진 평가 아이디어입니다. 높은 human correlation만이 아니라 모델과 샘플 변화에 대한 안정성을 중심으로 LLM-as-a-judge를 다시 봅니다.</p>
-  </div>
-</div>
+<ul class="selected">
+  <li>
+    <p class="selected__head"><a href="https://arxiv.org/abs/2601.22710">AlienLM</a><span class="selected__venue">ICML 2026</span></p>
+    <p class="selected__desc">단순한 호기심에서 출발했습니다. 외계어처럼 보이는 언어로 모델을 학습시키면 어떻게 될까? 그 질문은, 모델에게는 여전히 쓸모 있지만 외부 관찰자가 원래 형태를 복원하기는 어려운 변환된 표현에 대한 연구로 자랐습니다.</p>
+  </li>
+  <li>
+    <p class="selected__head"><a href="https://proceedings.neurips.cc/paper_files/paper/2024/hash/15ba84c1e19b0eb75f96922f5da0a021-Abstract-Conference.html">ContAccum</a><span class="selected__venue">NeurIPS 2024</span></p>
+    <p class="selected__desc">제 첫 1저자 논문이자, 연구가 무엇인지 처음 배운 프로젝트입니다. 대조학습의 작은 질문에서 시작했습니다. 비교 대상을 늘리면 좋아진다면, 비교 기준이 되는 query도 함께 쌓으면 어떨까?</p>
+  </li>
+  <li>
+    <p class="selected__head"><a href="https://aclanthology.org/2025.emnlp-main.796/">CheckEval</a><span class="selected__venue">EMNLP 2025</span></p>
+    <p class="selected__desc">단순해 보였지만, 진짜 기여가 무엇이냐고 묻는 순간 훨씬 어려워진 평가 아이디어입니다. 높은 human correlation만이 아니라 모델과 샘플 변화에 대한 안정성을 중심으로 LLM-as-a-judge를 다시 봅니다.</p>
+  </li>
+</ul>
 
 <p class="see-all"><a href="/ko/publications/">전체 논문 보기</a></p>
 
