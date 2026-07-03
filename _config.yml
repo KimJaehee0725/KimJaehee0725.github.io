@@ -34,11 +34,10 @@ permalink: /:categories/:title/
 author:
   name: "Jaehee Kim"
   avatar: "/assets/images/profile/jaehee-kim-profile.jpg"
-  avatar_secondary: "/assets/images/profile/hoyang.jpg"
   bio: |-
     Ph.D. student studying how language models reason, retrieve, and operate over time.
 
-    Open to research internships. I share my desk with two cats, Luce and hoyang.
+    Open to research internships in reasoning, agents, RL, and retrieval.
   location: "Seoul, Korea"
   links:
     - label: "Email"

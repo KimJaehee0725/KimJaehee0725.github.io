@@ -1,8 +1,6 @@
 main:
   - title: "Home"
     url: /
-  - title: "Research"
-    url: /research/
   - title: "Publications"
     url: /publications/
   - title: "CV"
@@ -11,8 +9,6 @@ main:
 ko_main:
   - title: "Home"
     url: /ko/
-  - title: "Research"
-    url: /ko/research/
   - title: "Publications"
     url: /ko/publications/
   - title: "CV"

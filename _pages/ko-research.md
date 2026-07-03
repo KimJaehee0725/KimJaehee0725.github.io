@@ -1,5 +1,6 @@
 ---
 title: "Research"
+published: false
 permalink: /ko/research/
 lang: ko
 translation_url: /research/

@@ -11,18 +11,18 @@ excerpt: >-
 {% include language-toggle.html %}
 
 <div class="hero">
-  <p class="hero__lead">정적인 과제를 넘어선 언어 모델을 연구합니다. 모델이 어떻게 추론하고, 검색하고, 시간 속에서 작동하는지에 대해서요.</p>
-  <p class="hero__sub">어려운 부분은 점수를 올리는 게 아니라, 어떤 능력이 무엇인지 규정하고 그것을 드러나게 만드는 데 있다고 믿습니다.</p>
-  <p class="hero__intern">LLM reasoning, agents, RL, retrieval 분야의 연구 인턴십을 찾고 있습니다.</p>
+  <p class="hero__lead">정적인 과제를 넘어, 언어 모델이 어떻게 추론하고 검색하며 시간에 걸쳐 동작하는지를 연구합니다.</p>
+  <p class="hero__sub">성능 수치를 높이는 일보다, 문제에 내재한 가정을 규명하고 모호한 능력을 관찰과 검증이 가능한 형태로 정의하는 데 강점이 있습니다.</p>
+  <p class="hero__intern">LLM reasoning, RL, agent, retrieval 분야에서 연구 인턴십을 찾고 있으며, 특히 산업 현장의 문제를 다루는 연구 조직에 관심이 있습니다.</p>
 </div>
 
 ## 소개
 
-서울대학교 산업공학과 박사과정 김재희입니다. DSBA 연구실에서 강필성 교수님의 지도를 받고 있습니다.
+서울대학교 산업공학과 박사과정이며, DSBA 연구실에서 강필성 교수님의 지도 아래 언어 모델을 연구하고 있습니다.
 
-제 연구는 대체로 기존 연구의 작은 불편함(비어 보이는 비교 구조나 너무 좁은 평가 주장 같은 것)에서 시작하고, 저는 그것을 모호한 능력이 측정 가능한 환경으로 바꿉니다.
+기존 연구에 내재한 가정을 규명하고, 아직 명확히 정의되지 않은 능력을 관찰과 검증이 가능한 실험 구조로 바꾸는 일에 강점이 있습니다. 모호한 연구 방향을 구체적인 문제 정의와 벤치마크, 검증 가능한 가설로 전환하는 과정을 특히 잘합니다.
 
-어려운 문제일수록 쉬운 문장으로 쓰고 싶고, 모델을 개선하기 전에 우리가 말하는 능력이 정확히 무엇인지부터 묻는 편입니다.
+삼성화재, KakaoBank, LG전자, IITP 등과의 산업 협력 프로젝트를 통해 현장의 문제를 연구 문제로 옮기고, 실제 제약 아래에서 동작하는 시스템을 구축한 경험이 있습니다.
 
 ## 대표 연구
 
@@ -47,14 +47,12 @@ excerpt: >-
 
 <div class="ongoing">
   <p class="ongoing__quote">The output is not the answer. The output is the trajectory.</p>
-  <p class="ongoing__body">대부분의 에이전트 벤치마크는 과제를 끝낼 수 있는지를 묻지만, 저는 그 일을 계속 해낼 수 있는지에 더 관심이 있습니다. <strong>OperationBench</strong>는 바로 그것을 평가하려는 초기 단계 프로젝트입니다.</p>
+  <p class="ongoing__body">대부분의 에이전트 벤치마크는 과제를 끝낼 수 있는지를 묻지만, 실제 산업 환경에서는 변화하는 상황 속에서 목표를 지속적으로 유지하는 능력이 더 중요합니다. <strong>OperationBench</strong>는 이러한 운영형 에이전트를 평가하기 위한 초기 단계 프로젝트입니다.</p>
 </div>
 
 ## 연구 밖에서
 
-책과 영화, 약간의 건조한 유머, 그리고 다이빙을 좋아합니다. 스쿠버다이빙과 프리다이빙은 요즘 머릿속을 비우는 가장 좋아하는 방법이고요. 생각이 너무 많아질 때는 러닝과 배드민턴도 합니다.
-
-두 마리 고양이 Luce와 hoyang과 함께 지냅니다. 제 재택 근무 일정에 대해 확고한 의견을 가진 친구들이에요.
+연구 외에는 책과 영화를 즐기고, 스쿠버다이빙과 프리다이빙으로 시간을 보냅니다. 두 마리 고양이 Luce와 hoyang과 함께 지냅니다.
 
 <div class="cat-photos">
   <figure class="cat-carousel">
@@ -87,9 +85,9 @@ excerpt: >-
 
 ## 연락
 
-LLM reasoning, agents, RL, retrieval 쪽 문제를 다루고 계신다면 언제든 이야기 나누고 싶습니다. 지금은 연구 인턴십 기회를 찾고 있습니다.
+LLM reasoning, RL, agent, retrieval 분야를 연구하거나 실제 서비스에 적용하려는 조직과의 협업에 관심이 있습니다. 현재 연구 인턴십 기회를 찾고 있으니, 관련 논의가 있으시면 편하게 연락 주시기 바랍니다.
 
-[jaehee_kim@snu.ac.kr](mailto:jaehee_kim@snu.ac.kr)로 연락 주세요.
+[jaehee_kim@snu.ac.kr](mailto:jaehee_kim@snu.ac.kr)
 
 ## 소식
 
