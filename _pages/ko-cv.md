@@ -39,7 +39,7 @@ excerpt: "학력, 주요 연구 분야, 연락처, 최신 CV."
 <div class="proj-cards">
   <div class="proj-card">
     <div class="proj-card__mark" style="background:#eaf0f4;color:#33566b">
-      <img src="/assets/images/logos/iitp.png" alt="IITP" onerror="this.remove()">
+      <img src="/assets/images/logos/iitp.jpg" alt="IITP" onerror="this.remove()">
       <span class="proj-card__mono">IITP</span>
     </div>
     <div class="proj-card__body">
@@ -61,7 +61,7 @@ excerpt: "학력, 주요 연구 분야, 연락처, 최신 CV."
   </div>
   <div class="proj-card">
     <div class="proj-card__mark" style="background:#e9eef6;color:#003876">
-      <img src="/assets/images/logos/snu.png" alt="서울대학교" onerror="this.remove()">
+      <img src="/assets/images/logos/snu-eng.png" alt="서울대학교" onerror="this.remove()">
       <span class="proj-card__mono">SNU</span>
     </div>
     <div class="proj-card__body">
@@ -72,7 +72,7 @@ excerpt: "학력, 주요 연구 분야, 연락처, 최신 CV."
   </div>
   <div class="proj-card">
     <div class="proj-card__mark" style="background:#fff3cc;color:#3a2e00">
-      <img src="/assets/images/logos/kakaobank.png" alt="카카오뱅크" onerror="this.remove()">
+      <img src="/assets/images/logos/kakao.png" alt="카카오뱅크" onerror="this.remove()">
       <span class="proj-card__mono">kb</span>
     </div>
     <div class="proj-card__body">
@@ -83,7 +83,7 @@ excerpt: "학력, 주요 연구 분야, 연락처, 최신 CV."
   </div>
   <div class="proj-card">
     <div class="proj-card__mark" style="background:#f7e9ec;color:#a50034">
-      <img src="/assets/images/logos/lg.png" alt="LG전자" onerror="this.remove()">
+      <img src="/assets/images/logos/lg.jpg" alt="LG전자" onerror="this.remove()">
       <span class="proj-card__mono">LG</span>
     </div>
     <div class="proj-card__body">
