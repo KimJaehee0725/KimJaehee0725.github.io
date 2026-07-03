@@ -11,7 +11,7 @@ excerpt: >-
 
 <div class="hero">
   <p class="hero__lead">I study language models beyond static tasks: how they reason, retrieve, and operate over time.</p>
-  <p class="hero__sub">I like finding hidden assumptions in existing research. I believe the hard part is not raising a score, but saying what a capability is and building a setting where it becomes visible.</p>
+  <p class="hero__sub">I believe the hard part is not raising a score, but naming what a capability is and making it visible.</p>
   <p class="hero__intern">Open to research internships in LLM reasoning, agents, RL, and retrieval.</p>
 </div>
 
@@ -19,24 +19,24 @@ excerpt: >-
 
 I am a Ph.D. student in Industrial Engineering at Seoul National University, advised by Prof. Pilsung Kang in the Data Science and Business Analytics Lab.
 
-Many of my projects start from a small discomfort. A comparison structure that feels incomplete. A surface form that may not be essential. An evaluation claim that seems too narrow. An agent environment that feels too static. I try to turn that discomfort into a setting where a vague capability becomes something we can actually look at.
+Many of my projects start from a small discomfort in existing work, a comparison that feels incomplete or an evaluation claim that seems too narrow, and I turn it into a setting where a vague capability becomes measurable.
 
-I like simple sentences for difficult problems. Before improving a model, I want to know what we even mean by "reasoning," "operation," or "adaptation," and what setup would make that ability visible.
+I like simple sentences for difficult problems, and I usually want to know what we mean by a capability before trying to improve it.
 
 ## Selected research
 
 <ul class="selected">
   <li>
     <p class="selected__head"><a href="https://arxiv.org/abs/2601.22710">AlienLM</a><span class="selected__venue">ICML 2026</span></p>
-    <p class="selected__desc">It started from a simple question. What happens if you train a language model on language that looks alien? It grew into a study of representations that stay useful to a model but hard for an outside observer to recover.</p>
+    <p class="selected__desc">Studies language transformed to look alien: useful to the model, hard for an outside observer to recover.</p>
   </li>
   <li>
     <p class="selected__head"><a href="https://proceedings.neurips.cc/paper_files/paper/2024/hash/15ba84c1e19b0eb75f96922f5da0a021-Abstract-Conference.html">ContAccum</a><span class="selected__venue">NeurIPS 2024</span></p>
-    <p class="selected__desc">My first first-author paper, and where I first learned what research is. It asks a small question in contrastive learning. If more comparison targets help, why not accumulate the comparison queries too?</p>
+    <p class="selected__desc">Improves contrastive learning by accumulating comparison queries, not just comparison targets.</p>
   </li>
   <li>
     <p class="selected__head"><a href="https://aclanthology.org/2025.emnlp-main.796/">CheckEval</a><span class="selected__venue">EMNLP 2025</span></p>
-    <p class="selected__desc">A simple-looking evaluation idea that got harder once we asked what it really contributed. It judges LLM evaluators by stability under model and sample changes, not by human correlation alone.</p>
+    <p class="selected__desc">Reframes LLM-as-a-judge around stability under model and sample changes, not human correlation alone.</p>
   </li>
 </ul>
 
@@ -46,7 +46,7 @@ I like simple sentences for difficult problems. Before improving a model, I want
 
 <div class="ongoing">
   <p class="ongoing__quote">The output is not the answer. The output is the trajectory.</p>
-  <p class="ongoing__body">Most agent benchmarks ask whether an agent can finish a task. I care more about whether it can keep doing the job. Noticing when the world changes, deciding when to intervene, and holding a goal that may not have a clean endpoint. <strong>OperationBench</strong> is my early-stage attempt to evaluate exactly that.</p>
+  <p class="ongoing__body">Most agent benchmarks ask whether an agent finishes a task. I care more about whether it keeps doing the job, and <strong>OperationBench</strong> is my early-stage attempt to evaluate that.</p>
 </div>
 
 ## Beyond research
@@ -56,34 +56,49 @@ Outside research, I like books, films, dry humor, and diving. Scuba and freedivi
 I share my days with two cats, Luce and hoyang, who have firm opinions about my working-from-home schedule.
 
 <div class="cat-photos">
-  <figure class="cat-photo">
-    <div class="cat-photo__frame">
-      <img src="/assets/images/profile/luce.jpg" alt="Luce the cat" onerror="this.remove()">
-      <span class="cat-photo__ph"><i class="fas fa-cat" aria-hidden="true"></i><span>photo coming soon</span></span>
+  <figure class="cat-carousel">
+    <div class="cat-carousel__frame">
+      <div class="cat-carousel__track">
+        <img src="/assets/images/profile/luce.jpg" alt="Luce">
+        <img src="/assets/images/profile/luce-2.jpg" alt="Luce">
+        <img src="/assets/images/profile/luce-3.jpg" alt="Luce">
+      </div>
+      <button type="button" class="cat-carousel__nav cat-carousel__nav--prev" aria-label="Previous photo"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
+      <button type="button" class="cat-carousel__nav cat-carousel__nav--next" aria-label="Next photo"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
     </div>
+    <div class="cat-carousel__dots"></div>
     <figcaption>Luce</figcaption>
   </figure>
-  <figure class="cat-photo">
-    <div class="cat-photo__frame">
-      <img src="/assets/images/profile/hoyang.jpg" alt="hoyang the cat" onerror="this.remove()">
-      <span class="cat-photo__ph"><i class="fas fa-cat" aria-hidden="true"></i><span>photo coming soon</span></span>
+  <figure class="cat-carousel">
+    <div class="cat-carousel__frame">
+      <div class="cat-carousel__track">
+        <img src="/assets/images/profile/hoyang.jpg" alt="hoyang">
+        <img src="/assets/images/profile/hoyang-2.jpg" alt="hoyang">
+        <img src="/assets/images/profile/hoyang-3.jpg" alt="hoyang">
+      </div>
+      <button type="button" class="cat-carousel__nav cat-carousel__nav--prev" aria-label="Previous photo"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
+      <button type="button" class="cat-carousel__nav cat-carousel__nav--next" aria-label="Next photo"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
     </div>
+    <div class="cat-carousel__dots"></div>
     <figcaption>hoyang</figcaption>
   </figure>
 </div>
 
 ## Get in touch
 
-If you work on LLM reasoning, agents, RL, or retrieval, I would be glad to talk. I am looking for a research internship, especially at an overseas lab or a research-focused team.
+If you work on LLM reasoning, agents, RL, or retrieval, I would be glad to talk. I am looking for a research internship.
 
-Reach me at [jaehee_kim@snu.ac.kr](mailto:jaehee_kim@snu.ac.kr). I also co-organize an NLP paper review group called [Unknown NLP](https://unknown-nlp.github.io).
+Reach me at [jaehee_kim@snu.ac.kr](mailto:jaehee_kim@snu.ac.kr).
 
 ## News
 
 <ul class="news-list">
-  <li><span class="news-list__date">May 2026</span> Updated my CV with new under-review manuscripts and archived publications.</li>
-  <li><span class="news-list__date">2026</span> AlienLM was accepted to ICML 2026.</li>
-  <li><span class="news-list__date">2026</span> New manuscripts on belief-shift rewards and semiconductor equipment log retrieval are under review.</li>
-  <li><span class="news-list__date">2025</span> CheckEval appeared at EMNLP 2025, and Verbosity-Aware Rationale Reduction appeared at ACL 2025.</li>
-  <li><span class="news-list__date">2024</span> ContAccum, a memory-efficient dense retriever training method, appeared at NeurIPS 2024.</li>
+  <li><span class="news-list__date">Jul 2026</span><span class="news-list__text">AlienLM code and arXiv paper updated. <a href="https://arxiv.org/abs/2601.22710">[arXiv]</a> <a href="https://github.com/KimJaehee0725/AlienLM">[code]</a></span></li>
+  <li><span class="news-list__date">May 2026</span><span class="news-list__text">AlienLM was accepted to ICML 2026.</span></li>
+  <li><span class="news-list__date">May 2026</span><span class="news-list__text">Updated my CV with new under-review manuscripts and archived publications.</span></li>
+  <li><span class="news-list__date">Mar 2026</span><span class="news-list__text">New manuscripts on belief-shift rewards and semiconductor equipment log retrieval are under review.</span></li>
+  <li><span class="news-list__date">Jan 2026</span><span class="news-list__text">AlienLM is now public on arXiv, with code released. <a href="https://arxiv.org/abs/2601.22710">[arXiv]</a> <a href="https://github.com/KimJaehee0725/AlienLM">[code]</a></span></li>
+  <li><span class="news-list__date">Nov 2025</span><span class="news-list__text">CheckEval appeared at EMNLP 2025.</span></li>
+  <li><span class="news-list__date">Jul 2025</span><span class="news-list__text">Verbosity-Aware Rationale Reduction appeared at ACL 2025.</span></li>
+  <li><span class="news-list__date">Dec 2024</span><span class="news-list__text">ContAccum, a memory-efficient dense retriever training method, appeared at NeurIPS 2024.</span></li>
 </ul>
