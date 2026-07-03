@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: single
 author_profile: true
 lang: en
 translation_url: /ko/
