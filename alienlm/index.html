@@ -52,6 +52,8 @@
   .try-btn { height: 30px; padding: 0 11px; border-radius: 999px; border: 1px solid #dce4ee; background: #f8fafc; color: #41506a; font: 600 12px/1 'Hanken Grotesk', sans-serif; cursor: pointer; }
   .try-btn:hover { background: #eef4fa; }
   button:disabled { opacity: 0.55; cursor: wait; }
+  #dTranslated span { color: #b6c6da; }
+  #dTranslated span.tok-alien { background: rgba(18,163,148,.30); color: #5fe6d2; border-radius: 4px; box-shadow: 0 0 0 1px rgba(95,230,210,.14); }
 </style>
 </head>
 <body>
@@ -177,19 +179,19 @@
       <div style="max-width:760px;margin-bottom:30px;">
         <div style="display:inline-flex;align-items:center;gap:9px;color:#0f8577;font:700 12px/1 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px;"><span style="width:8px;height:8px;border-radius:50%;background:#12a394;display:inline-block;"></span>Live, in your browser</div>
         <h2 style="margin:0 0 12px;font:600 clamp(30px,4.4vw,46px)/1.05 'Space Grotesk',sans-serif;letter-spacing:-.02em;color:#12233d;">Run the real tokenizer.</h2>
-        <p style="margin:0;font:400 18px/1.55 'Hanken Grotesk',sans-serif;color:#48576d;">Swap between real tokenizer pairs and watch a prompt cross the API boundary — encoded by one tokenizer, decoded by the other. Everything runs client-side; no text ever leaves your browser.</p>
+        <p style="margin:0;font:400 18px/1.55 'Hanken Grotesk',sans-serif;color:#48576d;">Pick an alienization level ρ and watch a prompt cross the API boundary with Llama 3's real tokenizers. Tokens that keep their original surface stay plain; alienized tokens light up. Everything runs client-side; no text ever leaves your browser.</p>
       </div>
 
       <div style="border:1px solid #dbe3ec;border-radius:18px;background:#fff;box-shadow:0 20px 50px rgba(16,32,56,.1);overflow:hidden;">
-        <!-- header: backbone + ratio selectors -->
+        <!-- header: alienization level selector -->
         <div style="padding:20px 24px;border-bottom:1px solid #eef2f6;display:flex;flex-wrap:wrap;gap:20px 40px;align-items:flex-end;">
           <div style="display:flex;flex-direction:column;gap:9px;">
-            <span style="font:700 11px/1 'IBM Plex Mono',monospace;letter-spacing:.12em;color:#8595ab;">BACKBONE</span>
-            <div id="backboneBtns" style="display:flex;gap:7px;flex-wrap:wrap;"></div>
+            <span style="font:700 11px/1 'IBM Plex Mono',monospace;letter-spacing:.12em;color:#8595ab;">ALIENIZATION LEVEL (ρ)</span>
+            <div id="variantBtns" style="display:flex;gap:7px;flex-wrap:wrap;"></div>
           </div>
           <div style="display:flex;flex-direction:column;gap:9px;">
-            <span style="font:700 11px/1 'IBM Plex Mono',monospace;letter-spacing:.12em;color:#8595ab;">ALIENIZATION LEVEL</span>
-            <div id="variantBtns" style="display:flex;gap:7px;flex-wrap:wrap;"></div>
+            <span style="font:700 11px/1 'IBM Plex Mono',monospace;letter-spacing:.12em;color:#8595ab;">BACKBONE</span>
+            <span style="font:600 13px/34px 'Hanken Grotesk',sans-serif;color:#41506a;">Llama 3 8B</span>
           </div>
         </div>
 
@@ -226,11 +228,15 @@
 
           <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;">
             <div style="grid-column:1 / -1;padding:16px;border:1px solid #b6e6dc;border-radius:12px;background:#0f2138;">
-              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:9px;">
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:9px;flex-wrap:wrap;">
                 <h3 style="margin:0;font:700 12px/1 'IBM Plex Mono',monospace;letter-spacing:.08em;color:#5fe6d2;">WHAT THE API RECEIVES</h3>
-                <span style="font:600 10px/1 'IBM Plex Mono',monospace;color:#ff9f8a;border:1px solid rgba(255,159,138,.5);border-radius:999px;padding:4px 8px;">UNREADABLE</span>
+                <span id="dAlienPct" style="font:600 10px/1 'IBM Plex Mono',monospace;color:#ff9f8a;border:1px solid rgba(255,159,138,.5);border-radius:999px;padding:4px 8px;">UNREADABLE</span>
               </div>
-              <p id="dTranslated" style="margin:0;max-height:140px;overflow:auto;font:500 14px/1.55 'IBM Plex Mono',monospace;color:#5fe6d2;white-space:pre-wrap;word-break:break-word;">Run a translation to see the alienized or recovered text.</p>
+              <p id="dTranslated" style="margin:0;max-height:140px;overflow:auto;font:500 14px/1.55 'IBM Plex Mono',monospace;color:#b6c6da;white-space:pre-wrap;word-break:break-word;">Run a translation to see the alienized or recovered text.</p>
+              <div style="margin-top:10px;display:flex;gap:14px;flex-wrap:wrap;font:500 11px/1 'IBM Plex Mono',monospace;color:#8ea6c2;">
+                <span><span style="display:inline-block;width:10px;height:10px;border-radius:3px;background:rgba(18,163,148,.55);vertical-align:-1px;"></span> alienized token</span>
+                <span><span style="display:inline-block;width:10px;height:10px;border-radius:3px;background:#22344e;vertical-align:-1px;"></span> kept original</span>
+              </div>
             </div>
             <div style="grid-column:1 / -1;padding:16px;border:1px solid #d8e2ea;border-radius:12px;background:#f8fafc;">
               <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:9px;flex-wrap:wrap;">
@@ -413,31 +419,16 @@ function heroFrame(t) {
 requestAnimationFrame(heroFrame);
 
 /* ---------- live tokenizer demo ---------- */
-const BACKBONES = {
-  "Qwen7": {
-    label: "Qwen 2.5 7B", original: "Qwen/Qwen2.5-7B-Instruct",
-    variants: [{ key: "full", label: "Full", id: "dsba-lab/qwen25-7b-instruct-alienlm-full" }],
-  },
-  "Qwen14": {
-    label: "Qwen 2.5 14B", original: "Qwen/Qwen2.5-14B-Instruct",
-    variants: [{ key: "full", label: "Full", id: "dsba-lab/qwen25-14b-instruct-alienlm-full" }],
-  },
-  "Llama": {
-    label: "Llama 3 8B", original: "NousResearch/Meta-Llama-3-8B-Instruct",
-    variants: [
-      { key: "full", label: "Full", id: "dsba-lab/llama3-8b-instruct-alienlm-full" },
-      { key: "80", label: "80%", id: "dsba-lab/llama3-8b-instruct-alienlm-ratio-80" },
-      { key: "60", label: "60%", id: "dsba-lab/llama3-8b-instruct-alienlm-ratio-60" },
-      { key: "40", label: "40%", id: "dsba-lab/llama3-8b-instruct-alienlm-ratio-40" },
-      { key: "20", label: "20%", id: "dsba-lab/llama3-8b-instruct-alienlm-ratio-20" },
-    ],
-  },
-  "Gemma": {
-    label: "Gemma 2 9B", original: "unsloth/gemma-2-9b-it",
-    variants: [{ key: "full", label: "Full", id: "dsba-lab/gemma2-9b-it-alienlm-full" }],
-  },
+const BACKBONE = {
+  label: "Llama 3 8B", original: "NousResearch/Meta-Llama-3-8B-Instruct",
+  variants: [
+    { key: "20", label: "20%", id: "dsba-lab/llama3-8b-instruct-alienlm-ratio-20" },
+    { key: "40", label: "40%", id: "dsba-lab/llama3-8b-instruct-alienlm-ratio-40" },
+    { key: "60", label: "60%", id: "dsba-lab/llama3-8b-instruct-alienlm-ratio-60" },
+    { key: "80", label: "80%", id: "dsba-lab/llama3-8b-instruct-alienlm-ratio-80" },
+    { key: "full", label: "Full (100%)", id: "dsba-lab/llama3-8b-instruct-alienlm-full" },
+  ],
 };
-const BACKBONE_ORDER = ["Qwen7", "Qwen14", "Llama", "Gemma"];
 const DEFAULT_INPUT = "All happy families are alike; each unhappy family is unhappy in its own way.";
 const EXAMPLES = {
   "1": "Patient Jane A. Doe, DOB 1987-03-14, MRN 44-8120-7, was diagnosed with stage II breast cancer (ER+, HER2-) and started on 20mg tamoxifen daily plus a scheduled lumpectomy on August 3rd. Summarize this report in plain language and list the questions I should ask my oncologist at the follow-up next week.",
@@ -447,14 +438,12 @@ const EXAMPLES = {
 };
 
 const $ = (id) => document.getElementById(id);
-const state = { backbone: "Qwen7", variant: "full", busy: false };
+const state = { variant: "60", busy: false };
 let mod = null;
 const tokCache = {};
 
-function currentBackbone() { return BACKBONES[state.backbone]; }
 function currentVariant() {
-  const b = currentBackbone();
-  return b.variants.find((v) => v.key === state.variant) || b.variants[0];
+  return BACKBONE.variants.find((v) => v.key === state.variant) || BACKBONE.variants[0];
 }
 function setStatus(msg) { $("dStatus").textContent = msg; }
 function setBusy(b) {
@@ -472,30 +461,14 @@ function setCheck(exact) {
     el.textContent = "exact match";
     el.style.background = "#d8f8ef"; el.style.color = "#087f74"; el.style.border = "1px solid #a7e8db";
   } else {
-    el.textContent = "differs after re-encode";
+    el.textContent = "differs after decode";
     el.style.background = "#ffe7e0"; el.style.color = "#c0392b"; el.style.border = "1px solid #f4c2b5";
   }
 }
 function renderButtons() {
-  const bb = $("backboneBtns");
-  bb.innerHTML = "";
-  for (const k of BACKBONE_ORDER) {
-    const btn = document.createElement("button");
-    btn.type = "button";
-    btn.className = "seg-btn" + (state.backbone === k ? " active-navy" : "");
-    btn.textContent = BACKBONES[k].label;
-    btn.onclick = () => {
-      const keep = BACKBONES[k].variants.some((v) => v.key === state.variant);
-      state.backbone = k;
-      if (!keep) state.variant = "full";
-      setStatus(BACKBONES[k].label + " selected. Run a translation.");
-      renderButtons();
-    };
-    bb.appendChild(btn);
-  }
   const vb = $("variantBtns");
   vb.innerHTML = "";
-  for (const v of currentBackbone().variants) {
+  for (const v of BACKBONE.variants) {
     const btn = document.createElement("button");
     btn.type = "button";
     btn.className = "seg-btn" + (state.variant === v.key ? " active-teal" : "");
@@ -503,7 +476,7 @@ function renderButtons() {
     btn.onclick = () => { state.variant = v.key; setStatus("Alienization level set. Run a translation."); renderButtons(); };
     vb.appendChild(btn);
   }
-  $("dOrigId").textContent = currentBackbone().original;
+  $("dOrigId").textContent = BACKBONE.original;
   $("dAlienId").textContent = currentVariant().id;
 }
 async function getMod() {
@@ -529,18 +502,39 @@ async function run() {
   setBusy(true);
   setStatus("Loading tokenizers — the first run downloads the vocab files…");
   try {
-    const [orig, alien] = await Promise.all([loadTok(currentBackbone().original), loadTok(currentVariant().id)]);
+    const [orig, alien] = await Promise.all([loadTok(BACKBONE.original), loadTok(currentVariant().id)]);
     const text = $("dInput").value.replace(/\r\n/g, "\n");
     const sourceIds = enc(orig, text);
+    const idsArr = Array.from(sourceIds);
     const translated = dec(alien, sourceIds);
-    const recovered = dec(orig, enc(alien, translated));
+    // Recovery mirrors the paper's translator: the same token IDs are
+    // simply decoded with the client-side (original) dictionary.
+    const recovered = dec(orig, sourceIds);
     const alienNaturalIds = enc(alien, text);
-    $("dTranslated").textContent = translated || "—";
+
+    // Token-level highlighting: a token is "alienized" when its surface
+    // string differs between the original and alien dictionaries.
+    const frag = document.createDocumentFragment();
+    let changed = 0;
+    for (const id of idsArr) {
+      const o = dec(orig, [id]);
+      const a = dec(alien, [id]);
+      const span = document.createElement("span");
+      span.textContent = a;
+      if (o !== a) { span.className = "tok-alien"; changed++; }
+      frag.appendChild(span);
+    }
+    const out = $("dTranslated");
+    out.replaceChildren(frag);
+    if (!idsArr.length) out.textContent = "—";
+    const pct = idsArr.length ? Math.round((changed / idsArr.length) * 100) : 0;
+    $("dAlienPct").textContent = changed + "/" + idsArr.length + " TOKENS ALIENIZED (" + pct + "%)";
+
     $("dRecovered").textContent = recovered || "—";
     setCheck(recovered === text);
     $("dSrcIds").textContent = fmt(sourceIds);
     $("dAlienIds").textContent = fmt(alienNaturalIds);
-    $("dSrcCount").textContent = Array.from(sourceIds).length;
+    $("dSrcCount").textContent = idsArr.length;
     $("dAlienCount").textContent = Array.from(alienNaturalIds).length;
     setStatus("Done — computed entirely in your browser.");
   } catch (err) {
