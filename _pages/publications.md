@@ -23,7 +23,7 @@ classes: pub-page
 
 - [**AlienLM: Alienization of Language for API-Boundary Privacy in Black-Box LLMs**](https://arxiv.org/abs/2601.22710)
 
-  *Jaehee Kim* \*, Pilsung Kang †. **ICML 2026.**
+  *Jaehee Kim* \*, Pilsung Kang †. **ICML 2026.** [[project page]](/alienlm/) [[code]](https://github.com/KimJaehee0725/AlienLM)
 
 - [**FindCoResearcher: A Retrieval-based Collaborative Researcher Recommendation System**](https://doi.org/10.7232/JKIIE.2026.52.1.055)
 

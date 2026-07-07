@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AlienLM · Say it in Alien</title>
+<meta name="description" content="AlienLM translates your prompt into a private Alien Language before it reaches a black-box LLM API — same answers, no plaintext on the wire. ICML 2026.">
+<meta property="og:title" content="AlienLM · Say it in Alien">
+<meta property="og:description" content="A deployable API-only privacy layer: vocabulary-scale token bijection + Alien Adaptation Training. Retains 81%+ of oracle performance; recovery attacks reconstruct <0.22% of tokens.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://kimjaehee0725.github.io/alienlm/assets/mascot.png">
+<link rel="icon" type="image/png" href="assets/mascot.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: #f5f8fb; color: #12233d; font-family: 'Hanken Grotesk', sans-serif; }
+  * { box-sizing: border-box; }
+  a { text-decoration: none; color: inherit; }
+  img { display: block; max-width: 100%; }
+  ::selection { background: #b8f0e4; }
+  @keyframes blink { 0%, 55% { opacity: 1; } 55.01%, 100% { opacity: 0; } }
+  @keyframes ping { 0% { transform: scale(0.85); opacity: 0.5; } 75% { transform: scale(2.5); opacity: 0; } 100% { opacity: 0; } }
+  @keyframes floaty { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .wrap { width: min(1160px, calc(100% - 48px)); margin: 0 auto; }
+
+  .stats-grid { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 12px; }
+  .how-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 16px; }
+  .demo-grid { display: grid; grid-template-columns: minmax(0,0.92fr) minmax(0,1.08fr); gap: 20px; padding: 24px; }
+  .results-grid { display: grid; grid-template-columns: minmax(0,1.16fr) minmax(320px,0.84fr); gap: 18px; }
+  .resources-grid { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 14px; }
+
+  @media (max-width: 980px) {
+    .stats-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    .how-grid { grid-template-columns: 1fr; }
+    .demo-grid { grid-template-columns: 1fr; }
+    .results-grid { grid-template-columns: 1fr; }
+    .resources-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  }
+  @media (max-width: 560px) {
+    .stats-grid, .resources-grid { grid-template-columns: 1fr; }
+  }
+
+  .navlink { padding: 9px 13px; border-radius: 8px; font: 600 14px/1 'Hanken Grotesk', sans-serif; color: #41506a; }
+  .navlink:hover { background: #e8eef5; }
+  .seg-btn { display: inline-flex; align-items: center; justify-content: center; height: 34px; min-width: 48px; padding: 0 14px; border-radius: 8px; cursor: pointer; white-space: nowrap; font: 700 13px/1 'Hanken Grotesk', sans-serif; border: 1.5px solid #dce4ee; background: #fff; color: #41506a; }
+  .seg-btn.active-navy { border-color: #183963; background: #183963; color: #fff; }
+  .seg-btn.active-teal { border-color: #12a394; background: #12a394; color: #fff; }
+  .try-btn { height: 30px; padding: 0 11px; border-radius: 999px; border: 1px solid #dce4ee; background: #f8fafc; color: #41506a; font: 600 12px/1 'Hanken Grotesk', sans-serif; cursor: pointer; }
+  .try-btn:hover { background: #eef4fa; }
+  button:disabled { opacity: 0.55; cursor: wait; }
+</style>
+</head>
+<body>
+
+<div style="min-height:100vh;">
+
+  <!-- ===================== NAV ===================== -->
+  <nav style="position:sticky;top:0;z-index:40;background:rgba(245,248,251,.86);backdrop-filter:blur(16px);border-bottom:1px solid #dbe3ec;">
+    <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;min-height:66px;gap:18px;">
+      <a href="#top" style="display:inline-flex;align-items:center;gap:10px;">
+        <img src="assets/mascot.png" alt="" style="width:34px;height:34px;object-fit:contain;">
+        <span style="font:700 19px/1 'Space Grotesk',sans-serif;color:#12233d;letter-spacing:-.01em;">AlienLM</span>
+      </a>
+      <div style="display:flex;align-items:center;gap:4px;flex-wrap:wrap;justify-content:flex-end;">
+        <a class="navlink" href="#idea">The idea</a>
+        <a class="navlink" href="#how">How it works</a>
+        <a class="navlink" href="#demo">Live demo</a>
+        <a class="navlink" href="#results">Results</a>
+        <a class="navlink" href="#resources">Resources</a>
+        <a href="https://github.com/KimJaehee0725/AlienLM" style="padding:9px 15px;border-radius:8px;font:700 14px/1 'Hanken Grotesk',sans-serif;color:#fff;background:#183963;">GitHub</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===================== HERO ===================== -->
+  <header id="top" style="position:relative;overflow:hidden;border-bottom:1px solid #e4ebf2;background:radial-gradient(circle at 50% -8%, #d9f7ef 0%, #f0fafb 38%, #f5f8fb 100%);">
+    <div class="wrap" style="padding:64px 0 40px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:22px;">
+      <span style="font:700 12px/1 'IBM Plex Mono',monospace;letter-spacing:.16em;text-transform:uppercase;color:#0f8577;background:#d8f8ef;border-radius:999px;padding:8px 16px;">ICML 2026 · API-boundary privacy</span>
+
+      <div style="position:relative;width:112px;height:112px;display:grid;place-items:center;">
+        <span style="position:absolute;inset:0;border-radius:50%;border:2px solid #12a394;animation:ping 2.6s ease-out infinite;"></span>
+        <span style="position:absolute;inset:0;border-radius:50%;border:2px solid #12a394;animation:ping 2.6s ease-out 1.3s infinite;"></span>
+        <img src="assets/mascot.png" alt="AlienLM mascot" style="width:112px;height:112px;object-fit:contain;position:relative;animation:floaty 5s ease-in-out infinite;">
+      </div>
+
+      <h1 style="margin:0;font:700 clamp(52px,9vw,96px)/0.96 'Space Grotesk',sans-serif;letter-spacing:-.035em;color:#12233d;">Say it in <span style="color:#0fa091;">Alien.</span></h1>
+      <p style="margin:0;font:400 clamp(18px,2vw,21px)/1.5 'Hanken Grotesk',sans-serif;color:#48576d;max-width:600px;">AlienLM rewrites your prompt into a private language before it ever reaches a black-box LLM. Same answers, <strong>zero plaintext on the wire.</strong></p>
+
+      <div style="display:flex;flex-direction:column;gap:12px;align-items:center;background:#fff;border:1px solid #dce4ee;border-radius:18px;padding:22px 28px;box-shadow:0 18px 46px rgba(16,32,56,.1);width:min(720px,100%);">
+        <div style="display:flex;align-items:center;gap:8px;font:600 10px/1 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#7a879a;text-transform:uppercase;">
+          <span style="width:7px;height:7px;border-radius:50%;background:#12a394;display:inline-block;"></span>You type · stays on your device
+        </div>
+        <div style="font:500 clamp(17px,2vw,20px)/1.4 'Hanken Grotesk',sans-serif;color:#12233d;min-height:56px;display:flex;align-items:center;justify-content:center;">&ldquo;<span id="heroHuman"></span><span style="display:inline-block;width:.5ch;color:#183963;animation:blink 1.05s steps(1) infinite;">▍</span>&rdquo;</div>
+        <div style="font:700 11px/1 'IBM Plex Mono',monospace;letter-spacing:.2em;color:#12a394;">↓&nbsp;&nbsp;A L I E N I Z E D&nbsp;&nbsp;↓</div>
+        <div style="display:flex;align-items:center;gap:8px;font:600 10px/1 'IBM Plex Mono',monospace;letter-spacing:.14em;color:#7a879a;text-transform:uppercase;">
+          <span style="width:7px;height:7px;border-radius:50%;background:#ff9f8a;display:inline-block;"></span>What the API receives
+        </div>
+        <div style="font:500 clamp(16px,1.8vw,19px)/1.5 'IBM Plex Mono',monospace;color:#0f8577;min-height:52px;word-break:break-word;background:#f2fbf9;border-radius:10px;padding:12px 14px;width:100%;"><span id="heroAlien"></span><span style="display:inline-block;width:.5ch;color:#0f8577;animation:blink 1.05s steps(1) infinite;">▍</span></div>
+      </div>
+
+      <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:2px;">
+        <a href="https://arxiv.org/abs/2601.22710" style="display:inline-flex;align-items:center;height:50px;padding:0 24px;border-radius:11px;background:#183963;color:#fff;font:700 15px/1 'Hanken Grotesk',sans-serif;">Read the paper →</a>
+        <a href="#demo" style="display:inline-flex;align-items:center;height:50px;padding:0 24px;border-radius:11px;background:#fff;border:1.5px solid #c9d5e2;color:#183963;font:700 15px/1 'Hanken Grotesk',sans-serif;">Try the live demo</a>
+      </div>
+    </div>
+
+    <div class="wrap stats-grid" style="padding:0 0 48px;">
+      <div style="padding:18px 20px;border:1px solid #e0e8f0;border-radius:14px;background:rgba(255,255,255,.7);">
+        <div style="font:600 clamp(26px,3vw,34px)/1 'Space Grotesk',sans-serif;color:#183963;margin-bottom:6px;">81%+</div>
+        <div style="font:400 13px/1.4 'Hanken Grotesk',sans-serif;color:#5a6474;">of plaintext-oracle performance retained on every backbone</div>
+      </div>
+      <div style="padding:18px 20px;border:1px solid #e0e8f0;border-radius:14px;background:rgba(255,255,255,.7);">
+        <div style="font:600 clamp(26px,3vw,34px)/1 'Space Grotesk',sans-serif;color:#183963;margin-bottom:6px;">4</div>
+        <div style="font:400 13px/1.4 'Hanken Grotesk',sans-serif;color:#5a6474;">LLM backbones across LLaMA, Qwen &amp; Gemma families</div>
+      </div>
+      <div style="padding:18px 20px;border:1px solid #e0e8f0;border-radius:14px;background:rgba(255,255,255,.7);">
+        <div style="font:600 clamp(26px,3vw,34px)/1 'Space Grotesk',sans-serif;color:#183963;margin-bottom:6px;">7</div>
+        <div style="font:400 13px/1.4 'Hanken Grotesk',sans-serif;color:#5a6474;">benchmarks: knowledge, reasoning, truthfulness &amp; QA</div>
+      </div>
+      <div style="padding:18px 20px;border:1px solid #e0e8f0;border-radius:14px;background:rgba(255,255,255,.7);">
+        <div style="font:600 clamp(26px,3vw,34px)/1 'Space Grotesk',sans-serif;color:#0f8577;margin-bottom:6px;">&lt;0.22%</div>
+        <div style="font:400 13px/1.4 'Hanken Grotesk',sans-serif;color:#5a6474;">token recovery across all observer scenarios (O1–O3)</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================== IDEA ===================== -->
+  <section id="idea" style="padding:76px 0;">
+    <div class="wrap">
+      <div style="max-width:760px;margin-bottom:30px;">
+        <div style="display:inline-flex;align-items:center;gap:9px;color:#0f8577;font:700 12px/1 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px;"><span style="width:8px;height:8px;border-radius:50%;background:#12a394;display:inline-block;"></span>The core idea</div>
+        <h2 style="margin:0 0 12px;font:600 clamp(30px,4.4vw,46px)/1.05 'Space Grotesk',sans-serif;letter-spacing:-.02em;color:#12233d;">One shared token space, two dictionaries.</h2>
+        <p style="margin:0;font:400 18px/1.55 'Hanken Grotesk',sans-serif;color:#48576d;">Your text and its alien twin share the exact same token IDs — only the dictionary that spells them out is swapped. Encode with yours, decode with the alien one, and the surface text turns unreadable while the model still understands every token. The provider processes gibberish; your client quietly reads it back.</p>
+      </div>
+      <figure style="margin:0;border:1px solid #dbe3ec;border-radius:18px;overflow:hidden;background:#fff;box-shadow:0 22px 54px rgba(16,32,56,.1);">
+        <img src="assets/pipeline.png" alt="AlienLM pipeline: the user's text is alienized by the on-device translator, sent to the API provider and the alienized LLM, then recovered locally." style="width:100%;padding:26px 26px 8px;">
+        <figcaption style="padding:16px 24px;border-top:1px solid #eef2f6;font:400 14px/1.5 'Hanken Grotesk',sans-serif;color:#5a6474;background:#fbfdff;">The on-device <strong style="color:#0f8577;">translator</strong> alienizes your prompt, the black-box provider and its <strong style="color:#0f8577;">alienized LLM</strong> only ever handle alien text, and the reply is recovered to plaintext locally.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ===================== HOW ===================== -->
+  <section id="how" style="padding:20px 0 76px;">
+    <div class="wrap">
+      <div style="max-width:760px;margin-bottom:30px;">
+        <div style="display:inline-flex;align-items:center;gap:9px;color:#0f8577;font:700 12px/1 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px;"><span style="width:8px;height:8px;border-radius:50%;background:#12a394;display:inline-block;"></span>How it works</div>
+        <h2 style="margin:0 0 12px;font:600 clamp(30px,4.4vw,46px)/1.05 'Space Grotesk',sans-serif;letter-spacing:-.02em;color:#12233d;">Three moving parts.</h2>
+        <p style="margin:0;font:400 18px/1.55 'Hanken Grotesk',sans-serif;color:#48576d;">Built to deploy with nothing but API-only fine-tuning and public tokenizer information.</p>
+      </div>
+      <div class="how-grid">
+        <article style="padding:26px;border:1px solid #dbe3ec;border-radius:16px;background:#fff;">
+          <div style="width:36px;height:36px;border-radius:50%;background:#d8f8ef;color:#087f74;display:grid;place-items:center;font:800 16px/1 'Space Grotesk',sans-serif;margin-bottom:18px;">1</div>
+          <h3 style="margin:0 0 10px;font:600 20px/1.2 'Space Grotesk',sans-serif;color:#12233d;">Build an alien vocabulary</h3>
+          <p style="margin:0;font:400 15px/1.55 'Hanken Grotesk',sans-serif;color:#5a6474;">A vocabulary-scale token bijection makes surface strings unreadable while keeping token relationships useful for adaptation.</p>
+        </article>
+        <article style="padding:26px;border:1px solid #dbe3ec;border-radius:16px;background:#fff;">
+          <div style="width:36px;height:36px;border-radius:50%;background:#d8f8ef;color:#087f74;display:grid;place-items:center;font:800 16px/1 'Space Grotesk',sans-serif;margin-bottom:18px;">2</div>
+          <h3 style="margin:0 0 10px;font:600 20px/1.2 'Space Grotesk',sans-serif;color:#12233d;">Adapt with AAT</h3>
+          <p style="margin:0;font:400 15px/1.55 'Hanken Grotesk',sans-serif;color:#5a6474;">Alien Adaptation Training teaches the target model to operate directly on alienized inputs using standard fine-tuning APIs.</p>
+        </article>
+        <article style="padding:26px;border:1px solid #dbe3ec;border-radius:16px;background:#fff;">
+          <div style="width:36px;height:36px;border-radius:50%;background:#d8f8ef;color:#087f74;display:grid;place-items:center;font:800 16px/1 'Space Grotesk',sans-serif;margin-bottom:18px;">3</div>
+          <h3 style="margin:0 0 10px;font:600 20px/1.2 'Space Grotesk',sans-serif;color:#12233d;">Translate locally</h3>
+          <p style="margin:0;font:400 15px/1.55 'Hanken Grotesk',sans-serif;color:#5a6474;">The client encodes natural text into alien before the API call, and decodes the alien response right after it.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== DEMO ===================== -->
+  <section id="demo" style="padding:20px 0 76px;">
+    <div class="wrap">
+      <div style="max-width:760px;margin-bottom:30px;">
+        <div style="display:inline-flex;align-items:center;gap:9px;color:#0f8577;font:700 12px/1 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px;"><span style="width:8px;height:8px;border-radius:50%;background:#12a394;display:inline-block;"></span>Live, in your browser</div>
+        <h2 style="margin:0 0 12px;font:600 clamp(30px,4.4vw,46px)/1.05 'Space Grotesk',sans-serif;letter-spacing:-.02em;color:#12233d;">Run the real tokenizer.</h2>
+        <p style="margin:0;font:400 18px/1.55 'Hanken Grotesk',sans-serif;color:#48576d;">Swap between real tokenizer pairs and watch a prompt cross the API boundary — encoded by one tokenizer, decoded by the other. Everything runs client-side; no text ever leaves your browser.</p>
+      </div>
+
+      <div style="border:1px solid #dbe3ec;border-radius:18px;background:#fff;box-shadow:0 20px 50px rgba(16,32,56,.1);overflow:hidden;">
+        <!-- header: backbone + ratio selectors -->
+        <div style="padding:20px 24px;border-bottom:1px solid #eef2f6;display:flex;flex-wrap:wrap;gap:20px 40px;align-items:flex-end;">
+          <div style="display:flex;flex-direction:column;gap:9px;">
+            <span style="font:700 11px/1 'IBM Plex Mono',monospace;letter-spacing:.12em;color:#8595ab;">BACKBONE</span>
+            <div id="backboneBtns" style="display:flex;gap:7px;flex-wrap:wrap;"></div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:9px;">
+            <span style="font:700 11px/1 'IBM Plex Mono',monospace;letter-spacing:.12em;color:#8595ab;">ALIENIZATION LEVEL</span>
+            <div id="variantBtns" style="display:flex;gap:7px;flex-wrap:wrap;"></div>
+          </div>
+        </div>
+
+        <!-- resolved tokenizer ids -->
+        <div style="padding:12px 24px;border-bottom:1px solid #eef2f6;background:#fbfdff;display:flex;align-items:center;gap:10px;flex-wrap:wrap;font:500 12px/1.4 'IBM Plex Mono',monospace;">
+          <span id="dOrigId" style="color:#183963;"></span>
+          <span style="color:#12a394;font-weight:600;">⇄</span>
+          <span id="dAlienId" style="color:#0f8577;"></span>
+        </div>
+
+        <div class="demo-grid">
+          <div>
+            <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:8px;">
+              <label for="dInput" style="font:700 14px/1 'Hanken Grotesk',sans-serif;color:#12233d;white-space:nowrap;">Input text</label>
+              <span style="font:500 12px/1 'IBM Plex Mono',monospace;color:#8595ab;"><span id="dCharCount">0</span> chars</span>
+            </div>
+            <textarea id="dInput" spellcheck="false" style="width:100%;min-height:150px;resize:vertical;padding:14px;border:1px solid #cbd5e1;border-radius:12px;background:#fbfdff;color:#12233d;font:400 15px/1.5 'Hanken Grotesk',sans-serif;"></textarea>
+            <div style="display:flex;flex-wrap:wrap;gap:7px;margin-top:10px;">
+              <span style="font:600 11px/1 'IBM Plex Mono',monospace;letter-spacing:.08em;color:#8595ab;align-self:center;margin-right:2px;">TRY:</span>
+              <button type="button" class="try-btn" data-ex="1">Medical report</button>
+              <button type="button" class="try-btn" data-ex="2">Bank dispute</button>
+              <button type="button" class="try-btn" data-ex="3">Visa application</button>
+              <button type="button" class="try-btn" data-ex="4">Login &amp; keys</button>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:9px;margin-top:14px;">
+              <button type="button" id="btnAlienize" style="display:inline-flex;align-items:center;height:44px;padding:0 22px;border-radius:10px;border:none;background:#183963;color:#fff;font:700 14px/1 'Hanken Grotesk',sans-serif;cursor:pointer;">Alienize this text →</button>
+              <button type="button" id="btnReset" style="display:inline-flex;align-items:center;height:44px;padding:0 14px;border-radius:10px;border:1.5px solid #eef2f6;background:#f8fafc;color:#8595ab;font:700 14px/1 'Hanken Grotesk',sans-serif;cursor:pointer;">Reset</button>
+            </div>
+            <div style="display:flex;align-items:center;gap:9px;min-height:24px;margin-top:14px;">
+              <span id="dSpinner" style="display:none;width:15px;height:15px;border-radius:50%;border:2px solid #cdeee7;border-top-color:#12a394;animation:spin .7s linear infinite;"></span>
+              <span id="dStatus" style="font:500 14px/1.4 'Hanken Grotesk',sans-serif;color:#0f8577;">Pick a model pair, then run a translation.</span>
+            </div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;">
+            <div style="grid-column:1 / -1;padding:16px;border:1px solid #b6e6dc;border-radius:12px;background:#0f2138;">
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:9px;">
+                <h3 style="margin:0;font:700 12px/1 'IBM Plex Mono',monospace;letter-spacing:.08em;color:#5fe6d2;">WHAT THE API RECEIVES</h3>
+                <span style="font:600 10px/1 'IBM Plex Mono',monospace;color:#ff9f8a;border:1px solid rgba(255,159,138,.5);border-radius:999px;padding:4px 8px;">UNREADABLE</span>
+              </div>
+              <p id="dTranslated" style="margin:0;max-height:140px;overflow:auto;font:500 14px/1.55 'IBM Plex Mono',monospace;color:#5fe6d2;white-space:pre-wrap;word-break:break-word;">Run a translation to see the alienized or recovered text.</p>
+            </div>
+            <div style="grid-column:1 / -1;padding:16px;border:1px solid #d8e2ea;border-radius:12px;background:#f8fafc;">
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:9px;flex-wrap:wrap;">
+                <h3 style="margin:0;font:700 12px/1 'IBM Plex Mono',monospace;letter-spacing:.08em;color:#183963;">RECOVERED ON YOUR DEVICE</h3>
+                <span id="dCheck" style="display:inline-flex;align-items:center;gap:7px;padding:7px 13px;border-radius:999px;font:700 12px/1 'IBM Plex Mono',monospace;letter-spacing:.02em;background:#eef2f6;color:#5a6474;border:1px solid #dce4ee;">Awaiting a run…</span>
+              </div>
+              <p id="dRecovered" style="margin:0;max-height:110px;overflow:auto;font:500 14px/1.55 'IBM Plex Mono',monospace;color:#25344a;white-space:pre-wrap;word-break:break-word;">—</p>
+            </div>
+            <div style="padding:14px;border:1px solid #d8e2ea;border-radius:12px;background:#f8fafc;">
+              <h3 style="margin:0 0 8px;font:700 11px/1.3 'IBM Plex Mono',monospace;letter-spacing:.05em;color:#183963;">SOURCE TOKEN IDS · <span id="dSrcCount">0</span></h3>
+              <p id="dSrcIds" style="margin:0;max-height:100px;overflow:auto;font:500 12px/1.55 'IBM Plex Mono',monospace;color:#075f57;white-space:pre-wrap;word-break:break-word;">—</p>
+            </div>
+            <div style="padding:14px;border:1px solid #d8e2ea;border-radius:12px;background:#f8fafc;">
+              <h3 style="margin:0 0 8px;font:700 11px/1.3 'IBM Plex Mono',monospace;letter-spacing:.05em;color:#183963;">ALIEN-ENCODED IDS · <span id="dAlienCount">0</span></h3>
+              <p id="dAlienIds" style="margin:0;max-height:100px;overflow:auto;font:500 12px/1.55 'IBM Plex Mono',monospace;color:#075f57;white-space:pre-wrap;word-break:break-word;">—</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== RESULTS ===================== -->
+  <section id="results" style="padding:20px 0 76px;">
+    <div class="wrap">
+      <div style="max-width:760px;margin-bottom:30px;">
+        <div style="display:inline-flex;align-items:center;gap:9px;color:#0f8577;font:700 12px/1 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px;"><span style="width:8px;height:8px;border-radius:50%;background:#12a394;display:inline-block;"></span>Main results</div>
+        <h2 style="margin:0 0 12px;font:600 clamp(30px,4.4vw,46px)/1.05 'Space Grotesk',sans-serif;letter-spacing:-.02em;color:#12233d;">Keeps the smarts, drops the plaintext.</h2>
+        <p style="margin:0;font:400 18px/1.55 'Hanken Grotesk',sans-serif;color:#48576d;">Averages across MMLU, ARC, HellaSwag, WinoGrande, TruthfulQA and GSM8K, plus recovery robustness under three observer scenarios.</p>
+      </div>
+
+      <div class="results-grid">
+        <article style="padding:24px;border:1px solid #dbe3ec;border-radius:16px;background:#fff;">
+          <h3 style="margin:0 0 10px;font:600 19px/1.2 'Space Grotesk',sans-serif;color:#12233d;">Utility across backbones</h3>
+          <p style="margin:0 0 16px;font:400 15px/1.55 'Hanken Grotesk',sans-serif;color:#5a6474;">AlienLM keeps &gt;81% of plaintext-oracle performance while beating random-bijection and character-level baselines.</p>
+          <div style="overflow-x:auto;border:1px solid #e7edf3;border-radius:12px;">
+            <table style="width:100%;min-width:520px;border-collapse:collapse;font:400 14px/1.4 'Hanken Grotesk',sans-serif;">
+              <thead>
+                <tr>
+                  <th style="text-align:left;padding:12px 14px;background:#edf4f8;color:#233958;font-weight:800;border-bottom:1px solid #e7edf3;">Backbone</th>
+                  <th style="text-align:left;padding:12px 14px;background:#edf4f8;color:#233958;font-weight:800;border-bottom:1px solid #e7edf3;">Oracle avg.</th>
+                  <th style="text-align:left;padding:12px 14px;background:#edf4f8;color:#233958;font-weight:800;border-bottom:1px solid #e7edf3;">AlienLM avg.</th>
+                  <th style="text-align:left;padding:12px 14px;background:#edf4f8;color:#233958;font-weight:800;border-bottom:1px solid #e7edf3;">Ratio</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td style="padding:12px 14px;border-bottom:1px solid #eef2f6;">LLaMA 3 8B</td><td style="padding:12px 14px;border-bottom:1px solid #eef2f6;font-family:'IBM Plex Mono',monospace;">64.77</td><td style="padding:12px 14px;border-bottom:1px solid #eef2f6;font-family:'IBM Plex Mono',monospace;">52.92</td><td style="padding:12px 14px;border-bottom:1px solid #eef2f6;font-family:'IBM Plex Mono',monospace;color:#0f8577;font-weight:600;">81.70%</td></tr>
+                <tr><td style="padding:12px 14px;border-bottom:1px solid #eef2f6;">Qwen 2.5 7B</td><td style="padding:12px 14px;border-bottom:1px solid #eef2f6;font-family:'IBM Plex Mono',monospace;">65.60</td><td style="padding:12px 14px;border-bottom:1px solid #eef2f6;font-family:'IBM Plex Mono',monospace;">57.33</td><td style="padding:12px 14px;border-bottom:1px solid #eef2f6;font-family:'IBM Plex Mono',monospace;color:#0f8577;font-weight:600;">87.40%</td></tr>
+                <tr><td style="padding:12px 14px;border-bottom:1px solid #eef2f6;">Qwen 2.5 14B</td><td style="padding:12px 14px;border-bottom:1px solid #eef2f6;font-family:'IBM Plex Mono',monospace;">73.49</td><td style="padding:12px 14px;border-bottom:1px solid #eef2f6;font-family:'IBM Plex Mono',monospace;">62.05</td><td style="padding:12px 14px;border-bottom:1px solid #eef2f6;font-family:'IBM Plex Mono',monospace;color:#0f8577;font-weight:600;">84.43%</td></tr>
+                <tr><td style="padding:12px 14px;">Gemma 2 9B</td><td style="padding:12px 14px;font-family:'IBM Plex Mono',monospace;">69.20</td><td style="padding:12px 14px;font-family:'IBM Plex Mono',monospace;">56.63</td><td style="padding:12px 14px;font-family:'IBM Plex Mono',monospace;color:#0f8577;font-weight:600;">81.83%</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <aside style="padding:24px;border:1px solid #dbe3ec;border-radius:16px;background:#fff;">
+          <h3 style="margin:0 0 14px;font:600 19px/1.2 'Space Grotesk',sans-serif;color:#12233d;">Recovery robustness</h3>
+          <div style="display:grid;gap:12px;">
+            <div style="padding:16px;border:1px solid #cfe0df;border-radius:12px;background:#f4fbf9;"><div style="font:600 28px/1 'Space Grotesk',sans-serif;color:#087f74;margin-bottom:5px;">&lt;0.01%</div><div style="font:400 14px/1.4 'Hanken Grotesk',sans-serif;color:#4d6371;">Frequency-analysis token recovery in O1 (passive observation)</div></div>
+            <div style="padding:16px;border:1px solid #cfe0df;border-radius:12px;background:#f4fbf9;"><div style="font:600 28px/1 'Space Grotesk',sans-serif;color:#087f74;margin-bottom:5px;">&lt;0.22%</div><div style="font:400 14px/1.4 'Hanken Grotesk',sans-serif;color:#4d6371;">Known-pair token recovery with 1K leaked pairs in O2</div></div>
+            <div style="padding:16px;border:1px solid #cfe0df;border-radius:12px;background:#f4fbf9;"><div style="font:600 28px/1 'Space Grotesk',sans-serif;color:#087f74;margin-bottom:5px;">&lt;0.11%</div><div style="font:400 14px/1.4 'Hanken Grotesk',sans-serif;color:#4d6371;">Weight-based top-1 token mapping in O3 (model access)</div></div>
+            <div style="padding:16px;border:1px solid #cfe0df;border-radius:12px;background:#f4fbf9;"><div style="font:600 28px/1 'Space Grotesk',sans-serif;color:#087f74;margin-bottom:5px;">BLEU &lt;12</div><div style="font:400 14px/1.4 'Hanken Grotesk',sans-serif;color:#4d6371;">Best LLM &amp; MT inverse-translation quality in O2 (GPT-5.1, NLLB)</div></div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== RESOURCES ===================== -->
+  <section id="resources" style="padding:20px 0 80px;">
+    <div class="wrap">
+      <div style="max-width:760px;margin-bottom:30px;">
+        <div style="display:inline-flex;align-items:center;gap:9px;color:#0f8577;font:700 12px/1 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px;"><span style="width:8px;height:8px;border-radius:50%;background:#12a394;display:inline-block;"></span>Resources</div>
+        <h2 style="margin:0 0 12px;font:600 clamp(30px,4.4vw,46px)/1.05 'Space Grotesk',sans-serif;letter-spacing:-.02em;color:#12233d;">Dig in.</h2>
+        <p style="margin:0;font:400 18px/1.55 'Hanken Grotesk',sans-serif;color:#48576d;">Paper for concepts, Hugging Face for checkpoints, GitHub for tokenizer, training and recovery code.</p>
+      </div>
+      <div class="resources-grid">
+        <a href="https://arxiv.org/abs/2601.22710" style="display:flex;flex-direction:column;justify-content:space-between;min-height:170px;padding:22px;border:1px solid #dbe3ec;border-radius:16px;background:#fff;">
+          <div><h3 style="margin:0 0 8px;font:600 18px/1.2 'Space Grotesk',sans-serif;color:#12233d;">Paper</h3><p style="margin:0;font:400 14px/1.5 'Hanken Grotesk',sans-serif;color:#5a6474;">ICML 2026 paper and arXiv version history.</p></div>
+          <span style="margin-top:16px;font:700 14px/1 'Hanken Grotesk',sans-serif;color:#0f8577;">arXiv:2601.22710 →</span>
+        </a>
+        <a href="https://huggingface.co/collections/dsba-lab/alienlm" style="display:flex;flex-direction:column;justify-content:space-between;min-height:170px;padding:22px;border:1px solid #dbe3ec;border-radius:16px;background:#fff;">
+          <div><h3 style="margin:0 0 8px;font:600 18px/1.2 'Space Grotesk',sans-serif;color:#12233d;">Models</h3><p style="margin:0;font:400 14px/1.5 'Hanken Grotesk',sans-serif;color:#5a6474;">AlienLM checkpoints, random baselines and ratio variants.</p></div>
+          <span style="margin-top:16px;font:700 14px/1 'Hanken Grotesk',sans-serif;color:#0f8577;">HF collection →</span>
+        </a>
+        <a href="https://github.com/KimJaehee0725/AlienLM" style="display:flex;flex-direction:column;justify-content:space-between;min-height:170px;padding:22px;border:1px solid #dbe3ec;border-radius:16px;background:#fff;">
+          <div><h3 style="margin:0 0 8px;font:600 18px/1.2 'Space Grotesk',sans-serif;color:#12233d;">Code</h3><p style="margin:0;font:400 14px/1.5 'Hanken Grotesk',sans-serif;color:#5a6474;">Translator utilities, tokenizer init and the ICML snapshot.</p></div>
+          <span style="margin-top:16px;font:700 14px/1 'Hanken Grotesk',sans-serif;color:#0f8577;">Official repo →</span>
+        </a>
+        <a href="https://github.com/KimJaehee0725/AlienLM-recovery-evals" style="display:flex;flex-direction:column;justify-content:space-between;min-height:170px;padding:22px;border:1px solid #dbe3ec;border-radius:16px;background:#fff;">
+          <div><h3 style="margin:0 0 8px;font:600 18px/1.2 'Space Grotesk',sans-serif;color:#12233d;">Recovery evals</h3><p style="margin:0;font:400 14px/1.5 'Hanken Grotesk',sans-serif;color:#5a6474;">Runnable O1/O2/O3 recovery and robustness scripts.</p></div>
+          <span style="margin-top:16px;font:700 14px/1 'Hanken Grotesk',sans-serif;color:#0f8577;">Evaluation repo →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer style="border-top:1px solid #dbe3ec;padding:36px 0 56px;background:#fff;">
+    <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <img src="assets/mascot.png" alt="" style="width:38px;height:38px;object-fit:contain;">
+        <div style="font:400 14px/1.5 'Hanken Grotesk',sans-serif;color:#5a6474;"><strong style="color:#12233d;font-weight:700;">AlienLM</strong><br>Jaehee Kim &amp; Pilsung Kang · ICML 2026</div>
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <a href="https://arxiv.org/abs/2601.22710" style="display:inline-flex;align-items:center;height:42px;padding:0 18px;border-radius:9px;border:1.5px solid #c9d5e2;color:#183963;font:700 14px/1 'Hanken Grotesk',sans-serif;">Paper</a>
+        <a href="https://github.com/KimJaehee0725/AlienLM" style="display:inline-flex;align-items:center;height:42px;padding:0 18px;border-radius:9px;border:1.5px solid #c9d5e2;color:#183963;font:700 14px/1 'Hanken Grotesk',sans-serif;">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+<script type="module">
+/* ---------- hero typing animation ---------- */
+const SENTENCES = [
+  "All happy families are alike; each unhappy family is unhappy in its own way.",
+  "Summarize my medical report and tell me what to ask my doctor.",
+  "My bank password hint is my first dog's name, Biscuit.",
+  "Here is my home address: 42 Aurora Lane, apartment 7.",
+  "Draft a reply to my lawyer about the settlement offer.",
+  "I've been feeling anxious and can't sleep lately.",
+  "Review this NDA before I sign it tomorrow morning.",
+  "My API key is sk-live-9f3a2b… please keep it secret.",
+  "You are not alone in this.",
+];
+const POOL = [
+  "hodin","waypoints","standalone","onest","jspb","merk","dome","evening","hike",
+  "gicult","zorp","xylk","vraak","thsp","qorm","naxil","brill","glorp","fnord",
+  "zhak","plovic","krix","waev","noomb","tzk","unhap","amilies","quorl","vend",
+  "skai","droom","plemn","gorra","ythe","wex","olan","trell","umbra","snik",
+  "vorth","lask","embero","cruxen","novak","aylo","mirth","pendo","corvid","zeph",
+];
+const TYPE_SPEED = 46;
+
+function fnv(str) {
+  let h = 2166136261;
+  for (let i = 0; i < str.length; i++) { h ^= str.charCodeAt(i); h = Math.imul(h, 16777619); }
+  return h >>> 0;
+}
+function alienize(text) {
+  const parts = text.split(/(\s+)/);
+  let out = "";
+  for (const w of parts) {
+    if (/^\s*$/.test(w)) { out += w; continue; }
+    const m = w.match(/^([^A-Za-z0-9']*)([A-Za-z0-9']*)([^A-Za-z0-9]*)$/);
+    const lead = m ? m[1] : "", core = m ? m[2] : w, trail = m ? m[3] : "";
+    if (!core) { out += w; continue; }
+    const h = fnv(core.toLowerCase());
+    let a = POOL[h % POOL.length];
+    if (core[0] === core[0].toUpperCase() && core[0] !== core[0].toLowerCase()) a = a[0].toUpperCase() + a.slice(1);
+    if (h % 5 === 0) a = a + POOL[(h >>> 3) % POOL.length];
+    out += lead + a + trail;
+  }
+  return out;
+}
+
+const heroHuman = document.getElementById("heroHuman");
+const heroAlien = document.getElementById("heroAlien");
+let si = 0, cc = 0, holding = false, last = 0;
+function heroFrame(t) {
+  if (!last) last = t;
+  if (!holding && t - last >= TYPE_SPEED) {
+    last = t;
+    const s = SENTENCES[si % SENTENCES.length];
+    if (cc >= s.length) {
+      holding = true;
+      setTimeout(() => { si = (si + 1) % SENTENCES.length; cc = 0; holding = false; }, 1900);
+    } else {
+      cc++;
+      const human = s.slice(0, cc);
+      const alienFull = alienize(s);
+      const frac = s.length ? cc / s.length : 0;
+      heroHuman.textContent = human;
+      heroAlien.textContent = alienFull.slice(0, Math.round(alienFull.length * frac));
+    }
+  }
+  requestAnimationFrame(heroFrame);
+}
+requestAnimationFrame(heroFrame);
+
+/* ---------- live tokenizer demo ---------- */
+const BACKBONES = {
+  "Qwen7": {
+    label: "Qwen 2.5 7B", original: "Qwen/Qwen2.5-7B-Instruct",
+    variants: [{ key: "full", label: "Full", id: "dsba-lab/qwen25-7b-instruct-alienlm-full" }],
+  },
+  "Qwen14": {
+    label: "Qwen 2.5 14B", original: "Qwen/Qwen2.5-14B-Instruct",
+    variants: [{ key: "full", label: "Full", id: "dsba-lab/qwen25-14b-instruct-alienlm-full" }],
+  },
+  "Llama": {
+    label: "Llama 3 8B", original: "NousResearch/Meta-Llama-3-8B-Instruct",
+    variants: [
+      { key: "full", label: "Full", id: "dsba-lab/llama3-8b-instruct-alienlm-full" },
+      { key: "80", label: "80%", id: "dsba-lab/llama3-8b-instruct-alienlm-ratio-80" },
+      { key: "60", label: "60%", id: "dsba-lab/llama3-8b-instruct-alienlm-ratio-60" },
+      { key: "40", label: "40%", id: "dsba-lab/llama3-8b-instruct-alienlm-ratio-40" },
+      { key: "20", label: "20%", id: "dsba-lab/llama3-8b-instruct-alienlm-ratio-20" },
+    ],
+  },
+  "Gemma": {
+    label: "Gemma 2 9B", original: "unsloth/gemma-2-9b-it",
+    variants: [{ key: "full", label: "Full", id: "dsba-lab/gemma2-9b-it-alienlm-full" }],
+  },
+};
+const BACKBONE_ORDER = ["Qwen7", "Qwen14", "Llama", "Gemma"];
+const DEFAULT_INPUT = "All happy families are alike; each unhappy family is unhappy in its own way.";
+const EXAMPLES = {
+  "1": "Patient Jane A. Doe, DOB 1987-03-14, MRN 44-8120-7, was diagnosed with stage II breast cancer (ER+, HER2-) and started on 20mg tamoxifen daily plus a scheduled lumpectomy on August 3rd. Summarize this report in plain language and list the questions I should ask my oncologist at the follow-up next week.",
+  "2": "Please draft a fraud dispute letter to my bank. My Chase debit card 4532 8812 0099 1746 (exp 09/27, CVV 318) was charged $842.19 twice on June 2nd at a store in Lisbon, my checking balance is now $1,203.55, and my account number is 000123456789 with routing 021000021.",
+  "3": "Here is my visa application info to review: full name Jaehee Kim, passport M12345678 issued by the Republic of Korea, home address 42 Aurora Lane Apt 7, Seattle WA 98101, mobile +1 206-555-0173, email jaehee.kim@example.com. Check whether the NDA I'm signing tomorrow morning conflicts with any of these details.",
+  "4": "Set up the production deploy for me: log in as admin@acme-internal.com with password Bl4ckb1rd!2024, the OpenAI key is sk-live-9f3a2b7c1d5e0847, the database URL is postgres://acme:s3cr3t@db.acme.internal:5432/main — and please keep every one of these credentials secret.",
+};
+
+const $ = (id) => document.getElementById(id);
+const state = { backbone: "Qwen7", variant: "full", busy: false };
+let mod = null;
+const tokCache = {};
+
+function currentBackbone() { return BACKBONES[state.backbone]; }
+function currentVariant() {
+  const b = currentBackbone();
+  return b.variants.find((v) => v.key === state.variant) || b.variants[0];
+}
+function setStatus(msg) { $("dStatus").textContent = msg; }
+function setBusy(b) {
+  state.busy = b;
+  $("dSpinner").style.display = b ? "inline-block" : "none";
+  $("btnAlienize").disabled = b;
+  $("btnReset").disabled = b;
+}
+function setCheck(exact) {
+  const el = $("dCheck");
+  if (exact === null) {
+    el.textContent = "Awaiting a run…";
+    el.style.background = "#eef2f6"; el.style.color = "#5a6474"; el.style.border = "1px solid #dce4ee";
+  } else if (exact) {
+    el.textContent = "exact match";
+    el.style.background = "#d8f8ef"; el.style.color = "#087f74"; el.style.border = "1px solid #a7e8db";
+  } else {
+    el.textContent = "differs after re-encode";
+    el.style.background = "#ffe7e0"; el.style.color = "#c0392b"; el.style.border = "1px solid #f4c2b5";
+  }
+}
+function renderButtons() {
+  const bb = $("backboneBtns");
+  bb.innerHTML = "";
+  for (const k of BACKBONE_ORDER) {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "seg-btn" + (state.backbone === k ? " active-navy" : "");
+    btn.textContent = BACKBONES[k].label;
+    btn.onclick = () => {
+      const keep = BACKBONES[k].variants.some((v) => v.key === state.variant);
+      state.backbone = k;
+      if (!keep) state.variant = "full";
+      setStatus(BACKBONES[k].label + " selected. Run a translation.");
+      renderButtons();
+    };
+    bb.appendChild(btn);
+  }
+  const vb = $("variantBtns");
+  vb.innerHTML = "";
+  for (const v of currentBackbone().variants) {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "seg-btn" + (state.variant === v.key ? " active-teal" : "");
+    btn.textContent = v.label;
+    btn.onclick = () => { state.variant = v.key; setStatus("Alienization level set. Run a translation."); renderButtons(); };
+    vb.appendChild(btn);
+  }
+  $("dOrigId").textContent = currentBackbone().original;
+  $("dAlienId").textContent = currentVariant().id;
+}
+async function getMod() {
+  if (!mod) {
+    mod = import("https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.8.1").then((m) => {
+      m.env.allowLocalModels = false;
+      m.env.allowRemoteModels = true;
+      return m;
+    });
+  }
+  return mod;
+}
+async function loadTok(id) {
+  const m = await getMod();
+  if (!tokCache[id]) tokCache[id] = m.AutoTokenizer.from_pretrained(id);
+  return tokCache[id];
+}
+const enc = (tk, text) => tk.encode(text, { add_special_tokens: false });
+const dec = (tk, ids) => tk.decode(ids, { skip_special_tokens: false, clean_up_tokenization_spaces: false });
+const fmt = (ids) => "[" + Array.from(ids).join(", ") + "]";
+
+async function run() {
+  setBusy(true);
+  setStatus("Loading tokenizers — the first run downloads the vocab files…");
+  try {
+    const [orig, alien] = await Promise.all([loadTok(currentBackbone().original), loadTok(currentVariant().id)]);
+    const text = $("dInput").value.replace(/\r\n/g, "\n");
+    const sourceIds = enc(orig, text);
+    const translated = dec(alien, sourceIds);
+    const recovered = dec(orig, enc(alien, translated));
+    const alienNaturalIds = enc(alien, text);
+    $("dTranslated").textContent = translated || "—";
+    $("dRecovered").textContent = recovered || "—";
+    setCheck(recovered === text);
+    $("dSrcIds").textContent = fmt(sourceIds);
+    $("dAlienIds").textContent = fmt(alienNaturalIds);
+    $("dSrcCount").textContent = Array.from(sourceIds).length;
+    $("dAlienCount").textContent = Array.from(alienNaturalIds).length;
+    setStatus("Done — computed entirely in your browser.");
+  } catch (err) {
+    setStatus("Could not load this pair: " + err.message + " Gated/private repos need auth.");
+  }
+  setBusy(false);
+}
+
+$("btnAlienize").onclick = run;
+$("btnReset").onclick = () => {
+  $("dInput").value = DEFAULT_INPUT;
+  $("dCharCount").textContent = DEFAULT_INPUT.length;
+  setStatus("Example reset. Tokenizers load on first use.");
+};
+$("dInput").addEventListener("input", () => { $("dCharCount").textContent = $("dInput").value.length; });
+document.querySelectorAll(".try-btn").forEach((b) => {
+  b.onclick = () => {
+    $("dInput").value = EXAMPLES[b.dataset.ex];
+    $("dCharCount").textContent = $("dInput").value.length;
+  };
+});
+
+$("dInput").value = DEFAULT_INPUT;
+$("dCharCount").textContent = DEFAULT_INPUT.length;
+renderButtons();
+</script>
+
+</body>
+</html>

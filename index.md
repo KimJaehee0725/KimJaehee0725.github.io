@@ -27,8 +27,8 @@ I like simple sentences for difficult problems, and I usually want to know what 
 
 <ul class="selected">
   <li>
-    <p class="selected__head"><a href="https://arxiv.org/abs/2601.22710">AlienLM</a><span class="selected__venue">ICML 2026</span></p>
-    <p class="selected__desc">Studies language transformed to look alien: useful to the model, hard for an outside observer to recover.</p>
+    <p class="selected__head"><a href="/alienlm/">AlienLM</a><span class="selected__venue">ICML 2026</span></p>
+    <p class="selected__desc">Studies language transformed to look alien: useful to the model, hard for an outside observer to recover. <a href="/alienlm/">Project page with a live demo</a>.</p>
   </li>
   <li>
     <p class="selected__head"><a href="https://proceedings.neurips.cc/paper_files/paper/2024/hash/15ba84c1e19b0eb75f96922f5da0a021-Abstract-Conference.html">ContAccum</a><span class="selected__venue">NeurIPS 2024</span></p>
@@ -93,7 +93,7 @@ Reach me at [jaehee_kim@snu.ac.kr](mailto:jaehee_kim@snu.ac.kr).
 ## News
 
 <ul class="news-list">
-  <li><span class="news-list__date">Jul 2026</span><span class="news-list__text">AlienLM code and arXiv paper updated. <a href="https://arxiv.org/abs/2601.22710">[arXiv]</a> <a href="https://github.com/KimJaehee0725/AlienLM">[code]</a></span></li>
+  <li><span class="news-list__date">Jul 2026</span><span class="news-list__text">AlienLM project page with an in-browser tokenizer demo is up. <a href="/alienlm/">[project page]</a> <a href="https://arxiv.org/abs/2601.22710">[arXiv]</a> <a href="https://github.com/KimJaehee0725/AlienLM">[code]</a></span></li>
   <li><span class="news-list__date">May 2026</span><span class="news-list__text">AlienLM was accepted to ICML 2026.</span></li>
   <li><span class="news-list__date">May 2026</span><span class="news-list__text">Updated my CV with new under-review manuscripts and archived publications.</span></li>
   <li><span class="news-list__date">Mar 2026</span><span class="news-list__text">New manuscripts on belief-shift rewards and semiconductor equipment log retrieval are under review.</span></li>
