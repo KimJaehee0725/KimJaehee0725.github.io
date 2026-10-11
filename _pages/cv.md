@@ -109,7 +109,3 @@ excerpt: "Academic background, appointments, and contact details."
 
 - **Conference reviewer:** ICLR 2026, ICML 2026, NeurIPS 2026
 - **Workshop reviewer:** LASS Workshop at CIKM 2026
-
-## Mentoring
-
-- **NLP & Generative AI Mentor**, Naver Connect Boostcamp AI Tech (Cohorts 4&ndash;7), 2022 to 2025

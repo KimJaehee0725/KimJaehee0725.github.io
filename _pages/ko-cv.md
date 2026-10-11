@@ -109,7 +109,3 @@ excerpt: "학력, 주요 연구 분야, 연락처, 최신 CV."
 
 - **학회 리뷰어:** ICLR 2026, ICML 2026, NeurIPS 2026
 - **워크숍 리뷰어:** LASS Workshop at CIKM 2026
-
-## Mentoring
-
-- **NLP·생성형 AI 멘토**, 네이버 커넥트재단 부스트캠프 AI Tech (4~7기), 2022 ~ 2025
