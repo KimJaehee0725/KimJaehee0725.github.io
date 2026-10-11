@@ -57,3 +57,9 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 </script>
+
+<!-- GoatCounter analytics (production builds only) -->
+{% if jekyll.environment == "production" %}
+<script data-goatcounter="https://jaehee-kim.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+{% endif %}
