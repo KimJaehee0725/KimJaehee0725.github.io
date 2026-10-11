@@ -29,7 +29,7 @@ excerpt: >-
 <ul class="selected">
   <li>
     <p class="selected__head"><a href="/alienlm/">AlienLM</a><span class="selected__venue">ICML 2026</span></p>
-    <p class="selected__desc">모델에게는 여전히 쓸모 있지만 외부 관찰자는 원래 형태를 복원하기 어려운, 외계어처럼 변환된 언어를 연구합니다. 블랙박스 LLM을 외부 API로 사용할 때 입력을 보호하면서도 성능을 유지하는 프라이버시 활용을 목표로 합니다. <a href="/alienlm/">라이브 데모가 있는 프로젝트 페이지</a>도 있습니다.</p>
+    <p class="selected__desc">text-only 환경에서 general task에 적용 가능한 최초의 API 경계 프라이버시 방법론입니다. 모델에게는 여전히 쓸모 있지만 외부 관찰자는 복원하기 어려운 외계어로 텍스트를 변환하며, 평문 대비 81% 이상의 성능을 유지합니다. 블랙박스 LLM을 외부 API로 사용할 때 입력을 보호하면서도 성능을 유지하는 프라이버시 활용을 목표로 합니다. <a href="/alienlm/">라이브 데모가 있는 프로젝트 페이지</a>도 있습니다.</p>
   </li>
   <li>
     <p class="selected__head"><a href="https://proceedings.neurips.cc/paper_files/paper/2024/hash/15ba84c1e19b0eb75f96922f5da0a021-Abstract-Conference.html">ContAccum</a><span class="selected__venue">NeurIPS 2024</span></p>
@@ -92,6 +92,7 @@ LLM reasoning, RL, agent, retrieval 분야를 연구하거나 실제 서비스�
 ## 소식
 
 <ul class="news-list">
+  <li><span class="news-list__date">2026년 10월</span><span class="news-list__text">과제 성과와 리뷰어 활동을 반영해 CV를 업데이트했습니다. <a href="/ko/cv/">[CV]</a></span></li>
   <li><span class="news-list__date">2026년 7월</span><span class="news-list__text">브라우저에서 tokenizer 데모를 직접 실행할 수 있는 AlienLM 프로젝트 페이지가 공개되었습니다. <a href="/alienlm/">[프로젝트 페이지]</a> <a href="https://arxiv.org/abs/2601.22710">[arXiv]</a> <a href="https://github.com/KimJaehee0725/AlienLM">[코드]</a></span></li>
   <li><span class="news-list__date">2026년 5월</span><span class="news-list__text">AlienLM이 ICML 2026에 accept되었습니다.</span></li>
   <li><span class="news-list__date">2026년 5월</span><span class="news-list__text">새 under-review 원고와 정리된 논문을 반영해 CV를 업데이트했습니다.</span></li>

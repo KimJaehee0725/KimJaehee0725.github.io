@@ -10,7 +10,7 @@ excerpt: "Academic background, appointments, and contact details."
 
 <div class="cv-download-card">
   <p class="cv-download-card__body">Download the latest CV as a PDF.</p>
-  <a class="btn btn--inverse cv-download-card__button" href="/Kim_Jaehee_CV_2605.pdf" download>
+  <a class="btn btn--inverse cv-download-card__button" href="/Kim_Jaehee_CV_2610.pdf" download>
     Download CV (PDF)
   </a>
 </div>
@@ -20,11 +20,12 @@ excerpt: "Academic background, appointments, and contact details."
 - Email: [jaehee_kim@snu.ac.kr](mailto:jaehee_kim@snu.ac.kr)
 - GitHub: [github.com/KimJaehee0725](https://github.com/KimJaehee0725)
 - LinkedIn: [linkedin.com/in/jaehee-kim-hoyang](https://www.linkedin.com/in/jaehee-kim-hoyang)
+- Google Scholar: [scholar.google.com](https://scholar.google.com/citations?user=Iwp52qoAAAAJ)
 
 ## Education
 
 - **Seoul National University**, Seoul, Korea  
-  *Ph.D. student in Industrial Engineering*, Sep 2024 to present  
+  *Ph.D. student in Industrial Engineering*, Sep 2024 to present (expected Aug 2028)  
   Advisor: Prof. Pilsung Kang, Data Science and Business Analytics Lab
 
 - **Korea University**, Seoul, Korea  
@@ -38,14 +39,13 @@ excerpt: "Academic background, appointments, and contact details."
 
 <div class="proj-cards">
   <div class="proj-card">
-    <div class="proj-card__mark" style="background:#eaf0f4;color:#33566b">
-      <img src="/assets/images/logos/iitp.jpg" alt="IITP" onerror="this.remove()">
-      <span class="proj-card__mono">IITP</span>
+    <div class="proj-card__mark" style="background:#eef1ea;color:#3d5a2a">
+      <span class="proj-card__mono">KEIT</span>
     </div>
     <div class="proj-card__body">
-      <p class="proj-card__head"><span class="proj-card__org">IITP</span><span class="proj-card__date">Apr 2025 to Dec 2025</span></p>
-      <p class="proj-card__role">Manufacturing agents, RAG</p>
-      <p class="proj-card__desc">Multi-agent orchestration and a RAG pipeline for agents that assist factory workers.</p>
+      <p class="proj-card__head"><span class="proj-card__org">KEIT</span><span class="proj-card__date">Apr 2026 to present</span></p>
+      <p class="proj-card__role">Project lead · Multi-agent systems</p>
+      <p class="proj-card__desc">Multi-agent framework, orchestrator, and a virtual wafer-process simulator with logging for autonomous semiconductor operations.</p>
     </div>
   </div>
   <div class="proj-card">
@@ -55,8 +55,19 @@ excerpt: "Academic background, appointments, and contact details."
     </div>
     <div class="proj-card__body">
       <p class="proj-card__head"><span class="proj-card__org">Samsung Fire &amp; Marine</span><span class="proj-card__date">Mar 2025 to Mar 2026</span></p>
-      <p class="proj-card__role">Document AI, training data</p>
-      <p class="proj-card__desc">PDF parsing, hierarchical document preprocessing, and chatbot training data for insurance documents.</p>
+      <p class="proj-card__role">Project lead · Retrieval</p>
+      <p class="proj-card__desc">LLM parsing of insurance policies into hierarchical JSON, 24.6K synthetic queries, and hierarchy-aware retrievers (Top-10 accuracy 41&ndash;64% &rarr; &ge;90%) served with vLLM.</p>
+    </div>
+  </div>
+  <div class="proj-card">
+    <div class="proj-card__mark" style="background:#eaf0f4;color:#33566b">
+      <img src="/assets/images/logos/iitp.jpg" alt="IITP" onerror="this.remove()">
+      <span class="proj-card__mono">IITP</span>
+    </div>
+    <div class="proj-card__body">
+      <p class="proj-card__head"><span class="proj-card__org">IITP</span><span class="proj-card__date">Apr 2025 to Dec 2025</span></p>
+      <p class="proj-card__role">Project lead · Manufacturing agents</p>
+      <p class="proj-card__desc">LLM orchestration (intent &rarr; RAG retrieval &rarr; task decomposition &rarr; constraint check) across monitoring, prediction, and control agents; 99% intent accuracy.</p>
     </div>
   </div>
   <div class="proj-card">
@@ -65,9 +76,9 @@ excerpt: "Academic background, appointments, and contact details."
       <span class="proj-card__mono">SNU</span>
     </div>
     <div class="proj-card__body">
-      <p class="proj-card__head"><span class="proj-card__org">SNU College of Engineering</span><span class="proj-card__date">Jan 2025 to Jul 2025</span></p>
-      <p class="proj-card__role">Dense retrieval, evaluation</p>
-      <p class="proj-card__desc">Scientific-domain dense retrievers and evaluation pipelines built on research metadata.</p>
+      <p class="proj-card__head"><span class="proj-card__org">SNU College of Engineering</span><span class="proj-card__date">Dec 2024 to Jul 2025</span></p>
+      <p class="proj-card__role">Project lead · Dense retrieval</p>
+      <p class="proj-card__desc">530K LLM-generated queries over 52K documents and weight-merged BGE-M3 retrievers (avg. Top-5 accuracy 17.5% &rarr; 22.0%).</p>
     </div>
   </div>
   <div class="proj-card">
@@ -77,8 +88,8 @@ excerpt: "Academic background, appointments, and contact details."
     </div>
     <div class="proj-card__body">
       <p class="proj-card__head"><span class="proj-card__org">KakaoBank</span><span class="proj-card__date">Nov 2023 to Aug 2024</span></p>
-      <p class="proj-card__role">LLM evaluation</p>
-      <p class="proj-card__desc">Safety, truthfulness, and mathematical-reasoning benchmarks for finance-domain LLMs.</p>
+      <p class="proj-card__role">Project lead · LLM evaluation</p>
+      <p class="proj-card__desc">Korean financial LLM evaluation framework (5 topics, 16 abilities; MCQA, free-form, LLM-as-a-judge) benchmarking 21 LLMs.</p>
     </div>
   </div>
   <div class="proj-card">
@@ -88,8 +99,17 @@ excerpt: "Academic background, appointments, and contact details."
     </div>
     <div class="proj-card__body">
       <p class="proj-card__head"><span class="proj-card__org">LG Electronics</span><span class="proj-card__date">Apr 2022 to Nov 2023</span></p>
-      <p class="proj-card__role">Text mining, retrieval</p>
-      <p class="proj-card__desc">Unsupervised dense retrieval, review clustering, anomaly detection, and self-training for customer insight.</p>
+      <p class="proj-card__role">Project lead · Retrieval, text mining</p>
+      <p class="proj-card__desc">Phrase-level retriever on ~400K product reviews (accuracy 0.39 &rarr; 0.59) and a review trend-analysis framework.</p>
     </div>
   </div>
 </div>
+
+## Service
+
+- **Conference reviewer:** ICLR 2026, ICML 2026, NeurIPS 2026
+- **Workshop reviewer:** LASS Workshop at CIKM 2026
+
+## Mentoring
+
+- **NLP & Generative AI Mentor**, Naver Connect Boostcamp AI Tech (Cohorts 4&ndash;7), 2022 to 2025
