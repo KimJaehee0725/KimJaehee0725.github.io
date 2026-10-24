@@ -4,7 +4,7 @@ lang: ko
 translation_url: /
 permalink: /ko/
 excerpt: >-
-  서울대학교 산업공학과 박사과정. 언어 모델이 어떻게 추론하고, 검색하고, 시간 속에서 작동하는지를 연구합니다.
+  서울대학교 산업공학과 박사과정. 전체 상태를 다 보지 못한 채, 시간에 따라 변하는 환경에서 행동해야 하는 에이전트를 연구합니다.
 toc_tokens: true
 ---
 
@@ -12,29 +12,33 @@ toc_tokens: true
 <p class="tok tok--first" aria-hidden="true">&lt;bos&gt;</p>
 
 <div class="hero">
-  <p class="hero__lead">정적인 과제를 넘어, 언어 모델이 어떻게 추론하고 검색하며 <mark>시간에 걸쳐 동작하는지</mark>를 연구합니다.</p>
-  <p class="hero__sub">성능 수치를 높이기보다, 문제에 내재한 가정을 규명하고 모호한 능력을 관찰과 검증이 가능한 형태로 정의하는 연구를 합니다.</p>
-  <p class="hero__intern">LLM reasoning, RL, agent, retrieval 분야에서 연구 인턴십을 찾고 있으며, 특히 산업 현장의 문제를 다루는 연구 조직에 관심이 있습니다.</p>
+  <p class="hero__lead">저는 <mark>전체 상태를 다 보지 못한 채</mark> 행동해야 하는 에이전트를 연구합니다. 환경은 <mark>시간에 따라 변하고</mark>, 무엇이 최적인지는 누구도 알지 못합니다.</p>
+  <p class="hero__sub">사람도 전체 그림을 다 보고 결정하지는 않습니다. 일단 결정하고, 결과가 들어오는 대로 고쳐 나갑니다. 에이전트도 그럴 수 있어야 합니다.</p>
 </div>
 
 ## 소개
 
-서울대학교 산업공학과 박사과정이며, DSBA 연구실에서 강필성 교수님의 지도 아래 언어 모델을 연구하고 있습니다.
+서울대학교 산업공학과 박사과정이며, DSBA 연구실에서 강필성 교수님의 지도를 받고 있습니다. 산업공학을 공부하면서, 문제를 볼 때 <mark>현장에서 실제로 어떻게 돌아가는지</mark>부터 확인하는 습관이 생겼습니다.
 
-주로 기존 연구가 당연하게 전제하는 가정을 다시 살펴보고, 아직 명확히 정의되지 않은 능력을 관찰과 검증이 가능한 실험 구조로 바꾸는 연구를 해왔습니다. 모호한 연구 방향을 구체적인 문제 정의와 벤치마크, 검증 가능한 가설로 좁혀 가는 과정에 관심이 많습니다.
+연구는 주로 <mark>방법이 가정하는 환경</mark>과 <mark>사람들이 실제로 놓인 환경</mark> 사이의 틈에서 시작합니다. ContAccum은 제한된 메모리로 큰 배치의 대조학습을 해야 했던 데서 시작했습니다. gradient accumulation으로는 부족했고, GradCache는 구현이 까다로웠습니다. AlienLM은 기존 프라이버시 방법론이 전통적인 머신러닝을 전제로 만들어져, LLM API와 텍스트를 주고받을 때의 연산량, 데이터 크기, 모달리티를 고려하지 못한다는 점에서 출발했습니다.
 
-삼성화재, KakaoBank, LG전자, IITP 등과의 산업 협력 프로젝트에도 참여해, 현장의 문제를 연구 문제로 옮기고 실제 제약 아래에서 동작하는 시스템을 다뤄 왔습니다. 자세한 산학협력 내용은 [CV](/ko/cv/)를 참고해 주세요.
+지금은 복잡하고, 부분적으로만 관측되며, 시간에 따라 변하는 <mark>산업 공정과 닮은 환경</mark>을 만들고 그 안의 에이전트를 연구합니다. 이런 환경에서는 최적의 결정이 무엇인지 아무도 모르기 때문에, 평가하는 쪽도 매 단계를 탐욕적으로만 채점할 수 있습니다. 에이전트가 이런 곳에서 일하려면 추론, 검색, 강화학습이 모두 필요해서, 셋을 이 환경 안에서 함께 다루고 있습니다.
+
+어려운 문제일수록 단순한 문장으로 말하고 싶고, 능력을 개선하기 전에 그 능력이 무엇을 뜻하는지부터 알고 싶어 합니다.
+
+<p class="tok-close" aria-hidden="true">&lt;|eot_id|&gt;</p>
 
 <details class="think">
   <summary><span aria-hidden="true">&lt;think&gt;</span><span class="think__label">Thought for 10 semesters</span><span class="think__hint">연구 방향</span></summary>
   <div class="think__body">
+    <p>요즘 계속 붙들고 있는 세 가지 방향입니다.</p>
     <h3>추론과 강화학습</h3>
-    <p>모델이 어떻게 추론하는지, 그리고 RL을 long-horizon 에이전트 행동을 연구하는 방법으로서 관심을 둡니다. 더 어려운 질문은 보통 reward 이전에 옵니다. 에이전트의 역할, action space, 환경의 동역학, 피드백 구조를 현실적으로 정의하는 일이요. 추론 품질을 유지하면서 효율을 지키는 rationale reduction과 decoding 전략도 함께 연구합니다.</p>
+    <p>모델이 어떻게 추론하는지, 그리고 RL을 long-horizon 행동을 연구하는 방법으로서 관심을 둡니다. 더 어려운 질문은 보통 reward 이전에 옵니다. 에이전트의 역할, action space, 환경의 동역학, 피드백 구조를 현실적으로 정의하는 일이요. 추론 품질을 유지하면서 효율을 지키는 rationale reduction과 decoding 전략도 함께 연구합니다.</p>
+    <h3>검색</h3>
+    <p>저는 retrieval을 넓게, 외부 정보를 언어 모델로 연결하는 통로로 봅니다. 변하는 환경에서는 새로 쌓인 로그나 측정값을 통해 무엇이 바뀌었는지 알아내는 수단이 되기도 합니다.</p>
     <h3>시간 속에서 작동하는 에이전트</h3>
-    <p>대부분의 에이전트 벤치마크는 에이전트가 과제를 끝낼 수 있는지를 묻습니다. 저는 그 일을 계속 해낼 수 있는지에 더 관심이 있습니다. 세상이 바뀌는 순간을 알아차리고, 언제 개입할지 판단하고, 끝이 분명하지 않은 목표를 붙드는 것.</p>
-    <h3>외부 정보로 향하는 통로로서의 retrieval</h3>
-    <p>저는 retrieval을 넓게, 외부 정보를 언어 모델로 연결하는 통로로 봅니다. 무엇을 검색하느냐에 따라 memory, personalization, 추론 지원, 혹은 변화하는 환경에 대한 관찰 장치가 될 수 있습니다.</p>
-    <p class="think__now"><em>The output is not the answer. The output is the trajectory.</em> <strong>OperationBench</strong>는 과제를 끝내는 것을 넘어, 변화하는 상황 속에서 일을 계속 해내는 운영형 에이전트를 평가하기 위한 초기 단계 프로젝트입니다.</p>
+    <p>대부분의 에이전트 벤치마크는 에이전트가 과제를 끝낼 수 있는지를 묻습니다. 저는 그 일을 계속 해낼 수 있는지에 더 관심이 있습니다. 환경이 바뀐 것을 알아차리고, 언제 개입할지 판단하고, 끝이 분명하지 않은 목표를 계속 이어갈 수 있는지가 궁금합니다.</p>
+    <p class="think__now"><em>The output is not the answer. The output is the trajectory.</em> 지금은 산업 공정을 본뜬 환경을 만들어 이 문제를 연구하고 있습니다.</p>
     <p class="think__close" aria-hidden="true">&lt;/think&gt;</p>
   </div>
 </details>
@@ -74,6 +78,8 @@ toc_tokens: true
 </ul>
 
 <p class="see-all"><a href="/ko/publications/">전체 논문 보기</a></p>
+
+<p class="tok-close" aria-hidden="true">&lt;/answer&gt;</p>
 
 <p class="tok" aria-hidden="true">trajectory.log</p>
 
@@ -138,12 +144,14 @@ toc_tokens: true
 <div class="toolcall" data-copy-scope>
   <img class="toolcall__illus illus" src="/assets/images/illustrations/alien-walkie.png" alt="" width="390" height="560" loading="lazy">
   <div class="toolcall__body">
-    <p>LLM reasoning, RL, agent, retrieval 분야를 연구하거나 실제 서비스에 적용하려는 조직과의 협업에 관심이 있습니다. 현재 연구 인턴십 기회를 찾고 있으니 편하게 연락 주세요.</p>
+    <p>LLM reasoning, RL, agent, retrieval 분야를 연구하거나 실제 서비스에 적용하려는 조직과의 협업에 관심이 있습니다. 특히 공정처럼 복잡하고, 측정하기 어렵고, 시간에 따라 변하는 과정을 다루는 곳에서의 연구 인턴십을 찾고 있으니 편하게 연락 주세요.</p>
     <div class="toolcall__code"><span class="tc-fn">send_email</span>(<span class="tc-arg">to=</span><button type="button" class="copy-email" data-copy="jaehee_kim@snu.ac.kr" data-copied="이메일 주소가 복사되었어요">"jaehee_kim@snu.ac.kr"</button>, <span class="tc-arg">topic=</span>"internship")</div>
     <span class="copy-status" data-copy-status aria-live="polite"></span>
     <p class="toolcall__alt">주소를 누르면 복사되고, <a href="mailto:jaehee_kim@snu.ac.kr">메일 앱으로 바로 보낼 수도</a> 있어요.</p>
   </div>
 </div>
+
+<p class="tok-close" aria-hidden="true">&lt;/tool_call&gt;</p>
 
 <div class="eos">
   <img class="eos__illus illus" src="/assets/images/illustrations/alien-wave.png" alt="" width="415" height="560">

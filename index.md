@@ -3,7 +3,7 @@ layout: jk
 lang: en
 translation_url: /ko/
 excerpt: >-
-  Ph.D. student at Seoul National University studying how language models reason, retrieve, and operate over time.
+  Ph.D. student at Seoul National University studying agents that act without the whole picture, in environments that change over time.
 toc_tokens: true
 ---
 
@@ -11,29 +11,33 @@ toc_tokens: true
 <p class="tok tok--first" aria-hidden="true">&lt;bos&gt;</p>
 
 <div class="hero">
-  <p class="hero__lead">I study language models beyond static tasks: how they reason, retrieve, and <mark>operate over time</mark>.</p>
-  <p class="hero__sub">I believe the hard part is not raising a score, but naming what a capability is and making it visible.</p>
-  <p class="hero__intern">Open to research internships in LLM reasoning, agents, RL, and retrieval.</p>
+  <p class="hero__lead">I study agents that must act <mark>without seeing the whole state</mark>, in environments that <mark>change over time</mark> and where no one knows the optimal answer.</p>
+  <p class="hero__sub">People rarely see the whole picture either; we decide anyway and adjust as the results come in. Agents should be able to do the same.</p>
 </div>
 
 ## About
 
-I am a Ph.D. student in Industrial Engineering at Seoul National University, advised by Prof. Pilsung Kang in the Data Science and Business Analytics Lab.
+I am a Ph.D. student in Industrial Engineering at Seoul National University, advised by Prof. Pilsung Kang in the Data Science and Business Analytics Lab. Studying industrial engineering, I got used to starting from <mark>how a process actually runs</mark>, constraints and all.
 
-Many of my projects start from a small discomfort in existing work, a comparison that feels incomplete or an evaluation claim that seems too narrow, and I turn it into a setting where a vague capability becomes measurable.
+My projects usually start from the gap between <mark>what a method assumes</mark> and <mark>the setting people actually work in</mark>. ContAccum began when I needed large-batch contrastive training on limited memory: gradient accumulation was not enough, and gradient caching was hard to build on. AlienLM began from privacy frameworks designed for conventional machine learning, which did not account for the compute, data size, and modality of exchanging text with an LLM API.
+
+Now I build environments that resemble <mark>industrial processes</mark>: complex, partially observable, and changing over time. Nobody knows the optimal decision in them, so even the evaluator can only score each step greedily. An agent needs reasoning, retrieval, and reinforcement learning to work in such a setting, so I study the three together there.
 
 I like simple sentences for difficult problems, and I usually want to know what we mean by a capability before trying to improve it.
+
+<p class="tok-close" aria-hidden="true">&lt;|eot_id|&gt;</p>
 
 <details class="think">
   <summary><span aria-hidden="true">&lt;think&gt;</span><span class="think__label">Thought for 10 semesters</span><span class="think__hint">research directions</span></summary>
   <div class="think__body">
+    <p>The three directions I keep coming back to.</p>
     <h3>Reasoning and reinforcement learning</h3>
-    <p>I am interested in how models reason, and in RL as a way to study long-horizon agent behavior. The harder question often comes before the reward: defining the agent's role, action space, environment dynamics, and feedback structure in a realistic way. I also work on rationale reduction and decoding strategies that keep reasoning quality while staying efficient.</p>
+    <p>I am interested in how models reason, and in RL as a way to study long-horizon behavior. The harder question often comes before the reward: defining the agent's role, action space, environment dynamics, and feedback structure in a realistic way. I also work on rationale reduction and decoding strategies that keep reasoning quality while staying efficient.</p>
+    <h3>Retrieval</h3>
+    <p>I view retrieval broadly, as channeling external information into a language model. In a changing environment, it is also how an agent finds out what has changed, for example from a new log entry or sensor reading.</p>
     <h3>Agents that operate over time</h3>
-    <p>Most agent benchmarks ask whether an agent can finish a task. I am more interested in whether it can keep doing the job: noticing when the world changes, deciding when to intervene, and holding a goal that may not have a clean endpoint.</p>
-    <h3>Retrieval as a channel to external information</h3>
-    <p>I view retrieval broadly, as channeling external information into a language model. Depending on what is retrieved, it can act as memory, personalization, reasoning support, or an observation mechanism for changing environments.</p>
-    <p class="think__now"><em>The output is not the answer. The output is the trajectory.</em> <strong>OperationBench</strong> is my early-stage attempt to evaluate agents that keep doing the job, not just finish it.</p>
+    <p>Most agent benchmarks ask whether an agent can finish a task. I am more interested in whether it can keep doing the job: noticing when the environment changes, deciding when to step in, and keeping track of a goal that may not have a clear end.</p>
+    <p class="think__now"><em>The output is not the answer. The output is the trajectory.</em> My current project builds an environment modeled on industrial processes to study this.</p>
     <p class="think__close" aria-hidden="true">&lt;/think&gt;</p>
   </div>
 </details>
@@ -73,6 +77,8 @@ I like simple sentences for difficult problems, and I usually want to know what 
 </ul>
 
 <p class="see-all"><a href="/publications/">See all publications</a></p>
+
+<p class="tok-close" aria-hidden="true">&lt;/answer&gt;</p>
 
 <p class="tok" aria-hidden="true">trajectory.log</p>
 
@@ -139,12 +145,14 @@ I share my days with two cats, Luce and hoyang, who have firm opinions about my 
 <div class="toolcall" data-copy-scope>
   <img class="toolcall__illus illus" src="/assets/images/illustrations/alien-walkie.png" alt="" width="390" height="560" loading="lazy">
   <div class="toolcall__body">
-    <p>If you work on LLM reasoning, agents, RL, or retrieval, I would be glad to talk. I am looking for a research internship.</p>
+    <p>If you work on LLM reasoning, agents, RL, or retrieval, I would be glad to talk. I am looking for a research internship, especially where the processes are complex, hard to measure, and changing over time.</p>
     <div class="toolcall__code"><span class="tc-fn">send_email</span>(<span class="tc-arg">to=</span><button type="button" class="copy-email" data-copy="jaehee_kim@snu.ac.kr" data-copied="email copied">"jaehee_kim@snu.ac.kr"</button>, <span class="tc-arg">topic=</span>"internship")</div>
     <span class="copy-status" data-copy-status aria-live="polite"></span>
     <p class="toolcall__alt">Click the address to copy it, or <a href="mailto:jaehee_kim@snu.ac.kr">open your mail app</a>.</p>
   </div>
 </div>
+
+<p class="tok-close" aria-hidden="true">&lt;/tool_call&gt;</p>
 
 <div class="eos">
   <img class="eos__illus illus" src="/assets/images/illustrations/alien-wave.png" alt="" width="415" height="560">
