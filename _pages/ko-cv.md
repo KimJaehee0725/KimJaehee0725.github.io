@@ -1,12 +1,13 @@
 ---
+layout: jk
 title: "Curriculum Vitae"
 permalink: /ko/cv/
 lang: ko
 translation_url: /cv/
 excerpt: "학력, 주요 연구 분야, 연락처, 최신 CV."
+token: "&lt;memory&gt;"
 ---
 
-{% include language-toggle.html %}
 
 <div class="cv-download-card">
   <p class="cv-download-card__body">최신 CV를 PDF로 다운로드할 수 있습니다.</p>

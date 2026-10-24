@@ -1,13 +1,14 @@
 ---
+layout: jk
 title: "Publications"
 permalink: /ko/publications/
 lang: ko
 translation_url: /publications/
 excerpt: "Language models, reasoning, retrieval 관련 publications와 manuscripts."
 classes: pub-page
+token: "&lt;retrieve&gt;"
 ---
 
-{% include language-toggle.html %}
 
 ## Under Review
 

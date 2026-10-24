@@ -1,12 +1,13 @@
 ---
+layout: jk
 title: "Curriculum Vitae"
 permalink: /cv/
 lang: en
 translation_url: /ko/cv/
 excerpt: "Academic background, appointments, and contact details."
+token: "&lt;memory&gt;"
 ---
 
-{% include language-toggle.html %}
 
 <div class="cv-download-card">
   <p class="cv-download-card__body">Download the latest CV as a PDF.</p>

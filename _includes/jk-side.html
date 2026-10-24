@@ -1,0 +1,50 @@
+{%- assign lang = page.lang | default: "en" -%}
+{%- assign is_ko = false -%}{%- if lang == "ko" -%}{%- assign is_ko = true -%}{%- endif -%}
+{%- if is_ko -%}{%- assign nav = site.data.navigation.ko_main -%}{%- else -%}{%- assign nav = site.data.navigation.main -%}{%- endif -%}
+{%- assign home_url = nav[0].url -%}
+{%- assign translation_url = page.translation_url | default: "/" -%}
+<aside class="jk-side">
+  <div class="jk-side__inner">
+    <div class="jk-id">
+      <a class="jk-id__photo" href="{{ home_url | relative_url }}" tabindex="-1" aria-hidden="true">
+        <img src="{{ site.author.avatar | relative_url }}" alt="" width="72" height="72">
+      </a>
+      <div class="jk-id__text">
+        <a class="jk-id__name" href="{{ home_url | relative_url }}">jaehee_kim<span class="jk-cursor" aria-hidden="true">_</span></a>
+        <p class="jk-id__role">
+          {% if is_ko %}서울대 산업공학과 박사과정<br>DSBA 연구실{% else %}Ph.D. student, Industrial Eng.<br>Seoul National University{% endif %}
+        </p>
+      </div>
+    </div>
+
+    <p class="jk-side__bio">
+      {% if is_ko %}언어모델이 시간 속에서 추론하고, 찾고, 계속 일하는 방식을 연구합니다. <span class="jk-side__intern">연구 인턴십을 찾고 있어요.</span>{% else %}I study how language models reason, retrieve, and operate over time. <span class="jk-side__intern">Open to research internships.</span>{% endif %}
+    </p>
+
+    <nav class="jk-nav" aria-label="{% if is_ko %}사이트{% else %}Site{% endif %}">
+      {% for item in nav %}
+        <a class="jk-nav__link{% if page.url == item.url %} is-current{% endif %}" href="{{ item.url | relative_url }}"{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.title }}</a>
+      {% endfor %}
+      <span class="jk-lang">
+        {% if is_ko %}
+          <a class="jk-lang__link" href="{{ translation_url | relative_url }}" lang="en">EN</a><span class="jk-lang__link is-current" aria-current="true">KO</span>
+        {% else %}
+          <span class="jk-lang__link is-current" aria-current="true">EN</span><a class="jk-lang__link" href="{{ translation_url | relative_url }}" lang="ko">KO</a>
+        {% endif %}
+      </span>
+    </nav>
+
+    <ul class="jk-links">
+      {% for link in site.author.links %}
+        <li><a href="{{ link.url }}" rel="me noopener"><i class="{{ link.icon }}" aria-hidden="true"></i><span>{{ link.label }}</span></a></li>
+      {% endfor %}
+    </ul>
+
+    {% if page.toc_tokens %}
+      <nav class="jk-toc" aria-label="{% if is_ko %}이 페이지의 순서{% else %}On this page{% endif %}">
+        <p class="jk-toc__head">{% if is_ko %}생성 순서{% else %}decoding order{% endif %}</p>
+        <ol class="jk-toc__list"></ol>
+      </nav>
+    {% endif %}
+  </div>
+</aside>

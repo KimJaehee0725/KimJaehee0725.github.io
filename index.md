@@ -1,16 +1,17 @@
 ---
-layout: single
-author_profile: true
+layout: jk
 lang: en
 translation_url: /ko/
 excerpt: >-
   Ph.D. student at Seoul National University studying how language models reason, retrieve, and operate over time.
+toc_tokens: true
 ---
 
-{% include language-toggle.html %}
+
+<p class="tok tok--first" aria-hidden="true">&lt;bos&gt;</p>
 
 <div class="hero">
-  <p class="hero__lead">I study language models beyond static tasks: how they reason, retrieve, and operate over time.</p>
+  <p class="hero__lead">I study language models beyond static tasks: how they reason, retrieve, and <mark>operate over time</mark>.</p>
   <p class="hero__sub">I believe the hard part is not raising a score, but naming what a capability is and making it visible.</p>
   <p class="hero__intern">Open to research internships in LLM reasoning, agents, RL, and retrieval.</p>
 </div>
@@ -23,31 +24,78 @@ Many of my projects start from a small discomfort in existing work, a comparison
 
 I like simple sentences for difficult problems, and I usually want to know what we mean by a capability before trying to improve it.
 
+<details class="think">
+  <summary><span aria-hidden="true">&lt;think&gt;</span><span class="think__label">Thought for 10 semesters</span><span class="think__hint">research directions</span></summary>
+  <div class="think__body">
+    <h3>Reasoning and reinforcement learning</h3>
+    <p>I am interested in how models reason, and in RL as a way to study long-horizon agent behavior. The harder question often comes before the reward: defining the agent's role, action space, environment dynamics, and feedback structure in a realistic way. I also work on rationale reduction and decoding strategies that keep reasoning quality while staying efficient.</p>
+    <h3>Agents that operate over time</h3>
+    <p>Most agent benchmarks ask whether an agent can finish a task. I am more interested in whether it can keep doing the job: noticing when the world changes, deciding when to intervene, and holding a goal that may not have a clean endpoint.</p>
+    <h3>Retrieval as a channel to external information</h3>
+    <p>I view retrieval broadly, as channeling external information into a language model. Depending on what is retrieved, it can act as memory, personalization, reasoning support, or an observation mechanism for changing environments.</p>
+    <p class="think__now"><em>The output is not the answer. The output is the trajectory.</em> <strong>OperationBench</strong> is my early-stage attempt to evaluate agents that keep doing the job, not just finish it.</p>
+    <p class="think__close" aria-hidden="true">&lt;/think&gt;</p>
+  </div>
+</details>
+
+<p class="tok" aria-hidden="true">&lt;answer&gt;</p>
+
 ## Selected research
 
 <ul class="selected">
-  <li>
+  <li data-copy-scope>
     <p class="selected__head"><a href="/alienlm/">AlienLM</a><span class="selected__venue">ICML 2026</span></p>
-    <p class="selected__desc">The first text-only method for API-boundary privacy that works on general tasks: alienized text stays useful to the model but is hard for an outside observer to recover, retaining over 81% of plaintext performance. <a href="/alienlm/">Project page with a live demo</a>.</p>
+    <p class="selected__desc">The first text-only method for API-boundary privacy that works on general tasks: alienized text stays useful to the model but is hard for an outside observer to recover, retaining over 81% of plaintext performance.</p>
+    <ul class="chips">
+      <li><a class="chip" href="https://arxiv.org/abs/2601.22710">paper</a></li>
+      <li><a class="chip" href="https://github.com/KimJaehee0725/AlienLM">code</a></li>
+      <li><a class="chip" href="/alienlm/#demo">demo</a></li>
+      <li><a class="chip" href="/alienlm/#poster">poster</a></li>
+      <li><a class="chip" href="/alienlm/#figures">figures</a></li>
+      <li><button type="button" class="chip" data-copy="@inproceedings{kim2026alienlm,&#10;  title     = {AlienLM: Alienization of Language for API-Boundary Privacy in Black-Box LLMs},&#10;  author    = {Kim, Jaehee and Kang, Pilsung},&#10;  booktitle = {Proceedings of the 43rd International Conference on Machine Learning},&#10;  year      = {2026}&#10;}" data-copied="BibTeX copied">bib ⧉</button></li>
+    </ul>
+    <span class="copy-status" data-copy-status aria-live="polite"></span>
   </li>
   <li>
     <p class="selected__head"><a href="https://proceedings.neurips.cc/paper_files/paper/2024/hash/15ba84c1e19b0eb75f96922f5da0a021-Abstract-Conference.html">ContAccum</a><span class="selected__venue">NeurIPS 2024</span></p>
     <p class="selected__desc">Improves contrastive learning by accumulating comparison queries, not just comparison targets.</p>
+    <ul class="chips">
+      <li><a class="chip" href="https://proceedings.neurips.cc/paper_files/paper/2024/hash/15ba84c1e19b0eb75f96922f5da0a021-Abstract-Conference.html">paper</a></li>
+    </ul>
   </li>
   <li>
     <p class="selected__head"><a href="https://aclanthology.org/2025.emnlp-main.796/">CheckEval</a><span class="selected__venue">EMNLP 2025</span></p>
     <p class="selected__desc">Reframes LLM-as-a-judge around stability under model and sample changes, not human correlation alone.</p>
+    <ul class="chips">
+      <li><a class="chip" href="https://aclanthology.org/2025.emnlp-main.796/">paper</a></li>
+    </ul>
   </li>
 </ul>
 
 <p class="see-all"><a href="/publications/">See all publications</a></p>
 
-## Ongoing direction
+<p class="tok" aria-hidden="true">trajectory.log</p>
 
-<div class="ongoing">
-  <p class="ongoing__quote">The output is not the answer. The output is the trajectory.</p>
-  <p class="ongoing__body">Most agent benchmarks ask whether an agent finishes a task. I care more about whether it keeps doing the job, and <strong>OperationBench</strong> is my early-stage attempt to evaluate that.</p>
-</div>
+## News
+
+<ul class="traj">
+  <li><span class="traj__date">2026-10</span><span class="traj__step">step 9</span><span>Updated my CV with project outcomes and reviewing service. <a href="/cv/">[CV]</a></span></li>
+  <li><span class="traj__date">2026-07</span><span class="traj__step">step 8</span><span>AlienLM project page with an in-browser tokenizer demo is up. <a href="/alienlm/">[project page]</a> <a href="https://arxiv.org/abs/2601.22710">[arXiv]</a> <a href="https://github.com/KimJaehee0725/AlienLM">[code]</a></span></li>
+  <li><span class="traj__date">2026-05</span><span class="traj__step">step 7</span><span>AlienLM was accepted to ICML 2026.</span></li>
+  <li><span class="traj__date">2026-05</span><span class="traj__step">step 6</span><span>Updated my CV with new under-review manuscripts and archived publications.</span></li>
+  <li><span class="traj__date">2026-03</span><span class="traj__step">step 5</span><span>New manuscripts on belief-shift rewards and semiconductor equipment log retrieval are under review.</span></li>
+</ul>
+<details class="traj-more">
+  <summary>show full trajectory</summary>
+  <ul class="traj">
+    <li><span class="traj__date">2026-01</span><span class="traj__step">step 4</span><span>AlienLM is now public on arXiv, with code released. <a href="https://arxiv.org/abs/2601.22710">[arXiv]</a> <a href="https://github.com/KimJaehee0725/AlienLM">[code]</a></span></li>
+    <li><span class="traj__date">2025-11</span><span class="traj__step">step 3</span><span>CheckEval appeared at EMNLP 2025.</span></li>
+    <li><span class="traj__date">2025-07</span><span class="traj__step">step 2</span><span>Verbosity-Aware Rationale Reduction appeared at ACL 2025.</span></li>
+    <li><span class="traj__date">2024-12</span><span class="traj__step">step 1</span><span>ContAccum, a memory-efficient dense retriever training method, appeared at NeurIPS 2024.</span></li>
+  </ul>
+</details>
+
+<p class="tok" aria-hidden="true">&lt;pad&gt;<span class="tok__note">not actually padding</span></p>
 
 ## Beyond research
 
@@ -84,22 +132,21 @@ I share my days with two cats, Luce and hoyang, who have firm opinions about my 
   </figure>
 </div>
 
+<p class="tok" aria-hidden="true">&lt;tool_call&gt;</p>
+
 ## Get in touch
 
-If you work on LLM reasoning, agents, RL, or retrieval, I would be glad to talk. I am looking for a research internship.
+<div class="toolcall" data-copy-scope>
+  <img class="toolcall__illus illus" src="/assets/images/illustrations/alien-walkie.png" alt="" width="390" height="560" loading="lazy">
+  <div class="toolcall__body">
+    <p>If you work on LLM reasoning, agents, RL, or retrieval, I would be glad to talk. I am looking for a research internship.</p>
+    <div class="toolcall__code"><span class="tc-fn">send_email</span>(<span class="tc-arg">to=</span><button type="button" class="copy-email" data-copy="jaehee_kim@snu.ac.kr" data-copied="email copied">"jaehee_kim@snu.ac.kr"</button>, <span class="tc-arg">topic=</span>"internship")</div>
+    <span class="copy-status" data-copy-status aria-live="polite"></span>
+    <p class="toolcall__alt">Click the address to copy it, or <a href="mailto:jaehee_kim@snu.ac.kr">open your mail app</a>.</p>
+  </div>
+</div>
 
-Reach me at [jaehee_kim@snu.ac.kr](mailto:jaehee_kim@snu.ac.kr).
-
-## News
-
-<ul class="news-list">
-  <li><span class="news-list__date">Oct 2026</span><span class="news-list__text">Updated my CV with project outcomes and reviewing service. <a href="/cv/">[CV]</a></span></li>
-  <li><span class="news-list__date">Jul 2026</span><span class="news-list__text">AlienLM project page with an in-browser tokenizer demo is up. <a href="/alienlm/">[project page]</a> <a href="https://arxiv.org/abs/2601.22710">[arXiv]</a> <a href="https://github.com/KimJaehee0725/AlienLM">[code]</a></span></li>
-  <li><span class="news-list__date">May 2026</span><span class="news-list__text">AlienLM was accepted to ICML 2026.</span></li>
-  <li><span class="news-list__date">May 2026</span><span class="news-list__text">Updated my CV with new under-review manuscripts and archived publications.</span></li>
-  <li><span class="news-list__date">Mar 2026</span><span class="news-list__text">New manuscripts on belief-shift rewards and semiconductor equipment log retrieval are under review.</span></li>
-  <li><span class="news-list__date">Jan 2026</span><span class="news-list__text">AlienLM is now public on arXiv, with code released. <a href="https://arxiv.org/abs/2601.22710">[arXiv]</a> <a href="https://github.com/KimJaehee0725/AlienLM">[code]</a></span></li>
-  <li><span class="news-list__date">Nov 2025</span><span class="news-list__text">CheckEval appeared at EMNLP 2025.</span></li>
-  <li><span class="news-list__date">Jul 2025</span><span class="news-list__text">Verbosity-Aware Rationale Reduction appeared at ACL 2025.</span></li>
-  <li><span class="news-list__date">Dec 2024</span><span class="news-list__text">ContAccum, a memory-efficient dense retriever training method, appeared at NeurIPS 2024.</span></li>
-</ul>
+<div class="eos">
+  <img class="eos__illus illus" src="/assets/images/illustrations/alien-wave.png" alt="" width="415" height="560">
+  <p class="eos__text"><span class="eos__tok" aria-hidden="true">&lt;eos&gt;</span> Thanks for reading.<br><a href="#">↺ keep generating</a></p>
+</div>

@@ -43,6 +43,7 @@
   .demo-grid { display: grid; grid-template-columns: minmax(0,0.92fr) minmax(0,1.08fr); gap: 20px; padding: 24px; }
   .results-grid { display: grid; grid-template-columns: minmax(0,1.16fr) minmax(320px,0.84fr); gap: 18px; }
   .resources-grid { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 14px; }
+  .figure-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 14px; }
 
   @media (max-width: 980px) {
     .stats-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
@@ -50,6 +51,7 @@
     .demo-grid { grid-template-columns: 1fr; }
     .results-grid { grid-template-columns: 1fr; }
     .resources-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    .figure-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
   }
   @media (max-width: 560px) {
     .stats-grid, .resources-grid { grid-template-columns: 1fr; }
@@ -323,7 +325,7 @@
       <div style="max-width:760px;margin-bottom:30px;">
         <div style="display:inline-flex;align-items:center;gap:9px;color:#0f8577;font:700 12px/1 'IBM Plex Mono',monospace;letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px;"><span style="width:8px;height:8px;border-radius:50%;background:#12a394;display:inline-block;"></span>Resources</div>
         <h2 style="margin:0 0 12px;font:600 clamp(30px,4.4vw,46px)/1.05 'Space Grotesk',sans-serif;letter-spacing:-.02em;color:#12233d;">Dig in.</h2>
-        <p style="margin:0;font:400 18px/1.55 'Hanken Grotesk',sans-serif;color:#48576d;">Paper for concepts, Hugging Face for checkpoints, GitHub for tokenizer, training and recovery code.</p>
+        <p style="margin:0;font:400 18px/1.55 'Hanken Grotesk',sans-serif;color:#48576d;">Paper for concepts, Hugging Face for checkpoints, GitHub for tokenizer, training and recovery code. The poster, the figure cast and a BibTeX entry are below.</p>
       </div>
       <div class="resources-grid">
         <a href="https://arxiv.org/abs/2601.22710" style="display:flex;flex-direction:column;justify-content:space-between;min-height:170px;padding:22px;border:1px solid #dbe3ec;border-radius:16px;background:#fff;">
@@ -342,6 +344,94 @@
           <div><h3 style="margin:0 0 8px;font:600 18px/1.2 'Space Grotesk',sans-serif;color:#12233d;">Recovery evals</h3><p style="margin:0;font:400 14px/1.5 'Hanken Grotesk',sans-serif;color:#5a6474;">Runnable O1/O2/O3 recovery and robustness scripts.</p></div>
           <span style="margin-top:16px;font:700 14px/1 'Hanken Grotesk',sans-serif;color:#0f8577;">Evaluation repo →</span>
         </a>
+      </div>
+
+      <!-- Poster -->
+      <div id="poster" style="margin-top:56px;scroll-margin-top:84px;">
+        <div style="display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:10px 20px;margin-bottom:16px;">
+          <h3 style="margin:0;font:600 clamp(22px,2.6vw,28px)/1.1 'Space Grotesk',sans-serif;letter-spacing:-.01em;color:#12233d;">Poster</h3>
+          <span style="font:500 13px/1 'IBM Plex Mono',monospace;color:#7a879a;">ICML 2026 · Poster Session 7 · Hall A #2214</span>
+        </div>
+        <a href="assets/poster/alienlm-icml2026-poster.pdf" style="display:block;border:1px solid #dbe3ec;border-radius:16px;background:#fff;overflow:hidden;">
+          <img src="assets/poster/alienlm-icml2026-poster.jpg" alt="AlienLM ICML 2026 poster" loading="lazy" width="2000" height="1504" style="width:100%;height:auto;">
+        </a>
+        <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:14px;">
+          <a href="assets/poster/alienlm-icml2026-poster.pdf" style="display:inline-flex;align-items:center;height:42px;padding:0 18px;border-radius:10px;background:#183963;color:#fff;font:700 14px/1 'Hanken Grotesk',sans-serif;">Open PDF →</a>
+          <a href="assets/poster/alienlm-icml2026-poster.pdf" download style="display:inline-flex;align-items:center;height:42px;padding:0 18px;border-radius:10px;background:#fff;border:1.5px solid #c9d5e2;color:#183963;font:700 14px/1 'Hanken Grotesk',sans-serif;">Download (5.7 MB)</a>
+        </div>
+      </div>
+
+      <!-- Figure kit -->
+      <div id="figures" style="margin-top:56px;scroll-margin-top:84px;">
+        <div style="max-width:760px;margin-bottom:18px;">
+          <h3 style="margin:0 0 8px;font:600 clamp(22px,2.6vw,28px)/1.1 'Space Grotesk',sans-serif;letter-spacing:-.01em;color:#12233d;">Figure kit</h3>
+          <p style="margin:0;font:400 16px/1.55 'Hanken Grotesk',sans-serif;color:#48576d;">The cast of the paper's figures, as transparent PNGs. Reuse them in slides or posts, with a credit to AlienLM (Kim &amp; Kang, ICML 2026).</p>
+        </div>
+        <div class="figure-grid">
+          <figure style="margin:0;display:flex;flex-direction:column;border:1px solid #dbe3ec;border-radius:16px;background:#fff;overflow:hidden;">
+            <div style="height:clamp(170px,19vw,230px);padding:18px;background:#fbfdff;border-bottom:1px solid #eef2f6;"><img src="assets/figures/web/user.png" alt="User illustration" loading="lazy" style="width:100%;height:100%;object-fit:contain;"></div>
+            <figcaption style="display:flex;flex-direction:column;gap:4px;padding:14px 16px 16px;">
+              <span style="font:600 15px/1.2 'Space Grotesk',sans-serif;color:#12233d;">User</span>
+              <span style="font:400 13px/1.4 'Hanken Grotesk',sans-serif;color:#5a6474;">Writes the plaintext prompt.</span>
+              <a href="assets/figures/user.png" download style="margin-top:6px;font:700 13px/1 'Hanken Grotesk',sans-serif;color:#0f8577;">PNG ↓</a>
+            </figcaption>
+          </figure>
+          <figure style="margin:0;display:flex;flex-direction:column;border:1px solid #dbe3ec;border-radius:16px;background:#fff;overflow:hidden;">
+            <div style="height:clamp(170px,19vw,230px);padding:18px;background:#fbfdff;border-bottom:1px solid #eef2f6;"><img src="assets/figures/web/translator.png" alt="Translator illustration" loading="lazy" style="width:100%;height:100%;object-fit:contain;"></div>
+            <figcaption style="display:flex;flex-direction:column;gap:4px;padding:14px 16px 16px;">
+              <span style="font:600 15px/1.2 'Space Grotesk',sans-serif;color:#12233d;">Translator</span>
+              <span style="font:400 13px/1.4 'Hanken Grotesk',sans-serif;color:#5a6474;">Alienizes and recovers text on the client.</span>
+              <a href="assets/figures/translator.png" download style="margin-top:6px;font:700 13px/1 'Hanken Grotesk',sans-serif;color:#0f8577;">PNG ↓</a>
+            </figcaption>
+          </figure>
+          <figure style="margin:0;display:flex;flex-direction:column;border:1px solid #dbe3ec;border-radius:16px;background:#fff;overflow:hidden;">
+            <div style="height:clamp(170px,19vw,230px);padding:18px;background:#fbfdff;border-bottom:1px solid #eef2f6;"><img src="assets/figures/web/api-provider.png" alt="API provider illustration" loading="lazy" style="width:100%;height:100%;object-fit:contain;"></div>
+            <figcaption style="display:flex;flex-direction:column;gap:4px;padding:14px 16px 16px;">
+              <span style="font:600 15px/1.2 'Space Grotesk',sans-serif;color:#12233d;">API provider</span>
+              <span style="font:400 13px/1.4 'Hanken Grotesk',sans-serif;color:#5a6474;">Sees only alien text.</span>
+              <a href="assets/figures/api-provider.png" download style="margin-top:6px;font:700 13px/1 'Hanken Grotesk',sans-serif;color:#0f8577;">PNG ↓</a>
+            </figcaption>
+          </figure>
+          <figure style="margin:0;display:flex;flex-direction:column;border:1px solid #dbe3ec;border-radius:16px;background:#fff;overflow:hidden;">
+            <div style="height:clamp(170px,19vw,230px);padding:18px;background:#fbfdff;border-bottom:1px solid #eef2f6;"><img src="assets/figures/web/alienized-llama.png" alt="Alienized LLM illustration" loading="lazy" style="width:100%;height:100%;object-fit:contain;"></div>
+            <figcaption style="display:flex;flex-direction:column;gap:4px;padding:14px 16px 16px;">
+              <span style="font:600 15px/1.2 'Space Grotesk',sans-serif;color:#12233d;">Alienized LLM</span>
+              <span style="font:400 13px/1.4 'Hanken Grotesk',sans-serif;color:#5a6474;">Fine-tuned to read and write Alien.</span>
+              <a href="assets/figures/alienized-llama.png" download style="margin-top:6px;font:700 13px/1 'Hanken Grotesk',sans-serif;color:#0f8577;">PNG ↓</a>
+            </figcaption>
+          </figure>
+          <figure style="margin:0;display:flex;flex-direction:column;border:1px solid #dbe3ec;border-radius:16px;background:#fff;overflow:hidden;">
+            <div style="height:clamp(170px,19vw,230px);padding:18px;background:#fbfdff;border-bottom:1px solid #eef2f6;"><img src="assets/figures/web/alien-dictionary.png" alt="Alien dictionary illustration" loading="lazy" style="width:100%;height:100%;object-fit:contain;"></div>
+            <figcaption style="display:flex;flex-direction:column;gap:4px;padding:14px 16px 16px;">
+              <span style="font:600 15px/1.2 'Space Grotesk',sans-serif;color:#12233d;">Alien dictionary</span>
+              <span style="font:400 13px/1.4 'Hanken Grotesk',sans-serif;color:#5a6474;">The vocabulary-scale bijection.</span>
+              <a href="assets/figures/alien-dictionary.png" download style="margin-top:6px;font:700 13px/1 'Hanken Grotesk',sans-serif;color:#0f8577;">PNG ↓</a>
+            </figcaption>
+          </figure>
+          <figure style="margin:0;display:flex;flex-direction:column;border:1px solid #dbe3ec;border-radius:16px;background:#fff;overflow:hidden;">
+            <div style="height:clamp(170px,19vw,230px);padding:18px;background:#fbfdff;border-bottom:1px solid #eef2f6;"><img src="assets/figures/web/alien-instruction-data.png" alt="Alien instruction data illustration" loading="lazy" style="width:100%;height:100%;object-fit:contain;"></div>
+            <figcaption style="display:flex;flex-direction:column;gap:4px;padding:14px 16px 16px;">
+              <span style="font:600 15px/1.2 'Space Grotesk',sans-serif;color:#12233d;">Alien instruction data</span>
+              <span style="font:400 13px/1.4 'Hanken Grotesk',sans-serif;color:#5a6474;">AAT training examples.</span>
+              <a href="assets/figures/alien-instruction-data.png" download style="margin-top:6px;font:700 13px/1 'Hanken Grotesk',sans-serif;color:#0f8577;">PNG ↓</a>
+            </figcaption>
+          </figure>
+        </div>
+        <p style="margin:14px 0 0;font:400 13px/1.5 'Hanken Grotesk',sans-serif;color:#7a879a;">The logo on the API provider's shirt is OpenAI's trademark and is not part of that permission.</p>
+      </div>
+
+      <!-- BibTeX -->
+      <div id="cite" style="margin-top:56px;scroll-margin-top:84px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px;">
+          <h3 style="margin:0;font:600 clamp(22px,2.6vw,28px)/1.1 'Space Grotesk',sans-serif;letter-spacing:-.01em;color:#12233d;">Cite</h3>
+          <button type="button" id="copyBib" class="try-btn" style="height:34px;padding:0 14px;">Copy BibTeX</button>
+        </div>
+        <pre id="bibText" style="margin:0;padding:18px 20px;border:1px solid #dbe3ec;border-radius:14px;background:#fff;color:#25344a;font:500 13px/1.65 'IBM Plex Mono',monospace;white-space:pre-wrap;word-break:break-word;">@inproceedings{kim2026alienlm,
+  title     = {AlienLM: Alienization of Language for API-Boundary Privacy in Black-Box LLMs},
+  author    = {Kim, Jaehee and Kang, Pilsung},
+  booktitle = {Proceedings of the 43rd International Conference on Machine Learning},
+  year      = {2026}
+}</pre>
       </div>
     </div>
   </section>
@@ -574,5 +664,15 @@ $("dCharCount").textContent = DEFAULT_INPUT.length;
 renderButtons();
 </script>
 
+<script>
+(function () {
+  var b = document.getElementById('copyBib'), t = document.getElementById('bibText');
+  if (!b || !t) return;
+  b.addEventListener('click', function () {
+    var done = function () { b.textContent = 'Copied ✓'; setTimeout(function () { b.textContent = 'Copy BibTeX'; }, 2000); };
+    if (navigator.clipboard) navigator.clipboard.writeText(t.textContent).then(done, function () {});
+  });
+})();
+</script>
 </body>
 </html>

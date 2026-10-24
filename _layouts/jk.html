@@ -1,0 +1,112 @@
+---
+---
+{%- assign lang = page.lang | default: "en" -%}
+{%- assign is_ko = false -%}{%- if lang == "ko" -%}{%- assign is_ko = true -%}{%- endif -%}
+{%- assign home_url = "/" -%}{%- if is_ko -%}{%- assign home_url = "/ko/" -%}{%- endif -%}
+<!doctype html>
+<html lang="{{ lang }}" class="no-js">
+  <head>
+    {% include head.html %}
+    {% include head/custom.html %}
+  </head>
+
+  <body class="jk{% if page.toc_tokens %} jk--toc{% endif %}{% if page.classes %} {{ page.classes | join: ' ' }}{% endif %}">
+    <a class="jk-skip" href="#content">{% if is_ko %}본문으로 건너뛰기{% else %}Skip to content{% endif %}</a>
+
+    <div class="jk-shell">
+      {% include jk-side.html %}
+
+      <main id="content" class="jk-main">
+        {% if page.toc_tokens %}
+          <div class="jk-now" aria-hidden="true"><span class="jk-now__tok">&lt;bos&gt;</span><span class="jk-now__label"></span></div>
+        {% endif %}
+
+        {% unless page.hide_title %}{% if page.title %}
+          <header class="jk-page-head">
+            <p class="tok tok--first" aria-hidden="true">{{ page.token | default: "&lt;doc&gt;" }}</p>
+            <h1 class="jk-page-title">{{ page.title }}</h1>
+          </header>
+        {% endif %}{% endunless %}
+
+        <article class="page__content">
+          {{ content }}
+        </article>
+
+        <footer class="jk-foot">
+          <span>&copy; {{ site.time | date: '%Y' }} {{ site.author.name }}</span>
+          <span aria-hidden="true">·</span>
+          <span>{% if is_ko %}종이색 회색 위에 손으로 지었어요{% else %}hand-built on paper gray{% endif %}</span>
+        </footer>
+      </main>
+    </div>
+
+    {% if page.toc_tokens %}
+    <script>
+    (function () {
+      var content = document.querySelector('.jk-main .page__content');
+      var toc = document.querySelector('.jk-toc__list');
+      var now = document.querySelector('.jk-now');
+      if (!content || !toc) return;
+
+      // Each section starts at a token label (.tok) or the <think> block
+      var marks = Array.prototype.slice.call(content.querySelectorAll('p.tok, details.think'));
+      var items = [];
+      marks.forEach(function (mark, i) {
+        var tokText, label, target = mark;
+        if (mark.matches('details.think')) {
+          tokText = '<think>';
+          var l = mark.querySelector('.think__label');
+          label = l ? l.textContent.trim() : '';
+        } else {
+          tokText = (mark.firstChild && mark.firstChild.nodeType === 3 ? mark.firstChild.textContent : mark.textContent).trim();
+          var h = mark.nextElementSibling;
+          if (h && /^H[1-3]$/.test(h.tagName)) { label = h.textContent.trim(); }
+          else { var lead = content.querySelector('.hero__lead'); label = (i === 0 && lead) ? '{% if is_ko %}소개{% else %}Intro{% endif %}' : ''; }
+        }
+        if (!mark.id) mark.id = 'tok-' + i;
+        var li = document.createElement('li');
+        var a = document.createElement('a');
+        a.href = '#' + mark.id;
+        a.className = 'jk-toc__link';
+        var t = document.createElement('span'); t.className = 'jk-toc__tok'; t.textContent = tokText;
+        var s = document.createElement('span'); s.className = 'jk-toc__label'; s.textContent = label;
+        a.appendChild(t); a.appendChild(s); li.appendChild(a); toc.appendChild(li);
+        items.push({ el: mark, link: a, tok: tokText, label: label });
+      });
+      if (!items.length) return;
+
+      function setActive(idx) {
+        items.forEach(function (it, j) {
+          it.link.classList.toggle('is-active', j === idx);
+          it.link.classList.toggle('is-done', j < idx);
+          if (j === idx) it.link.setAttribute('aria-current', 'location'); else it.link.removeAttribute('aria-current');
+        });
+        if (now) {
+          now.classList.toggle('is-visible', content.getBoundingClientRect().top < -40);
+          now.querySelector('.jk-now__tok').textContent = items[idx].tok;
+          now.querySelector('.jk-now__label').textContent = items[idx].label;
+        }
+      }
+
+      var ticking = false;
+      function onScroll() {
+        if (ticking) return; ticking = true;
+        window.requestAnimationFrame(function () {
+          ticking = false;
+          var line = window.innerHeight * 0.3, idx = 0;
+          for (var j = 0; j < items.length; j++) {
+            if (items[j].el.getBoundingClientRect().top <= line) idx = j;
+          }
+          if ((window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight - 4) idx = items.length - 1;
+          setActive(idx);
+        });
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll);
+      onScroll();
+    })();
+    </script>
+    {% endif %}
+    <script src="{{ '/assets/js/jk-fun.js' | relative_url }}" defer></script>
+  </body>
+</html>
